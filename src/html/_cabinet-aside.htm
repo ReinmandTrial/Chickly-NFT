@@ -1,0 +1,257 @@
+<div class="cabinet__aside cabinet-aside">
+   <div class="cabinet-aside__wrapper">
+      <div data-spollers="991,max" data-one-spoller data-spollers-speed="300" class="cabinet-aside__content">
+         <div class="cabinet-aside__spoller-item">
+            <button
+               data-spoller
+               data-lg="cabinet.aside.spollers.item1"
+               type="button"
+               class="cabinet-aside__spoller-head _icon-arrow-bottom _spoller-active"
+            >
+               Current profit
+            </button>
+            <div class="cabinet-aside__spoller-body aside-profit">
+               <div class="aside-profit__content">
+                  <div class="aside-profit__top-line">
+                     <div class="aside-profit__top-block">
+                        <p data-lg="cabinet.aside.profit.title" class="aside-profit__title">Your current daily profit</p>
+                        <p class="aside-profit__profit-sum">+ 0 %</p>
+                     </div>
+                     <div class="aside-profit__top-block">
+                        <a
+                           data-lg="cabinet.aside.profit.link"
+                           target="_blank"
+                           href="https://chickly-nft.gitbook.io/chickly/intro/what-is-chikly"
+                           class="aside-profit__link"
+                        >
+                           How <br />
+                           It works
+                        </a>
+                     </div>
+                  </div>
+                  <div class="aside-profit__main-line">
+                     <div class="aside-profit__main-line-item">
+                        <p data-lg="cabinet.aside.profit.basic">Basic profit</p>
+                        <p>+0%</p>
+                     </div>
+                     <div class="aside-profit__main-line-item">
+                        <p data-lg="cabinet.aside.profit.hold">Hold-bonus</p>
+                        <p>+0%</p>
+                     </div>
+                     <div class="aside-profit__main-line-item">
+                        <p data-lg="cabinet.aside.profit.contract">Contract bonus</p>
+                        <p>+0%</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="cabinet-aside__spoller-item">
+            <button
+               data-spoller
+               data-lg="cabinet.aside.spollers.item2"
+               type="button"
+               class="cabinet-aside__spoller-head _icon-arrow-bottom"
+            >
+               Balances
+            </button>
+            <div class="cabinet-aside__spoller-body aside-balance">
+               <div class="aside-balance__content">
+                  <div class="aside-balance__block">
+                     <p data-lg="cabinet.aside.balance.investment" class="aside-balance__title">Investment balance</p>
+                     <div class="aside-balance__item">
+                        <div class="aside-balance__col">
+                           <div class="aside-balance__img"><img src="@img/bnb.png" alt="bnb" /></div>
+                           <div class="aside-balance__info">
+                              <p class="aside-balance__currency">BNB</p>
+                              <p class="aside-balance__value" id="available_bnb">0</p>
+                           </div>
+                        </div>
+                        <div class="aside-balance__col">
+                           <button data-lg="cabinet.aside.balance.btn" type="button" class="aside-balance__btn" id="withdraw_available_bnb">
+                              Withdraw
+                           </button>
+                        </div>
+                     </div>
+                     <div class="aside-balance__item">
+                        <div class="aside-balance__col">
+                           <div class="aside-balance__img"><img src="@img/busd.png" alt="busd" /></div>
+                           <div class="aside-balance__info">
+                              <p class="aside-balance__currency">BUSD</p>
+                              <p class="aside-balance__value" id="available_busd">0</p>
+                           </div>
+                        </div>
+                        <div class="aside-balance__col">
+                           <button
+                              data-lg="cabinet.aside.balance.btn"
+                              type="button"
+                              class="aside-balance__btn"
+                              id="withdraw_available_busd"
+                           >
+                              Withdraw
+                           </button>
+                        </div>
+                     </div>
+                  </div>
+                  <p data-lg="cabinet.aside.balance.text" class="aside-balance__text">
+                     Click Withdraw button to get all your deposits earnings and affiliate bonuses at once with a single transaction. Your
+                     personal hold-bonus will be reset therefore.
+                  </p>
+                  <div class="aside-balance__block">
+                     <p data-lg="cabinet.aside.balance.referral" class="aside-balance__title">Refferal balance</p>
+                     <div class="aside-balance__item">
+                        <div class="aside-balance__col">
+                           <div class="aside-balance__img"><img src="@img/bnb.png" alt="bnb" /></div>
+                           <div class="aside-balance__info">
+                              <p class="aside-balance__currency">BNB</p>
+                              <p class="aside-balance__value" id="ref_available_bnb">0</p>
+                           </div>
+                        </div>
+                        <div class="aside-balance__col">
+                           <button data-lg="cabinet.aside.balance.btn" type="button" class="aside-balance__btn" id="withdraw_ref_bnb">
+                              Withdraw
+                           </button>
+                        </div>
+                     </div>
+                     <div class="aside-balance__item">
+                        <div class="aside-balance__col">
+                           <div class="aside-balance__img"><img src="@img/busd.png" alt="busd" /></div>
+                           <div class="aside-balance__info">
+                              <p class="aside-balance__currency">BUSD</p>
+                              <p class="aside-balance__value" id="ref_available_busd">0</p>
+                           </div>
+                        </div>
+                        <div class="aside-balance__col">
+                           <button data-lg="cabinet.aside.balance.btn" type="button" class="aside-balance__btn" id="withdraw_ref_busd">
+                              Withdraw
+                           </button>
+                        </div>
+                     </div>
+                  </div>
+                  <p data-lg="cabinet.aside.balance.textRef" class="aside-balance__text aside-balance__text_ref">
+                     Click Withdraw button to get referral earnings to your address. Your personal hold-bonus will not be reset.
+                  </p>
+               </div>
+            </div>
+         </div>
+         <div class="cabinet-aside__spoller-item">
+            <button
+               data-spoller
+               data-lg="cabinet.aside.spollers.item3"
+               type="button"
+               class="cabinet-aside__spoller-head _icon-arrow-bottom"
+            >
+               Statistics
+            </button>
+            <div class="cabinet-aside__spoller-body aside-statistic">
+               <div class="aside-statistic__content">
+                  <div class="aside-statistic__top-line">
+                     <div class="aside-statistic__top-line-item">
+                        <p data-lg="cabinet.aside.statistic.number">Number of deposits</p>
+                        <p id="deposits_number">-</p>
+                     </div>
+                     <div class="aside-statistic__top-line-item">
+                        <p data-lg="cabinet.aside.statistic.last">Last deposit date</p>
+                        <p class="aside-statistic__date-time">
+                           <span class="_icon-clock" id="last_deposit_time"></span>
+                           |
+                           <span id="last_deposit_date"></span>
+                        </p>
+                     </div>
+                  </div>
+                  <div class="aside-statistic__main-line">
+                     <div class="aside-statistic__head">
+                        <p>BNB</p>
+                        <p>BUSD</p>
+                     </div>
+                     <div class="aside-statistic__body">
+                        <div class="aside-statistic__body-row">
+                           <p data-lg="cabinet.aside.statistic.invested" class="aside-statistic__row-title">Invested</p>
+                           <div class="aside-statistic__body-item">
+                              <div class="aside-statistic__body-item-img">
+                                 <img src="@img/bnb.png" alt="bnb" />
+                              </div>
+                              <p class="aside-statistic__body-item-val" id="invested_bnb">0</p>
+                           </div>
+                           <div class="aside-statistic__body-item">
+                              <div class="aside-statistic__body-item-img">
+                                 <img src="@img/busd.png" alt="bnb" />
+                              </div>
+                              <p class="aside-statistic__body-item-val" id="invested_busd">0</p>
+                           </div>
+                        </div>
+                        <div class="aside-statistic__body-row">
+                           <p data-lg="cabinet.aside.statistic.earned" class="aside-statistic__row-title">Total earned</p>
+                           <div class="aside-statistic__body-item">
+                              <div class="aside-statistic__body-item-img">
+                                 <img src="@img/bnb.png" alt="bnb" />
+                              </div>
+                              <p class="aside-statistic__body-item-val" id="accrued_bnb">0</p>
+                           </div>
+                           <div class="aside-statistic__body-item">
+                              <div class="aside-statistic__body-item-img">
+                                 <img src="@img/busd.png" alt="bnb" />
+                              </div>
+                              <p class="aside-statistic__body-item-val" id="accrued_busd">0</p>
+                           </div>
+                        </div>
+                        <div class="aside-statistic__body-row">
+                           <p data-lg="cabinet.aside.statistic.withdrawn" class="aside-statistic__row-title">Total withdrawn</p>
+                           <div class="aside-statistic__body-item">
+                              <div class="aside-statistic__body-item-img">
+                                 <img src="@img/bnb.png" alt="bnb" />
+                              </div>
+                              <p class="aside-statistic__body-item-val" id="withdrawn_bnb">0</p>
+                           </div>
+                           <div class="aside-statistic__body-item">
+                              <div class="aside-statistic__body-item-img">
+                                 <img src="@img/busd.png" alt="bnb" />
+                              </div>
+                              <p class="aside-statistic__body-item-val" id="withdrawn_busd">0</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="cabinet-aside__spoller-item">
+            <button
+               data-spoller
+               data-lg="cabinet.aside.spollers.item4"
+               type="button"
+               class="cabinet-aside__spoller-head _icon-arrow-bottom"
+            >
+               Share link with friends
+            </button>
+            <div class="cabinet-aside__spoller-body aside-referral">
+               <div class="aside-referral__content">
+                  <p data-lg="cabinet.aside.referral.title" class="aside-referral__title">Share my referral link with friends</p>
+                  <div data-copy-block class="aside-referral__row">
+                     <p data-copy-val class="aside-referral__link" id="ref_link"></p>
+                     <button data-copy-btn type="button" class="aside-referral__copy-btn _icon-copy"></button>
+                  </div>
+                  <button
+                     data-lg="cabinet.aside.referral.btn"
+                     data-goto-top="150"
+                     data-goto=".cabinet__content"
+                     data-link="2"
+                     type="button"
+                     class="aside-referral__ref-btn"
+                  >
+                     Partner dashboard
+                  </button>
+                  <button type="button" class="aside-referral__email-btn">
+                     <img src="@img/email.svg" alt="email" /><span>Subscribe to newsletter</span>
+                  </button>
+                  <button type="button" class="aside-referral__how-btn how-button">
+                     <i class="_icon-question"></i>
+                     <span>How to buy</span>
+                  </button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <button type="button" class="cabinet-aside__opener _icon-arrow-rignt"></button>
+</div>

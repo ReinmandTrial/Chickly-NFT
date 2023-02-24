@@ -1,0 +1,114 @@
+// <SELECT>
+// Снипет (HTML): sel
+.select {
+   // .select__body
+   &__body {
+      width: rem(190);
+      position: relative;
+   }
+   // .select__title
+   &__title {
+      font-size: rem(18);
+      line-height: 100%;
+      opacity: 0.6;
+      width: rem(190);
+      background: rgba(199, 199, 199, 0.2);
+      border-radius: 100px;
+      padding: rem(11) rem(25) rem(11) rem(20);
+      position: relative;
+      width: 100%;
+      text-align: left;
+      &::after {
+         content: url('@img/regional/arrow.svg');
+         position: absolute;
+         right: rem(17);
+         top: 50%;
+         transform: translate(0px, -50%);
+         transition: all 0.5s ease 0s;
+      }
+   }
+   // .select__value
+   &__value {
+      display: block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+   }
+   // .select__text
+   &__content {
+   }
+   &__input {
+   }
+   // .select__options
+   &__options {
+      position: absolute;
+      top: calc(100% + rem(7));
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+      background: #ffffff;
+      border-radius: rem(20);
+      width: 100%;
+      overflow-y: auto;
+      max-height: rem(250);
+      @extend %hidescroll;
+      padding: rem(15) rem(0);
+   }
+   // .select__scroll
+   &__scroll {
+   }
+   // .select__option
+   &__option {
+      display: flex;
+      justify-content: space-between;
+      gap: rem(10);
+      align-items: center;
+      word-break: break-word;
+      width: 100%;
+      font-size: 16px;
+      line-height: 100%;
+      padding: rem(7) rem(15);
+      background-color: transparent;
+      text-align: left;
+      span {
+         color: rgba(199, 199, 199, 1);
+         flex: none;
+      }
+      @media (any-hover: hover) {
+         &:hover {
+            background-color: rgba(199, 199, 199, 0.8);
+         }
+      }
+   }
+
+   // Конструкция дополнительных данных
+   &__row {
+   }
+   &__asset {
+   }
+   &__text {
+   }
+
+   // Состояния селекта
+   &._select-open {
+      z-index: 5;
+      .select__title {
+         &::after {
+            transition: all 0.5s ease 0s;
+            transform: translate(0, -50%) rotateX(-180deg);
+         }
+      }
+   }
+   &._select-disabled {
+   }
+   &._select-active {
+   }
+   &._select-focus {
+   }
+   &._select-multiple {
+   }
+   &._select-checkbox {
+   }
+}
+
+// Тег
+._select-tag {
+   cursor: pointer;
+}

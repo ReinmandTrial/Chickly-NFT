@@ -1,0 +1,202 @@
+.banners {
+   margin: rem(105) rem(0) rem(105) rem(0);
+   padding: rem(0) rem(15);
+   @media (max-width: $mobile) {
+      margin: rem(105) rem(0) rem(50) rem(0);
+   }
+
+   &__content {
+   }
+
+   &__title {
+      font-weight: 700;
+      font-size: 55px;
+      text-align: center;
+      margin-bottom: 30px;
+      @media (max-width: $mobile) {
+         font-size: rem(28);
+      }
+   }
+
+   &__tabs {
+   }
+}
+.banner-tabs {
+   &__head {
+      display: flex;
+      gap: 30px;
+      margin-bottom: 30px;
+      @media (max-width: 991.98px) {
+         gap: 15px;
+      }
+   }
+
+   &__head-item {
+      flex: 0 0 calc(33.333% - 20px);
+      background: #ffffff;
+      box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.04), 0px 4px 8px rgba(0, 0, 0, 0.06);
+      border-radius: 5px;
+      padding: 5px 5px 10px 5px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s ease 0s;
+      @media (max-width: 991.98px) {
+         flex: 0 0 calc(33.333% - 10px);
+      }
+      &._tab-active {
+         background: linear-gradient(213.08deg, #70e705 28.11%, #0e6b12 96.2%);
+         box-shadow: 0px 112px 45px rgba(0, 0, 0, 0.01), 0px 63px 38px rgba(0, 0, 0, 0.05), 0px 28px 28px rgba(0, 0, 0, 0.09),
+            0px 7px 15px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+         span {
+            background: linear-gradient(213.08deg, #ffffff 28.11%, #ffffff 85.01%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+         }
+      }
+      &:active {
+         transform: scale(0.95);
+         transition: all 0.3s ease 0s;
+      }
+      span {
+         pointer-events: none;
+         display: block;
+         font-weight: 700;
+         font-size: 18px;
+         line-height: 129%;
+         text-align: center;
+         background: linear-gradient(213.08deg, #f0da15 28.11%, #d86800 85.01%);
+         -webkit-background-clip: text;
+         -webkit-text-fill-color: transparent;
+         background-clip: text;
+         text-fill-color: transparent;
+      }
+   }
+   &__head-image {
+      height: 80px;
+      margin-bottom: 10px;
+      pointer-events: none;
+      border: 2px solid #d86800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 5px;
+      background-color: #ffffff;
+      img {
+         max-height: 100%;
+         max-width: 100%;
+         object-fit: contain;
+      }
+   }
+
+   &__body {
+   }
+
+   &__body-list {
+   }
+
+   &__body-item {
+   }
+}
+.banner-item {
+   background: #f8f5eb;
+   border-radius: 20px;
+   padding: rem(30) rem(30);
+   &:not(:last-child) {
+      margin-bottom: 30px;
+   }
+   @media (max-width: $mobile) {
+      padding: rem(20) rem(10);
+   }
+   &__top-line {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex: auto;
+      margin-bottom: rem(25);
+      @media (max-width: $mobile) {
+         display: block;
+      }
+   }
+
+   &__label {
+      font-weight: 700;
+      font-size: 16px;
+      flex: 0 0 140px;
+      text-align: center;
+      @media (max-width: $mobile) {
+         margin-bottom: 20px;
+         font-size: rem(22);
+         padding: rem(0) rem(15);
+      }
+   }
+
+   &__box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #ffffff;
+      border-radius: 100px;
+      width: calc(100% - 160px);
+      @media (max-width: $mobile) {
+         width: auto;
+         display: block;
+         border-radius: 0;
+         background: none;
+         overflow: visible;
+      }
+   }
+
+   &__link {
+      font-size: 18px;
+      opacity: 0.6;
+      padding: rem(10) rem(20) rem(10) rem(30);
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      min-height: 40px;
+      @media (max-width: $mobile) {
+         font-size: 16px;
+         background: #ffffff;
+         border-radius: 100px;
+         margin-bottom: 10px;
+      }
+   }
+
+   &__btn {
+      background: linear-gradient(213.08deg, #70e705 28.11%, #0e6b12 96.2%);
+      border-radius: 100px;
+      transition: all 0.3s ease 0s;
+      color: #fff;
+      padding: rem(9) rem(20);
+      font-size: rem(26);
+      @media (max-width: $mobile) {
+         display: block;
+         margin: auto;
+         max-width: 140px;
+         width: 100%;
+         padding: rem(7) rem(20);
+      }
+      &:hover {
+         box-shadow: 0px 4px 4px #42ad0b;
+         transition: all 0.3s ease 0s;
+      }
+      &:active {
+         transition: all 0.1s ease 0s;
+         box-shadow: none;
+         transform: translate(0px, 1px);
+      }
+   }
+
+   &__banner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+         max-width: 100%;
+         object-fit: contain;
+      }
+   }
+}
