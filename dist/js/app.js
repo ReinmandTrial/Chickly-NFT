@@ -1,31 +1,63 @@
 (() => {
     var __webpack_modules__ = {
-        282: (module, __unused_webpack_exports, __webpack_require__) => {
+        4148: (module, __unused_webpack_exports, __webpack_require__) => {
             "use strict";
-            var process = __webpack_require__(155);
-            var console = __webpack_require__(108);
-            function _typeof(obj) {
-                if ("function" === typeof Symbol && "symbol" === typeof Symbol.iterator) _typeof = function _typeof(obj) {
-                    return typeof obj;
-                }; else _typeof = function _typeof(obj) {
-                    return obj && "function" === typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-                };
-                return _typeof(obj);
+            var process = __webpack_require__(5606);
+            var console = __webpack_require__(6763);
+            function _typeof(o) {
+                "@babel/helpers - typeof";
+                return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(o) {
+                    return typeof o;
+                } : function(o) {
+                    return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o;
+                }, _typeof(o);
+            }
+            function _defineProperties(target, props) {
+                for (var i = 0; i < props.length; i++) {
+                    var descriptor = props[i];
+                    descriptor.enumerable = descriptor.enumerable || false;
+                    descriptor.configurable = true;
+                    if ("value" in descriptor) descriptor.writable = true;
+                    Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor);
+                }
+            }
+            function _createClass(Constructor, protoProps, staticProps) {
+                if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+                if (staticProps) _defineProperties(Constructor, staticProps);
+                Object.defineProperty(Constructor, "prototype", {
+                    writable: false
+                });
+                return Constructor;
+            }
+            function _toPropertyKey(arg) {
+                var key = _toPrimitive(arg, "string");
+                return _typeof(key) === "symbol" ? key : String(key);
+            }
+            function _toPrimitive(input, hint) {
+                if (_typeof(input) !== "object" || input === null) return input;
+                var prim = input[Symbol.toPrimitive];
+                if (prim !== void 0) {
+                    var res = prim.call(input, hint || "default");
+                    if (_typeof(res) !== "object") return res;
+                    throw new TypeError("@@toPrimitive must return a primitive value.");
+                }
+                return (hint === "string" ? String : Number)(input);
             }
             function _classCallCheck(instance, Constructor) {
                 if (!(instance instanceof Constructor)) throw new TypeError("Cannot call a class as a function");
             }
-            var _require = __webpack_require__(136), _require$codes = _require.codes, ERR_AMBIGUOUS_ARGUMENT = _require$codes.ERR_AMBIGUOUS_ARGUMENT, ERR_INVALID_ARG_TYPE = _require$codes.ERR_INVALID_ARG_TYPE, ERR_INVALID_ARG_VALUE = _require$codes.ERR_INVALID_ARG_VALUE, ERR_INVALID_RETURN_VALUE = _require$codes.ERR_INVALID_RETURN_VALUE, ERR_MISSING_ARGS = _require$codes.ERR_MISSING_ARGS;
-            var AssertionError = __webpack_require__(961);
-            var _require2 = __webpack_require__(539), inspect = _require2.inspect;
-            var _require$types = __webpack_require__(539).types, isPromise = _require$types.isPromise, isRegExp = _require$types.isRegExp;
-            var objectAssign = Object.assign ? Object.assign : __webpack_require__(91).assign;
-            var objectIs = Object.is ? Object.is : __webpack_require__(609);
+            var _require = __webpack_require__(9597), _require$codes = _require.codes, ERR_AMBIGUOUS_ARGUMENT = _require$codes.ERR_AMBIGUOUS_ARGUMENT, ERR_INVALID_ARG_TYPE = _require$codes.ERR_INVALID_ARG_TYPE, ERR_INVALID_ARG_VALUE = _require$codes.ERR_INVALID_ARG_VALUE, ERR_INVALID_RETURN_VALUE = _require$codes.ERR_INVALID_RETURN_VALUE, ERR_MISSING_ARGS = _require$codes.ERR_MISSING_ARGS;
+            var AssertionError = __webpack_require__(3918);
+            var _require2 = __webpack_require__(537), inspect = _require2.inspect;
+            var _require$types = __webpack_require__(537).types, isPromise = _require$types.isPromise, isRegExp = _require$types.isRegExp;
+            var objectAssign = __webpack_require__(1514)();
+            var objectIs = __webpack_require__(9394)();
+            var RegExpPrototypeTest = __webpack_require__(8075)("RegExp.prototype.test");
             new Map;
             var isDeepEqual;
             var isDeepStrictEqual;
             function lazyLoadComparison() {
-                var comparison = __webpack_require__(158);
+                var comparison = __webpack_require__(2299);
                 isDeepEqual = comparison.isDeepEqual;
                 isDeepStrictEqual = comparison.isDeepStrictEqual;
             }
@@ -39,25 +71,25 @@
             function fail(actual, expected, message, operator, stackStartFn) {
                 var argsLen = arguments.length;
                 var internalMessage;
-                if (0 === argsLen) internalMessage = "Failed"; else if (1 === argsLen) {
+                if (argsLen === 0) internalMessage = "Failed"; else if (argsLen === 1) {
                     message = actual;
                     actual = void 0;
                 } else {
-                    if (false === warned) {
+                    if (warned === false) {
                         warned = true;
                         var warn = process.emitWarning ? process.emitWarning : console.warn.bind(console);
                         warn("assert.fail() with more than one argument is deprecated. " + "Please use assert.strictEqual() instead or only pass a message.", "DeprecationWarning", "DEP0094");
                     }
-                    if (2 === argsLen) operator = "!=";
+                    if (argsLen === 2) operator = "!=";
                 }
                 if (message instanceof Error) throw message;
                 var errArgs = {
                     actual,
                     expected,
-                    operator: void 0 === operator ? "fail" : operator,
+                    operator: operator === void 0 ? "fail" : operator,
                     stackStartFn: stackStartFn || fail
                 };
-                if (void 0 !== message) errArgs.message = message;
+                if (message !== void 0) errArgs.message = message;
                 var err = new AssertionError(errArgs);
                 if (internalMessage) {
                     err.message = internalMessage;
@@ -70,7 +102,7 @@
             function innerOk(fn, argLen, value, message) {
                 if (!value) {
                     var generatedMessage = false;
-                    if (0 === argLen) {
+                    if (argLen === 0) {
                         generatedMessage = true;
                         message = "No value argument passed to `assert.ok()`";
                     } else if (message instanceof Error) throw message;
@@ -112,7 +144,7 @@
             };
             assert.deepEqual = function deepEqual(actual, expected, message) {
                 if (arguments.length < 2) throw new ERR_MISSING_ARGS("actual", "expected");
-                if (void 0 === isDeepEqual) lazyLoadComparison();
+                if (isDeepEqual === void 0) lazyLoadComparison();
                 if (!isDeepEqual(actual, expected)) innerFail({
                     actual,
                     expected,
@@ -123,7 +155,7 @@
             };
             assert.notDeepEqual = function notDeepEqual(actual, expected, message) {
                 if (arguments.length < 2) throw new ERR_MISSING_ARGS("actual", "expected");
-                if (void 0 === isDeepEqual) lazyLoadComparison();
+                if (isDeepEqual === void 0) lazyLoadComparison();
                 if (isDeepEqual(actual, expected)) innerFail({
                     actual,
                     expected,
@@ -134,7 +166,7 @@
             };
             assert.deepStrictEqual = function deepStrictEqual(actual, expected, message) {
                 if (arguments.length < 2) throw new ERR_MISSING_ARGS("actual", "expected");
-                if (void 0 === isDeepEqual) lazyLoadComparison();
+                if (isDeepEqual === void 0) lazyLoadComparison();
                 if (!isDeepStrictEqual(actual, expected)) innerFail({
                     actual,
                     expected,
@@ -146,7 +178,7 @@
             assert.notDeepStrictEqual = notDeepStrictEqual;
             function notDeepStrictEqual(actual, expected, message) {
                 if (arguments.length < 2) throw new ERR_MISSING_ARGS("actual", "expected");
-                if (void 0 === isDeepEqual) lazyLoadComparison();
+                if (isDeepEqual === void 0) lazyLoadComparison();
                 if (isDeepStrictEqual(actual, expected)) innerFail({
                     actual,
                     expected,
@@ -175,13 +207,13 @@
                     stackStartFn: notStrictEqual
                 });
             };
-            var Comparison = function Comparison(obj, keys, actual) {
+            var Comparison = _createClass((function Comparison(obj, keys, actual) {
                 var _this = this;
                 _classCallCheck(this, Comparison);
                 keys.forEach((function(key) {
-                    if (key in obj) if (void 0 !== actual && "string" === typeof actual[key] && isRegExp(obj[key]) && obj[key].test(actual[key])) _this[key] = actual[key]; else _this[key] = obj[key];
+                    if (key in obj) if (actual !== void 0 && typeof actual[key] === "string" && isRegExp(obj[key]) && RegExpPrototypeTest(obj[key], actual[key])) _this[key] = actual[key]; else _this[key] = obj[key];
                 }));
-            };
+            }));
             function compareExceptionKey(actual, expected, key, message, keys, fn) {
                 if (!(key in actual) || !isDeepStrictEqual(actual[key], expected[key])) {
                     if (!message) {
@@ -208,10 +240,10 @@
                 }
             }
             function expectedException(actual, expected, msg, fn) {
-                if ("function" !== typeof expected) {
-                    if (isRegExp(expected)) return expected.test(actual);
-                    if (2 === arguments.length) throw new ERR_INVALID_ARG_TYPE("expected", [ "Function", "RegExp" ], expected);
-                    if ("object" !== _typeof(actual) || null === actual) {
+                if (typeof expected !== "function") {
+                    if (isRegExp(expected)) return RegExpPrototypeTest(expected, actual);
+                    if (arguments.length === 2) throw new ERR_INVALID_ARG_TYPE("expected", [ "Function", "RegExp" ], expected);
+                    if (_typeof(actual) !== "object" || actual === null) {
                         var err = new AssertionError({
                             actual,
                             expected,
@@ -223,20 +255,20 @@
                         throw err;
                     }
                     var keys = Object.keys(expected);
-                    if (expected instanceof Error) keys.push("name", "message"); else if (0 === keys.length) throw new ERR_INVALID_ARG_VALUE("error", expected, "may not be an empty object");
-                    if (void 0 === isDeepEqual) lazyLoadComparison();
+                    if (expected instanceof Error) keys.push("name", "message"); else if (keys.length === 0) throw new ERR_INVALID_ARG_VALUE("error", expected, "may not be an empty object");
+                    if (isDeepEqual === void 0) lazyLoadComparison();
                     keys.forEach((function(key) {
-                        if ("string" === typeof actual[key] && isRegExp(expected[key]) && expected[key].test(actual[key])) return;
+                        if (typeof actual[key] === "string" && isRegExp(expected[key]) && RegExpPrototypeTest(expected[key], actual[key])) return;
                         compareExceptionKey(actual, expected, key, msg, keys, fn);
                     }));
                     return true;
                 }
-                if (void 0 !== expected.prototype && actual instanceof expected) return true;
+                if (expected.prototype !== void 0 && actual instanceof expected) return true;
                 if (Error.isPrototypeOf(expected)) return false;
-                return true === expected.call({}, actual);
+                return expected.call({}, actual) === true;
             }
             function getActual(fn) {
-                if ("function" !== typeof fn) throw new ERR_INVALID_ARG_TYPE("fn", "Function", fn);
+                if (typeof fn !== "function") throw new ERR_INVALID_ARG_TYPE("fn", "Function", fn);
                 try {
                     fn();
                 } catch (e) {
@@ -245,12 +277,12 @@
                 return NO_EXCEPTION_SENTINEL;
             }
             function checkIsPromise(obj) {
-                return isPromise(obj) || null !== obj && "object" === _typeof(obj) && "function" === typeof obj.then && "function" === typeof obj.catch;
+                return isPromise(obj) || obj !== null && _typeof(obj) === "object" && typeof obj.then === "function" && typeof obj.catch === "function";
             }
             function waitForActual(promiseFn) {
                 return Promise.resolve().then((function() {
                     var resultPromise;
-                    if ("function" === typeof promiseFn) {
+                    if (typeof promiseFn === "function") {
                         resultPromise = promiseFn();
                         if (!checkIsPromise(resultPromise)) throw new ERR_INVALID_RETURN_VALUE("instance of Promise", "promiseFn", resultPromise);
                     } else if (checkIsPromise(promiseFn)) resultPromise = promiseFn; else throw new ERR_INVALID_ARG_TYPE("promiseFn", [ "Function", "Promise" ], promiseFn);
@@ -264,19 +296,19 @@
                 }));
             }
             function expectsError(stackStartFn, actual, error, message) {
-                if ("string" === typeof error) {
-                    if (4 === arguments.length) throw new ERR_INVALID_ARG_TYPE("error", [ "Object", "Error", "Function", "RegExp" ], error);
-                    if ("object" === _typeof(actual) && null !== actual) {
+                if (typeof error === "string") {
+                    if (arguments.length === 4) throw new ERR_INVALID_ARG_TYPE("error", [ "Object", "Error", "Function", "RegExp" ], error);
+                    if (_typeof(actual) === "object" && actual !== null) {
                         if (actual.message === error) throw new ERR_AMBIGUOUS_ARGUMENT("error/message", 'The error message "'.concat(actual.message, '" is identical to the message.'));
                     } else if (actual === error) throw new ERR_AMBIGUOUS_ARGUMENT("error/message", 'The error "'.concat(actual, '" is identical to the message.'));
                     message = error;
                     error = void 0;
-                } else if (null != error && "object" !== _typeof(error) && "function" !== typeof error) throw new ERR_INVALID_ARG_TYPE("error", [ "Object", "Error", "Function", "RegExp" ], error);
+                } else if (error != null && _typeof(error) !== "object" && typeof error !== "function") throw new ERR_INVALID_ARG_TYPE("error", [ "Object", "Error", "Function", "RegExp" ], error);
                 if (actual === NO_EXCEPTION_SENTINEL) {
                     var details = "";
                     if (error && error.name) details += " (".concat(error.name, ")");
                     details += message ? ": ".concat(message) : ".";
-                    var fnType = "rejects" === stackStartFn.name ? "rejection" : "exception";
+                    var fnType = stackStartFn.name === "rejects" ? "rejection" : "exception";
                     innerFail({
                         actual: void 0,
                         expected: error,
@@ -289,13 +321,13 @@
             }
             function expectsNoError(stackStartFn, actual, error, message) {
                 if (actual === NO_EXCEPTION_SENTINEL) return;
-                if ("string" === typeof error) {
+                if (typeof error === "string") {
                     message = error;
                     error = void 0;
                 }
                 if (!error || expectedException(actual, error)) {
                     var details = message ? ": ".concat(message) : ".";
-                    var fnType = "doesNotReject" === stackStartFn.name ? "rejection" : "exception";
+                    var fnType = stackStartFn.name === "doesNotReject" ? "rejection" : "exception";
                     innerFail({
                         actual,
                         expected: error,
@@ -327,9 +359,9 @@
                 }));
             };
             assert.ifError = function ifError(err) {
-                if (null !== err && void 0 !== err) {
+                if (err !== null && err !== void 0) {
                     var message = "ifError got unwanted exception: ";
-                    if ("object" === _typeof(err) && "string" === typeof err.message) if (0 === err.message.length && err.constructor) message += err.constructor.name; else message += err.message; else message += inspect(err);
+                    if (_typeof(err) === "object" && typeof err.message === "string") if (err.message.length === 0 && err.constructor) message += err.constructor.name; else message += err.message; else message += inspect(err);
                     var newErr = new AssertionError({
                         actual: err,
                         expected: null,
@@ -338,13 +370,13 @@
                         stackStartFn: ifError
                     });
                     var origStack = err.stack;
-                    if ("string" === typeof origStack) {
+                    if (typeof origStack === "string") {
                         var tmp2 = origStack.split("\n");
                         tmp2.shift();
                         var tmp1 = newErr.stack.split("\n");
                         for (var i = 0; i < tmp2.length; i++) {
                             var pos = tmp1.indexOf(tmp2[i]);
-                            if (-1 !== pos) {
+                            if (pos !== -1) {
                                 tmp1 = tmp1.slice(0, pos);
                                 break;
                             }
@@ -353,6 +385,30 @@
                     }
                     throw newErr;
                 }
+            };
+            function internalMatch(string, regexp, message, fn, fnName) {
+                if (!isRegExp(regexp)) throw new ERR_INVALID_ARG_TYPE("regexp", "RegExp", regexp);
+                var match = fnName === "match";
+                if (typeof string !== "string" || RegExpPrototypeTest(regexp, string) !== match) {
+                    if (message instanceof Error) throw message;
+                    var generatedMessage = !message;
+                    message = message || (typeof string !== "string" ? 'The "string" argument must be of type string. Received type ' + "".concat(_typeof(string), " (").concat(inspect(string), ")") : (match ? "The input did not match the regular expression " : "The input was expected to not match the regular expression ") + "".concat(inspect(regexp), ". Input:\n\n").concat(inspect(string), "\n"));
+                    var err = new AssertionError({
+                        actual: string,
+                        expected: regexp,
+                        message,
+                        operator: fnName,
+                        stackStartFn: fn
+                    });
+                    err.generatedMessage = generatedMessage;
+                    throw err;
+                }
+            }
+            assert.match = function match(string, regexp, message) {
+                internalMatch(string, regexp, message, match, "match");
+            };
+            assert.doesNotMatch = function doesNotMatch(string, regexp, message) {
+                internalMatch(string, regexp, message, doesNotMatch, "doesNotMatch");
             };
             function strict() {
                 for (var _len6 = arguments.length, args = new Array(_len6), _key6 = 0; _key6 < _len6; _key6++) args[_key6] = arguments[_key6];
@@ -366,23 +422,32 @@
             });
             assert.strict.strict = assert.strict;
         },
-        961: (module, __unused_webpack_exports, __webpack_require__) => {
+        3918: (module, __unused_webpack_exports, __webpack_require__) => {
             "use strict";
-            var process = __webpack_require__(155);
-            function _objectSpread(target) {
-                for (var i = 1; i < arguments.length; i++) {
-                    var source = null != arguments[i] ? arguments[i] : {};
-                    var ownKeys = Object.keys(source);
-                    if ("function" === typeof Object.getOwnPropertySymbols) ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter((function(sym) {
-                        return Object.getOwnPropertyDescriptor(source, sym).enumerable;
-                    })));
-                    ownKeys.forEach((function(key) {
-                        _defineProperty(target, key, source[key]);
+            var process = __webpack_require__(5606);
+            function ownKeys(e, r) {
+                var t = Object.keys(e);
+                if (Object.getOwnPropertySymbols) {
+                    var o = Object.getOwnPropertySymbols(e);
+                    r && (o = o.filter((function(r) {
+                        return Object.getOwnPropertyDescriptor(e, r).enumerable;
+                    }))), t.push.apply(t, o);
+                }
+                return t;
+            }
+            function _objectSpread(e) {
+                for (var r = 1; r < arguments.length; r++) {
+                    var t = null != arguments[r] ? arguments[r] : {};
+                    r % 2 ? ownKeys(Object(t), !0).forEach((function(r) {
+                        _defineProperty(e, r, t[r]);
+                    })) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach((function(r) {
+                        Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r));
                     }));
                 }
-                return target;
+                return e;
             }
             function _defineProperty(obj, key, value) {
+                key = _toPropertyKey(key);
                 if (key in obj) Object.defineProperty(obj, key, {
                     value,
                     enumerable: true,
@@ -400,24 +465,33 @@
                     descriptor.enumerable = descriptor.enumerable || false;
                     descriptor.configurable = true;
                     if ("value" in descriptor) descriptor.writable = true;
-                    Object.defineProperty(target, descriptor.key, descriptor);
+                    Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor);
                 }
             }
             function _createClass(Constructor, protoProps, staticProps) {
                 if (protoProps) _defineProperties(Constructor.prototype, protoProps);
                 if (staticProps) _defineProperties(Constructor, staticProps);
+                Object.defineProperty(Constructor, "prototype", {
+                    writable: false
+                });
                 return Constructor;
             }
-            function _possibleConstructorReturn(self, call) {
-                if (call && ("object" === _typeof(call) || "function" === typeof call)) return call;
-                return _assertThisInitialized(self);
+            function _toPropertyKey(arg) {
+                var key = _toPrimitive(arg, "string");
+                return _typeof(key) === "symbol" ? key : String(key);
             }
-            function _assertThisInitialized(self) {
-                if (void 0 === self) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-                return self;
+            function _toPrimitive(input, hint) {
+                if (_typeof(input) !== "object" || input === null) return input;
+                var prim = input[Symbol.toPrimitive];
+                if (prim !== void 0) {
+                    var res = prim.call(input, hint || "default");
+                    if (_typeof(res) !== "object") return res;
+                    throw new TypeError("@@toPrimitive must return a primitive value.");
+                }
+                return (hint === "string" ? String : Number)(input);
             }
             function _inherits(subClass, superClass) {
-                if ("function" !== typeof superClass && null !== superClass) throw new TypeError("Super expression must either be null or a function");
+                if (typeof superClass !== "function" && superClass !== null) throw new TypeError("Super expression must either be null or a function");
                 subClass.prototype = Object.create(superClass && superClass.prototype, {
                     constructor: {
                         value: subClass,
@@ -425,14 +499,36 @@
                         configurable: true
                     }
                 });
+                Object.defineProperty(subClass, "prototype", {
+                    writable: false
+                });
                 if (superClass) _setPrototypeOf(subClass, superClass);
             }
+            function _createSuper(Derived) {
+                var hasNativeReflectConstruct = _isNativeReflectConstruct();
+                return function _createSuperInternal() {
+                    var result, Super = _getPrototypeOf(Derived);
+                    if (hasNativeReflectConstruct) {
+                        var NewTarget = _getPrototypeOf(this).constructor;
+                        result = Reflect.construct(Super, arguments, NewTarget);
+                    } else result = Super.apply(this, arguments);
+                    return _possibleConstructorReturn(this, result);
+                };
+            }
+            function _possibleConstructorReturn(self, call) {
+                if (call && (_typeof(call) === "object" || typeof call === "function")) return call; else if (call !== void 0) throw new TypeError("Derived constructors may only return object or undefined");
+                return _assertThisInitialized(self);
+            }
+            function _assertThisInitialized(self) {
+                if (self === void 0) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+                return self;
+            }
             function _wrapNativeSuper(Class) {
-                var _cache = "function" === typeof Map ? new Map : void 0;
+                var _cache = typeof Map === "function" ? new Map : void 0;
                 _wrapNativeSuper = function _wrapNativeSuper(Class) {
-                    if (null === Class || !_isNativeFunction(Class)) return Class;
-                    if ("function" !== typeof Class) throw new TypeError("Super expression must either be null or a function");
-                    if ("undefined" !== typeof _cache) {
+                    if (Class === null || !_isNativeFunction(Class)) return Class;
+                    if (typeof Class !== "function") throw new TypeError("Super expression must either be null or a function");
+                    if (typeof _cache !== "undefined") {
                         if (_cache.has(Class)) return _cache.get(Class);
                         _cache.set(Class, Wrapper);
                     }
@@ -451,19 +547,8 @@
                 };
                 return _wrapNativeSuper(Class);
             }
-            function isNativeReflectConstruct() {
-                if ("undefined" === typeof Reflect || !Reflect.construct) return false;
-                if (Reflect.construct.sham) return false;
-                if ("function" === typeof Proxy) return true;
-                try {
-                    Date.prototype.toString.call(Reflect.construct(Date, [], (function() {})));
-                    return true;
-                } catch (e) {
-                    return false;
-                }
-            }
             function _construct(Parent, args, Class) {
-                if (isNativeReflectConstruct()) _construct = Reflect.construct; else _construct = function _construct(Parent, args, Class) {
+                if (_isNativeReflectConstruct()) _construct = Reflect.construct.bind(); else _construct = function _construct(Parent, args, Class) {
                     var a = [ null ];
                     a.push.apply(a, args);
                     var Constructor = Function.bind.apply(Parent, a);
@@ -473,39 +558,50 @@
                 };
                 return _construct.apply(null, arguments);
             }
+            function _isNativeReflectConstruct() {
+                if (typeof Reflect === "undefined" || !Reflect.construct) return false;
+                if (Reflect.construct.sham) return false;
+                if (typeof Proxy === "function") return true;
+                try {
+                    Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], (function() {})));
+                    return true;
+                } catch (e) {
+                    return false;
+                }
+            }
             function _isNativeFunction(fn) {
-                return -1 !== Function.toString.call(fn).indexOf("[native code]");
+                return Function.toString.call(fn).indexOf("[native code]") !== -1;
             }
             function _setPrototypeOf(o, p) {
-                _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+                _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) {
                     o.__proto__ = p;
                     return o;
                 };
                 return _setPrototypeOf(o, p);
             }
             function _getPrototypeOf(o) {
-                _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
+                _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) {
                     return o.__proto__ || Object.getPrototypeOf(o);
                 };
                 return _getPrototypeOf(o);
             }
-            function _typeof(obj) {
-                if ("function" === typeof Symbol && "symbol" === typeof Symbol.iterator) _typeof = function _typeof(obj) {
-                    return typeof obj;
-                }; else _typeof = function _typeof(obj) {
-                    return obj && "function" === typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-                };
-                return _typeof(obj);
+            function _typeof(o) {
+                "@babel/helpers - typeof";
+                return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(o) {
+                    return typeof o;
+                } : function(o) {
+                    return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o;
+                }, _typeof(o);
             }
-            var _require = __webpack_require__(539), inspect = _require.inspect;
-            var _require2 = __webpack_require__(136), ERR_INVALID_ARG_TYPE = _require2.codes.ERR_INVALID_ARG_TYPE;
+            var _require = __webpack_require__(537), inspect = _require.inspect;
+            var _require2 = __webpack_require__(9597), ERR_INVALID_ARG_TYPE = _require2.codes.ERR_INVALID_ARG_TYPE;
             function endsWith(str, search, this_len) {
-                if (void 0 === this_len || this_len > str.length) this_len = str.length;
+                if (this_len === void 0 || this_len > str.length) this_len = str.length;
                 return str.substring(this_len - search.length, this_len) === search;
             }
             function repeat(str, count) {
                 count = Math.floor(count);
-                if (0 == str.length || 0 == count) return "";
+                if (str.length == 0 || count == 0) return "";
                 var maxCount = str.length * count;
                 count = Math.floor(Math.log(count) / Math.log(2));
                 while (count) {
@@ -568,12 +664,12 @@
                 var expectedLines = inspectValue(expected).split("\n");
                 var i = 0;
                 var indicator = "";
-                if ("strictEqual" === operator && "object" === _typeof(actual) && "object" === _typeof(expected) && null !== actual && null !== expected) operator = "strictEqualObject";
-                if (1 === actualLines.length && 1 === expectedLines.length && actualLines[0] !== expectedLines[0]) {
+                if (operator === "strictEqual" && _typeof(actual) === "object" && _typeof(expected) === "object" && actual !== null && expected !== null) operator = "strictEqualObject";
+                if (actualLines.length === 1 && expectedLines.length === 1 && actualLines[0] !== expectedLines[0]) {
                     var inputLength = actualLines[0].length + expectedLines[0].length;
                     if (inputLength <= kMaxShortLength) {
-                        if (("object" !== _typeof(actual) || null === actual) && ("object" !== _typeof(expected) || null === expected) && (0 !== actual || 0 !== expected)) return "".concat(kReadableOperator[operator], "\n\n") + "".concat(actualLines[0], " !== ").concat(expectedLines[0], "\n");
-                    } else if ("strictEqualObject" !== operator) {
+                        if ((_typeof(actual) !== "object" || actual === null) && (_typeof(expected) !== "object" || expected === null) && (actual !== 0 || expected !== 0)) return "".concat(kReadableOperator[operator], "\n\n") + "".concat(actualLines[0], " !== ").concat(expectedLines[0], "\n");
+                    } else if (operator !== "strictEqualObject") {
                         var maxLength = process.stderr && process.stderr.isTTY ? process.stderr.columns : 80;
                         if (inputLength < maxLength) {
                             while (actualLines[0][i] === expectedLines[0][i]) i++;
@@ -590,12 +686,12 @@
                     if (i++ < 2) end = "\n  ".concat(a).concat(end); else other = a;
                     actualLines.pop();
                     expectedLines.pop();
-                    if (0 === actualLines.length || 0 === expectedLines.length) break;
+                    if (actualLines.length === 0 || expectedLines.length === 0) break;
                     a = actualLines[actualLines.length - 1];
                     b = expectedLines[expectedLines.length - 1];
                 }
                 var maxLines = Math.max(actualLines.length, expectedLines.length);
-                if (0 === maxLines) {
+                if (maxLines === 0) {
                     var _actualLines = actualInspected.split("\n");
                     if (_actualLines.length > 30) {
                         _actualLines[26] = "".concat(blue, "...").concat(white);
@@ -607,7 +703,7 @@
                     end = "\n".concat(blue, "...").concat(white).concat(end);
                     skipped = true;
                 }
-                if ("" !== other) {
+                if (other !== "") {
                     end = "\n  ".concat(other).concat(end);
                     other = "";
                 }
@@ -673,7 +769,7 @@
                         } else {
                             res += other;
                             other = "";
-                            if (1 === cur || 0 === i) {
+                            if (cur === 1 || i === 0) {
                                 res += "\n  ".concat(actualLine);
                                 printedLines++;
                             }
@@ -683,18 +779,19 @@
                 }
                 return "".concat(msg).concat(skipped ? skippedMsg : "", "\n").concat(res).concat(other).concat(end).concat(indicator);
             }
-            var AssertionError = function(_Error) {
+            var AssertionError = function(_Error, _inspect$custom) {
                 _inherits(AssertionError, _Error);
+                var _super = _createSuper(AssertionError);
                 function AssertionError(options) {
                     var _this;
                     _classCallCheck(this, AssertionError);
-                    if ("object" !== _typeof(options) || null === options) throw new ERR_INVALID_ARG_TYPE("options", "Object", options);
+                    if (_typeof(options) !== "object" || options === null) throw new ERR_INVALID_ARG_TYPE("options", "Object", options);
                     var message = options.message, operator = options.operator, stackStartFn = options.stackStartFn;
                     var actual = options.actual, expected = options.expected;
                     var limit = Error.stackTraceLimit;
                     Error.stackTraceLimit = 0;
-                    if (null != message) _this = _possibleConstructorReturn(this, _getPrototypeOf(AssertionError).call(this, String(message))); else {
-                        if (process.stderr && process.stderr.isTTY) if (process.stderr && process.stderr.getColorDepth && 1 !== process.stderr.getColorDepth()) {
+                    if (message != null) _this = _super.call(this, String(message)); else {
+                        if (process.stderr && process.stderr.isTTY) if (process.stderr && process.stderr.getColorDepth && process.stderr.getColorDepth() !== 1) {
                             blue = "[34m";
                             green = "[32m";
                             white = "[39m";
@@ -705,33 +802,33 @@
                             white = "";
                             red = "";
                         }
-                        if ("object" === _typeof(actual) && null !== actual && "object" === _typeof(expected) && null !== expected && "stack" in actual && actual instanceof Error && "stack" in expected && expected instanceof Error) {
+                        if (_typeof(actual) === "object" && actual !== null && _typeof(expected) === "object" && expected !== null && "stack" in actual && actual instanceof Error && "stack" in expected && expected instanceof Error) {
                             actual = copyError(actual);
                             expected = copyError(expected);
                         }
-                        if ("deepStrictEqual" === operator || "strictEqual" === operator) _this = _possibleConstructorReturn(this, _getPrototypeOf(AssertionError).call(this, createErrDiff(actual, expected, operator))); else if ("notDeepStrictEqual" === operator || "notStrictEqual" === operator) {
+                        if (operator === "deepStrictEqual" || operator === "strictEqual") _this = _super.call(this, createErrDiff(actual, expected, operator)); else if (operator === "notDeepStrictEqual" || operator === "notStrictEqual") {
                             var base = kReadableOperator[operator];
                             var res = inspectValue(actual).split("\n");
-                            if ("notStrictEqual" === operator && "object" === _typeof(actual) && null !== actual) base = kReadableOperator.notStrictEqualObject;
+                            if (operator === "notStrictEqual" && _typeof(actual) === "object" && actual !== null) base = kReadableOperator.notStrictEqualObject;
                             if (res.length > 30) {
                                 res[26] = "".concat(blue, "...").concat(white);
                                 while (res.length > 27) res.pop();
                             }
-                            if (1 === res.length) _this = _possibleConstructorReturn(this, _getPrototypeOf(AssertionError).call(this, "".concat(base, " ").concat(res[0]))); else _this = _possibleConstructorReturn(this, _getPrototypeOf(AssertionError).call(this, "".concat(base, "\n\n").concat(res.join("\n"), "\n")));
+                            if (res.length === 1) _this = _super.call(this, "".concat(base, " ").concat(res[0])); else _this = _super.call(this, "".concat(base, "\n\n").concat(res.join("\n"), "\n"));
                         } else {
                             var _res = inspectValue(actual);
                             var other = "";
                             var knownOperators = kReadableOperator[operator];
-                            if ("notDeepEqual" === operator || "notEqual" === operator) {
+                            if (operator === "notDeepEqual" || operator === "notEqual") {
                                 _res = "".concat(kReadableOperator[operator], "\n\n").concat(_res);
                                 if (_res.length > 1024) _res = "".concat(_res.slice(0, 1021), "...");
                             } else {
                                 other = "".concat(inspectValue(expected));
                                 if (_res.length > 512) _res = "".concat(_res.slice(0, 509), "...");
                                 if (other.length > 512) other = "".concat(other.slice(0, 509), "...");
-                                if ("deepEqual" === operator || "equal" === operator) _res = "".concat(knownOperators, "\n\n").concat(_res, "\n\nshould equal\n\n"); else other = " ".concat(operator, " ").concat(other);
+                                if (operator === "deepEqual" || operator === "equal") _res = "".concat(knownOperators, "\n\n").concat(_res, "\n\nshould equal\n\n"); else other = " ".concat(operator, " ").concat(other);
                             }
-                            _this = _possibleConstructorReturn(this, _getPrototypeOf(AssertionError).call(this, "".concat(_res).concat(other)));
+                            _this = _super.call(this, "".concat(_res).concat(other));
                         }
                     }
                     Error.stackTraceLimit = limit;
@@ -757,47 +854,64 @@
                         return "".concat(this.name, " [").concat(this.code, "]: ").concat(this.message);
                     }
                 }, {
-                    key: inspect.custom,
+                    key: _inspect$custom,
                     value: function value(recurseTimes, ctx) {
-                        return inspect(this, _objectSpread({}, ctx, {
+                        return inspect(this, _objectSpread(_objectSpread({}, ctx), {}, {
                             customInspect: false,
                             depth: 0
                         }));
                     }
                 } ]);
                 return AssertionError;
-            }(_wrapNativeSuper(Error));
+            }(_wrapNativeSuper(Error), inspect.custom);
             module.exports = AssertionError;
         },
-        136: (module, __unused_webpack_exports, __webpack_require__) => {
+        9597: (module, __unused_webpack_exports, __webpack_require__) => {
             "use strict";
-            function _typeof(obj) {
-                if ("function" === typeof Symbol && "symbol" === typeof Symbol.iterator) _typeof = function _typeof(obj) {
-                    return typeof obj;
-                }; else _typeof = function _typeof(obj) {
-                    return obj && "function" === typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-                };
-                return _typeof(obj);
+            function _typeof(o) {
+                "@babel/helpers - typeof";
+                return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(o) {
+                    return typeof o;
+                } : function(o) {
+                    return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o;
+                }, _typeof(o);
+            }
+            function _defineProperties(target, props) {
+                for (var i = 0; i < props.length; i++) {
+                    var descriptor = props[i];
+                    descriptor.enumerable = descriptor.enumerable || false;
+                    descriptor.configurable = true;
+                    if ("value" in descriptor) descriptor.writable = true;
+                    Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor);
+                }
+            }
+            function _createClass(Constructor, protoProps, staticProps) {
+                if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+                if (staticProps) _defineProperties(Constructor, staticProps);
+                Object.defineProperty(Constructor, "prototype", {
+                    writable: false
+                });
+                return Constructor;
+            }
+            function _toPropertyKey(arg) {
+                var key = _toPrimitive(arg, "string");
+                return _typeof(key) === "symbol" ? key : String(key);
+            }
+            function _toPrimitive(input, hint) {
+                if (_typeof(input) !== "object" || input === null) return input;
+                var prim = input[Symbol.toPrimitive];
+                if (prim !== void 0) {
+                    var res = prim.call(input, hint || "default");
+                    if (_typeof(res) !== "object") return res;
+                    throw new TypeError("@@toPrimitive must return a primitive value.");
+                }
+                return (hint === "string" ? String : Number)(input);
             }
             function _classCallCheck(instance, Constructor) {
                 if (!(instance instanceof Constructor)) throw new TypeError("Cannot call a class as a function");
             }
-            function _possibleConstructorReturn(self, call) {
-                if (call && ("object" === _typeof(call) || "function" === typeof call)) return call;
-                return _assertThisInitialized(self);
-            }
-            function _assertThisInitialized(self) {
-                if (void 0 === self) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-                return self;
-            }
-            function _getPrototypeOf(o) {
-                _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {
-                    return o.__proto__ || Object.getPrototypeOf(o);
-                };
-                return _getPrototypeOf(o);
-            }
             function _inherits(subClass, superClass) {
-                if ("function" !== typeof superClass && null !== superClass) throw new TypeError("Super expression must either be null or a function");
+                if (typeof superClass !== "function" && superClass !== null) throw new TypeError("Super expression must either be null or a function");
                 subClass.prototype = Object.create(superClass && superClass.prototype, {
                     constructor: {
                         value: subClass,
@@ -805,14 +919,53 @@
                         configurable: true
                     }
                 });
+                Object.defineProperty(subClass, "prototype", {
+                    writable: false
+                });
                 if (superClass) _setPrototypeOf(subClass, superClass);
             }
             function _setPrototypeOf(o, p) {
-                _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+                _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) {
                     o.__proto__ = p;
                     return o;
                 };
                 return _setPrototypeOf(o, p);
+            }
+            function _createSuper(Derived) {
+                var hasNativeReflectConstruct = _isNativeReflectConstruct();
+                return function _createSuperInternal() {
+                    var result, Super = _getPrototypeOf(Derived);
+                    if (hasNativeReflectConstruct) {
+                        var NewTarget = _getPrototypeOf(this).constructor;
+                        result = Reflect.construct(Super, arguments, NewTarget);
+                    } else result = Super.apply(this, arguments);
+                    return _possibleConstructorReturn(this, result);
+                };
+            }
+            function _possibleConstructorReturn(self, call) {
+                if (call && (_typeof(call) === "object" || typeof call === "function")) return call; else if (call !== void 0) throw new TypeError("Derived constructors may only return object or undefined");
+                return _assertThisInitialized(self);
+            }
+            function _assertThisInitialized(self) {
+                if (self === void 0) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+                return self;
+            }
+            function _isNativeReflectConstruct() {
+                if (typeof Reflect === "undefined" || !Reflect.construct) return false;
+                if (Reflect.construct.sham) return false;
+                if (typeof Proxy === "function") return true;
+                try {
+                    Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], (function() {})));
+                    return true;
+                } catch (e) {
+                    return false;
+                }
+            }
+            function _getPrototypeOf(o) {
+                _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) {
+                    return o.__proto__ || Object.getPrototypeOf(o);
+                };
+                return _getPrototypeOf(o);
             }
             var codes = {};
             var assert;
@@ -820,18 +973,19 @@
             function createErrorType(code, message, Base) {
                 if (!Base) Base = Error;
                 function getMessage(arg1, arg2, arg3) {
-                    if ("string" === typeof message) return message; else return message(arg1, arg2, arg3);
+                    if (typeof message === "string") return message; else return message(arg1, arg2, arg3);
                 }
                 var NodeError = function(_Base) {
                     _inherits(NodeError, _Base);
+                    var _super = _createSuper(NodeError);
                     function NodeError(arg1, arg2, arg3) {
                         var _this;
                         _classCallCheck(this, NodeError);
-                        _this = _possibleConstructorReturn(this, _getPrototypeOf(NodeError).call(this, getMessage(arg1, arg2, arg3)));
+                        _this = _super.call(this, getMessage(arg1, arg2, arg3));
                         _this.code = code;
                         return _this;
                     }
-                    return NodeError;
+                    return _createClass(NodeError);
                 }(Base);
                 codes[code] = NodeError;
             }
@@ -841,26 +995,26 @@
                     expected = expected.map((function(i) {
                         return String(i);
                     }));
-                    if (len > 2) return "one of ".concat(thing, " ").concat(expected.slice(0, len - 1).join(", "), ", or ") + expected[len - 1]; else if (2 === len) return "one of ".concat(thing, " ").concat(expected[0], " or ").concat(expected[1]); else return "of ".concat(thing, " ").concat(expected[0]);
+                    if (len > 2) return "one of ".concat(thing, " ").concat(expected.slice(0, len - 1).join(", "), ", or ") + expected[len - 1]; else if (len === 2) return "one of ".concat(thing, " ").concat(expected[0], " or ").concat(expected[1]); else return "of ".concat(thing, " ").concat(expected[0]);
                 } else return "of ".concat(thing, " ").concat(String(expected));
             }
             function startsWith(str, search, pos) {
                 return str.substr(!pos || pos < 0 ? 0 : +pos, search.length) === search;
             }
             function endsWith(str, search, this_len) {
-                if (void 0 === this_len || this_len > str.length) this_len = str.length;
+                if (this_len === void 0 || this_len > str.length) this_len = str.length;
                 return str.substring(this_len - search.length, this_len) === search;
             }
             function includes(str, search, start) {
-                if ("number" !== typeof start) start = 0;
-                if (start + search.length > str.length) return false; else return -1 !== str.indexOf(search, start);
+                if (typeof start !== "number") start = 0;
+                if (start + search.length > str.length) return false; else return str.indexOf(search, start) !== -1;
             }
             createErrorType("ERR_AMBIGUOUS_ARGUMENT", 'The "%s" argument is ambiguous. %s', TypeError);
             createErrorType("ERR_INVALID_ARG_TYPE", (function(name, expected, actual) {
-                if (void 0 === assert) assert = __webpack_require__(282);
-                assert("string" === typeof name, "'name' must be a string");
+                if (assert === void 0) assert = __webpack_require__(4148);
+                assert(typeof name === "string", "'name' must be a string");
                 var determiner;
-                if ("string" === typeof expected && startsWith(expected, "not ")) {
+                if (typeof expected === "string" && startsWith(expected, "not ")) {
                     determiner = "must not be";
                     expected = expected.replace(/^not /, "");
                 } else determiner = "must be";
@@ -873,8 +1027,8 @@
                 return msg;
             }), TypeError);
             createErrorType("ERR_INVALID_ARG_VALUE", (function(name, value) {
-                var reason = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : "is invalid";
-                if (void 0 === util) util = __webpack_require__(539);
+                var reason = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : "is invalid";
+                if (util === void 0) util = __webpack_require__(537);
                 var inspected = util.inspect(value);
                 if (inspected.length > 128) inspected = "".concat(inspected.slice(0, 128), "...");
                 return "The argument '".concat(name, "' ").concat(reason, ". Received ").concat(inspected);
@@ -886,7 +1040,7 @@
             }), TypeError);
             createErrorType("ERR_MISSING_ARGS", (function() {
                 for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) args[_key] = arguments[_key];
-                if (void 0 === assert) assert = __webpack_require__(282);
+                if (assert === void 0) assert = __webpack_require__(4148);
                 assert(args.length > 0, "At least one arg needs to be specified");
                 var msg = "The ";
                 var len = args.length;
@@ -911,48 +1065,60 @@
             }), TypeError);
             module.exports.codes = codes;
         },
-        158: (module, __unused_webpack_exports, __webpack_require__) => {
+        2299: (module, __unused_webpack_exports, __webpack_require__) => {
             "use strict";
             function _slicedToArray(arr, i) {
-                return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest();
+                return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
             }
             function _nonIterableRest() {
-                throw new TypeError("Invalid attempt to destructure non-iterable instance");
+                throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
             }
-            function _iterableToArrayLimit(arr, i) {
-                var _arr = [];
-                var _n = true;
-                var _d = false;
-                var _e = void 0;
-                try {
-                    for (var _s, _i = arr[Symbol.iterator](); !(_n = (_s = _i.next()).done); _n = true) {
-                        _arr.push(_s.value);
-                        if (i && _arr.length === i) break;
-                    }
-                } catch (err) {
-                    _d = true;
-                    _e = err;
-                } finally {
+            function _unsupportedIterableToArray(o, minLen) {
+                if (!o) return;
+                if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+                var n = Object.prototype.toString.call(o).slice(8, -1);
+                if (n === "Object" && o.constructor) n = o.constructor.name;
+                if (n === "Map" || n === "Set") return Array.from(o);
+                if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+            }
+            function _arrayLikeToArray(arr, len) {
+                if (len == null || len > arr.length) len = arr.length;
+                for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
+                return arr2;
+            }
+            function _iterableToArrayLimit(r, l) {
+                var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"];
+                if (null != t) {
+                    var e, n, i, u, a = [], f = !0, o = !1;
                     try {
-                        if (!_n && null != _i["return"]) _i["return"]();
+                        if (i = (t = t.call(r)).next, 0 === l) {
+                            if (Object(t) !== t) return;
+                            f = !1;
+                        } else for (;!(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0) ;
+                    } catch (r) {
+                        o = !0, n = r;
                     } finally {
-                        if (_d) throw _e;
+                        try {
+                            if (!f && null != t.return && (u = t.return(), Object(u) !== u)) return;
+                        } finally {
+                            if (o) throw n;
+                        }
                     }
+                    return a;
                 }
-                return _arr;
             }
             function _arrayWithHoles(arr) {
                 if (Array.isArray(arr)) return arr;
             }
-            function _typeof(obj) {
-                if ("function" === typeof Symbol && "symbol" === typeof Symbol.iterator) _typeof = function _typeof(obj) {
-                    return typeof obj;
-                }; else _typeof = function _typeof(obj) {
-                    return obj && "function" === typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-                };
-                return _typeof(obj);
+            function _typeof(o) {
+                "@babel/helpers - typeof";
+                return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(o) {
+                    return typeof o;
+                } : function(o) {
+                    return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o;
+                }, _typeof(o);
             }
-            var regexFlagsSupported = void 0 !== /a/g.flags;
+            var regexFlagsSupported = /a/g.flags !== void 0;
             var arrayFromSet = function arrayFromSet(set) {
                 var array = [];
                 set.forEach((function(value) {
@@ -967,25 +1133,25 @@
                 }));
                 return array;
             };
-            var objectIs = Object.is ? Object.is : __webpack_require__(609);
+            var objectIs = Object.is ? Object.is : __webpack_require__(7653);
             var objectGetOwnPropertySymbols = Object.getOwnPropertySymbols ? Object.getOwnPropertySymbols : function() {
                 return [];
             };
-            var numberIsNaN = Number.isNaN ? Number.isNaN : __webpack_require__(360);
+            var numberIsNaN = Number.isNaN ? Number.isNaN : __webpack_require__(4133);
             function uncurryThis(f) {
                 return f.call.bind(f);
             }
             var hasOwnProperty = uncurryThis(Object.prototype.hasOwnProperty);
             var propertyIsEnumerable = uncurryThis(Object.prototype.propertyIsEnumerable);
             var objectToString = uncurryThis(Object.prototype.toString);
-            var _require$types = __webpack_require__(539).types, isAnyArrayBuffer = _require$types.isAnyArrayBuffer, isArrayBufferView = _require$types.isArrayBufferView, isDate = _require$types.isDate, isMap = _require$types.isMap, isRegExp = _require$types.isRegExp, isSet = _require$types.isSet, isNativeError = _require$types.isNativeError, isBoxedPrimitive = _require$types.isBoxedPrimitive, isNumberObject = _require$types.isNumberObject, isStringObject = _require$types.isStringObject, isBooleanObject = _require$types.isBooleanObject, isBigIntObject = _require$types.isBigIntObject, isSymbolObject = _require$types.isSymbolObject, isFloat32Array = _require$types.isFloat32Array, isFloat64Array = _require$types.isFloat64Array;
+            var _require$types = __webpack_require__(537).types, isAnyArrayBuffer = _require$types.isAnyArrayBuffer, isArrayBufferView = _require$types.isArrayBufferView, isDate = _require$types.isDate, isMap = _require$types.isMap, isRegExp = _require$types.isRegExp, isSet = _require$types.isSet, isNativeError = _require$types.isNativeError, isBoxedPrimitive = _require$types.isBoxedPrimitive, isNumberObject = _require$types.isNumberObject, isStringObject = _require$types.isStringObject, isBooleanObject = _require$types.isBooleanObject, isBigIntObject = _require$types.isBigIntObject, isSymbolObject = _require$types.isSymbolObject, isFloat32Array = _require$types.isFloat32Array, isFloat64Array = _require$types.isFloat64Array;
             function isNonIndex(key) {
-                if (0 === key.length || key.length > 10) return true;
+                if (key.length === 0 || key.length > 10) return true;
                 for (var i = 0; i < key.length; i++) {
                     var code = key.charCodeAt(i);
                     if (code < 48 || code > 57) return true;
                 }
-                return 10 === key.length && key >= Math.pow(2, 32);
+                return key.length === 10 && key >= Math.pow(2, 32);
             }
             function getOwnNonIndexProperties(value) {
                 return Object.keys(value).filter(isNonIndex).concat(objectGetOwnPropertySymbols(value).filter(Object.prototype.propertyIsEnumerable.bind(value)));
@@ -1025,10 +1191,10 @@
             }
             function areSimilarTypedArrays(a, b) {
                 if (a.byteLength !== b.byteLength) return false;
-                return 0 === compare(new Uint8Array(a.buffer, a.byteOffset, a.byteLength), new Uint8Array(b.buffer, b.byteOffset, b.byteLength));
+                return compare(new Uint8Array(a.buffer, a.byteOffset, a.byteLength), new Uint8Array(b.buffer, b.byteOffset, b.byteLength)) === 0;
             }
             function areEqualArrayBuffers(buf1, buf2) {
-                return buf1.byteLength === buf2.byteLength && 0 === compare(new Uint8Array(buf1), new Uint8Array(buf2));
+                return buf1.byteLength === buf2.byteLength && compare(new Uint8Array(buf1), new Uint8Array(buf2)) === 0;
             }
             function isEqualBoxedPrimitive(val1, val2) {
                 if (isNumberObject(val1)) return isNumberObject(val2) && objectIs(Number.prototype.valueOf.call(val1), Number.prototype.valueOf.call(val2));
@@ -1039,19 +1205,19 @@
             }
             function innerDeepEqual(val1, val2, strict, memos) {
                 if (val1 === val2) {
-                    if (0 !== val1) return true;
+                    if (val1 !== 0) return true;
                     return strict ? objectIs(val1, val2) : true;
                 }
                 if (strict) {
-                    if ("object" !== _typeof(val1)) return "number" === typeof val1 && numberIsNaN(val1) && numberIsNaN(val2);
-                    if ("object" !== _typeof(val2) || null === val1 || null === val2) return false;
+                    if (_typeof(val1) !== "object") return typeof val1 === "number" && numberIsNaN(val1) && numberIsNaN(val2);
+                    if (_typeof(val2) !== "object" || val1 === null || val2 === null) return false;
                     if (Object.getPrototypeOf(val1) !== Object.getPrototypeOf(val2)) return false;
                 } else {
-                    if (null === val1 || "object" !== _typeof(val1)) {
-                        if (null === val2 || "object" !== _typeof(val2)) return val1 == val2;
+                    if (val1 === null || _typeof(val1) !== "object") {
+                        if (val2 === null || _typeof(val2) !== "object") return val1 == val2;
                         return false;
                     }
-                    if (null === val2 || "object" !== _typeof(val2)) return false;
+                    if (val2 === null || _typeof(val2) !== "object") return false;
                 }
                 var val1Tag = objectToString(val1);
                 var val2Tag = objectToString(val2);
@@ -1063,7 +1229,7 @@
                     if (keys1.length !== keys2.length) return false;
                     return keyCheck(val1, val2, strict, memos, kIsArray, keys1);
                 }
-                if ("[object Object]" === val1Tag) if (!isMap(val1) && isMap(val2) || !isSet(val1) && isSet(val2)) return false;
+                if (val1Tag === "[object Object]") if (!isMap(val1) && isMap(val2) || !isSet(val1) && isSet(val2)) return false;
                 if (isDate(val1)) {
                     if (!isDate(val2) || Date.prototype.getTime.call(val1) !== Date.prototype.getTime.call(val2)) return false;
                 } else if (isRegExp(val1)) {
@@ -1095,16 +1261,16 @@
                 }));
             }
             function keyCheck(val1, val2, strict, memos, iterationType, aKeys) {
-                if (5 === arguments.length) {
+                if (arguments.length === 5) {
                     aKeys = Object.keys(val1);
                     var bKeys = Object.keys(val2);
                     if (aKeys.length !== bKeys.length) return false;
                 }
                 var i = 0;
                 for (;i < aKeys.length; i++) if (!hasOwnProperty(val2, aKeys[i])) return false;
-                if (strict && 5 === arguments.length) {
+                if (strict && arguments.length === 5) {
                     var symbolKeysA = objectGetOwnPropertySymbols(val1);
-                    if (0 !== symbolKeysA.length) {
+                    if (symbolKeysA.length !== 0) {
                         var count = 0;
                         for (i = 0; i < symbolKeysA.length; i++) {
                             var key = symbolKeysA[i];
@@ -1118,19 +1284,19 @@
                         if (symbolKeysA.length !== symbolKeysB.length && getEnumerables(val2, symbolKeysB).length !== count) return false;
                     } else {
                         var _symbolKeysB = objectGetOwnPropertySymbols(val2);
-                        if (0 !== _symbolKeysB.length && 0 !== getEnumerables(val2, _symbolKeysB).length) return false;
+                        if (_symbolKeysB.length !== 0 && getEnumerables(val2, _symbolKeysB).length !== 0) return false;
                     }
                 }
-                if (0 === aKeys.length && (iterationType === kNoIterator || iterationType === kIsArray && 0 === val1.length || 0 === val1.size)) return true;
-                if (void 0 === memos) memos = {
+                if (aKeys.length === 0 && (iterationType === kNoIterator || iterationType === kIsArray && val1.length === 0 || val1.size === 0)) return true;
+                if (memos === void 0) memos = {
                     val1: new Map,
                     val2: new Map,
                     position: 0
                 }; else {
                     var val2MemoA = memos.val1.get(val1);
-                    if (void 0 !== val2MemoA) {
+                    if (val2MemoA !== void 0) {
                         var val2MemoB = memos.val2.get(val2);
-                        if (void 0 !== val2MemoB) return val2MemoA === val2MemoB;
+                        if (val2MemoB !== void 0) return val2MemoA === val2MemoB;
                     }
                     memos.position++;
                 }
@@ -1173,14 +1339,14 @@
             }
             function setMightHaveLoosePrim(a, b, prim) {
                 var altValue = findLooseMatchingPrimitives(prim);
-                if (null != altValue) return altValue;
+                if (altValue != null) return altValue;
                 return b.has(altValue) && !a.has(altValue);
             }
             function mapMightHaveLoosePrim(a, b, prim, item, memo) {
                 var altValue = findLooseMatchingPrimitives(prim);
-                if (null != altValue) return altValue;
+                if (altValue != null) return altValue;
                 var curB = b.get(altValue);
-                if (void 0 === curB && !b.has(altValue) || !innerDeepEqual(item, curB, false, memo)) return false;
+                if (curB === void 0 && !b.has(altValue) || !innerDeepEqual(item, curB, false, memo)) return false;
                 return !a.has(altValue) && innerDeepEqual(item, curB, false, memo);
             }
             function setEquiv(a, b, strict, memo) {
@@ -1188,25 +1354,25 @@
                 var aValues = arrayFromSet(a);
                 for (var i = 0; i < aValues.length; i++) {
                     var val = aValues[i];
-                    if ("object" === _typeof(val) && null !== val) {
-                        if (null === set) set = new Set;
+                    if (_typeof(val) === "object" && val !== null) {
+                        if (set === null) set = new Set;
                         set.add(val);
                     } else if (!b.has(val)) {
                         if (strict) return false;
                         if (!setMightHaveLoosePrim(a, b, val)) return false;
-                        if (null === set) set = new Set;
+                        if (set === null) set = new Set;
                         set.add(val);
                     }
                 }
-                if (null !== set) {
+                if (set !== null) {
                     var bValues = arrayFromSet(b);
                     for (var _i = 0; _i < bValues.length; _i++) {
                         var _val = bValues[_i];
-                        if ("object" === _typeof(_val) && null !== _val) {
+                        if (_typeof(_val) === "object" && _val !== null) {
                             if (!setHasEqualElement(set, _val, strict, memo)) return false;
                         } else if (!strict && !a.has(_val) && !setHasEqualElement(set, _val, strict, memo)) return false;
                     }
-                    return 0 === set.size;
+                    return set.size === 0;
                 }
                 return true;
             }
@@ -1226,29 +1392,28 @@
                 var aEntries = arrayFromMap(a);
                 for (var i = 0; i < aEntries.length; i++) {
                     var _aEntries$i = _slicedToArray(aEntries[i], 2), key = _aEntries$i[0], item1 = _aEntries$i[1];
-                    if ("object" === _typeof(key) && null !== key) {
-                        if (null === set) set = new Set;
+                    if (_typeof(key) === "object" && key !== null) {
+                        if (set === null) set = new Set;
                         set.add(key);
                     } else {
                         var item2 = b.get(key);
-                        if (void 0 === item2 && !b.has(key) || !innerDeepEqual(item1, item2, strict, memo)) {
+                        if (item2 === void 0 && !b.has(key) || !innerDeepEqual(item1, item2, strict, memo)) {
                             if (strict) return false;
                             if (!mapMightHaveLoosePrim(a, b, key, item1, memo)) return false;
-                            if (null === set) set = new Set;
+                            if (set === null) set = new Set;
                             set.add(key);
                         }
                     }
                 }
-                if (null !== set) {
+                if (set !== null) {
                     var bEntries = arrayFromMap(b);
                     for (var _i2 = 0; _i2 < bEntries.length; _i2++) {
-                        var _bEntries$_i = _slicedToArray(bEntries[_i2], 2), item = (key = _bEntries$_i[0], 
-                        _bEntries$_i[1]);
-                        if ("object" === _typeof(key) && null !== key) {
-                            if (!mapHasEqualEntry(set, a, key, item, strict, memo)) return false;
-                        } else if (!strict && (!a.has(key) || !innerDeepEqual(a.get(key), item, false, memo)) && !mapHasEqualEntry(set, a, key, item, false, memo)) return false;
+                        var _bEntries$_i = _slicedToArray(bEntries[_i2], 2), _key = _bEntries$_i[0], item = _bEntries$_i[1];
+                        if (_typeof(_key) === "object" && _key !== null) {
+                            if (!mapHasEqualEntry(set, a, _key, item, strict, memo)) return false;
+                        } else if (!strict && (!a.has(_key) || !innerDeepEqual(a.get(_key), item, false, memo)) && !mapHasEqualEntry(set, a, _key, item, false, memo)) return false;
                     }
-                    return 0 === set.size;
+                    return set.size === 0;
                 }
                 return true;
             }
@@ -1270,8 +1435,8 @@
                     return true;
                 }
                 for (i = 0; i < keys.length; i++) {
-                    var _key = keys[i];
-                    if (!innerDeepEqual(a[_key], b[_key], strict, memos)) return false;
+                    var _key2 = keys[i];
+                    if (!innerDeepEqual(a[_key2], b[_key2], strict, memos)) return false;
                 }
                 return true;
             }
@@ -1286,43 +1451,32 @@
                 isDeepStrictEqual
             };
         },
-        924: (module, __unused_webpack_exports, __webpack_require__) => {
+        8075: (module, __unused_webpack_exports, __webpack_require__) => {
             "use strict";
-            var GetIntrinsic = __webpack_require__(210);
-            var callBind = __webpack_require__(559);
+            var GetIntrinsic = __webpack_require__(453);
+            var callBind = __webpack_require__(487);
             var $indexOf = callBind(GetIntrinsic("String.prototype.indexOf"));
             module.exports = function callBoundIntrinsic(name, allowMissing) {
                 var intrinsic = GetIntrinsic(name, !!allowMissing);
-                if ("function" === typeof intrinsic && $indexOf(name, ".prototype.") > -1) return callBind(intrinsic);
+                if (typeof intrinsic === "function" && $indexOf(name, ".prototype.") > -1) return callBind(intrinsic);
                 return intrinsic;
             };
         },
-        559: (module, __unused_webpack_exports, __webpack_require__) => {
+        487: (module, __unused_webpack_exports, __webpack_require__) => {
             "use strict";
-            var bind = __webpack_require__(612);
-            var GetIntrinsic = __webpack_require__(210);
+            var bind = __webpack_require__(6743);
+            var GetIntrinsic = __webpack_require__(453);
+            var setFunctionLength = __webpack_require__(6897);
+            var $TypeError = __webpack_require__(9675);
             var $apply = GetIntrinsic("%Function.prototype.apply%");
             var $call = GetIntrinsic("%Function.prototype.call%");
             var $reflectApply = GetIntrinsic("%Reflect.apply%", true) || bind.call($call, $apply);
-            var $gOPD = GetIntrinsic("%Object.getOwnPropertyDescriptor%", true);
-            var $defineProperty = GetIntrinsic("%Object.defineProperty%", true);
+            var $defineProperty = __webpack_require__(655);
             var $max = GetIntrinsic("%Math.max%");
-            if ($defineProperty) try {
-                $defineProperty({}, "a", {
-                    value: 1
-                });
-            } catch (e) {
-                $defineProperty = null;
-            }
             module.exports = function callBind(originalFunction) {
+                if (typeof originalFunction !== "function") throw new $TypeError("a function is required");
                 var func = $reflectApply(bind, $call, arguments);
-                if ($gOPD && $defineProperty) {
-                    var desc = $gOPD(func, "length");
-                    if (desc.configurable) $defineProperty(func, "length", {
-                        value: 1 + $max(0, originalFunction.length - (arguments.length - 1))
-                    });
-                }
-                return func;
+                return setFunctionLength(func, 1 + $max(0, originalFunction.length - (arguments.length - 1)), true);
             };
             var applyBind = function applyBind() {
                 return $reflectApply(bind, $apply, arguments);
@@ -1331,16 +1485,16 @@
                 value: applyBind
             }); else module.exports.apply = applyBind;
         },
-        108: (module, __unused_webpack_exports, __webpack_require__) => {
-            var util = __webpack_require__(539);
-            var assert = __webpack_require__(282);
+        6763: (module, __unused_webpack_exports, __webpack_require__) => {
+            var util = __webpack_require__(537);
+            var assert = __webpack_require__(4148);
             function now() {
                 return (new Date).getTime();
             }
             var slice = Array.prototype.slice;
             var console;
             var times = {};
-            if ("undefined" !== typeof __webpack_require__.g && __webpack_require__.g.console) console = __webpack_require__.g.console; else if ("undefined" !== typeof window && window.console) console = window.console; else console = {};
+            if (typeof __webpack_require__.g !== "undefined" && __webpack_require__.g.console) console = __webpack_require__.g.console; else if (typeof window !== "undefined" && window.console) console = window.console; else console = {};
             var functions = [ [ log, "log" ], [ info, "info" ], [ warn, "warn" ], [ error, "error" ], [ time, "time" ], [ timeEnd, "timeEnd" ], [ trace, "trace" ], [ dir, "dir" ], [ consoleAssert, "assert" ] ];
             for (var i = 0; i < functions.length; i++) {
                 var tuple = functions[i];
@@ -1385,28 +1539,48 @@
                 }
             }
         },
-        289: (module, __unused_webpack_exports, __webpack_require__) => {
+        41: (module, __unused_webpack_exports, __webpack_require__) => {
             "use strict";
-            var keys = __webpack_require__(215);
-            var hasSymbols = "function" === typeof Symbol && "symbol" === typeof Symbol("foo");
+            var $defineProperty = __webpack_require__(655);
+            var $SyntaxError = __webpack_require__(8068);
+            var $TypeError = __webpack_require__(9675);
+            var gopd = __webpack_require__(5795);
+            module.exports = function defineDataProperty(obj, property, value) {
+                if (!obj || typeof obj !== "object" && typeof obj !== "function") throw new $TypeError("`obj` must be an object or a function`");
+                if (typeof property !== "string" && typeof property !== "symbol") throw new $TypeError("`property` must be a string or a symbol`");
+                if (arguments.length > 3 && typeof arguments[3] !== "boolean" && arguments[3] !== null) throw new $TypeError("`nonEnumerable`, if provided, must be a boolean or null");
+                if (arguments.length > 4 && typeof arguments[4] !== "boolean" && arguments[4] !== null) throw new $TypeError("`nonWritable`, if provided, must be a boolean or null");
+                if (arguments.length > 5 && typeof arguments[5] !== "boolean" && arguments[5] !== null) throw new $TypeError("`nonConfigurable`, if provided, must be a boolean or null");
+                if (arguments.length > 6 && typeof arguments[6] !== "boolean") throw new $TypeError("`loose`, if provided, must be a boolean");
+                var nonEnumerable = arguments.length > 3 ? arguments[3] : null;
+                var nonWritable = arguments.length > 4 ? arguments[4] : null;
+                var nonConfigurable = arguments.length > 5 ? arguments[5] : null;
+                var loose = arguments.length > 6 ? arguments[6] : false;
+                var desc = !!gopd && gopd(obj, property);
+                if ($defineProperty) $defineProperty(obj, property, {
+                    configurable: nonConfigurable === null && desc ? desc.configurable : !nonConfigurable,
+                    enumerable: nonEnumerable === null && desc ? desc.enumerable : !nonEnumerable,
+                    value,
+                    writable: nonWritable === null && desc ? desc.writable : !nonWritable
+                }); else if (loose || !nonEnumerable && !nonWritable && !nonConfigurable) obj[property] = value; else throw new $SyntaxError("This environment does not support defining a property as non-configurable, non-writable, or non-enumerable.");
+            };
+        },
+        8452: (module, __unused_webpack_exports, __webpack_require__) => {
+            "use strict";
+            var keys = __webpack_require__(1189);
+            var hasSymbols = typeof Symbol === "function" && typeof Symbol("foo") === "symbol";
             var toStr = Object.prototype.toString;
             var concat = Array.prototype.concat;
-            var origDefineProperty = Object.defineProperty;
+            var defineDataProperty = __webpack_require__(41);
             var isFunction = function(fn) {
-                return "function" === typeof fn && "[object Function]" === toStr.call(fn);
+                return typeof fn === "function" && toStr.call(fn) === "[object Function]";
             };
-            var hasPropertyDescriptors = __webpack_require__(44)();
-            var supportsDescriptors = origDefineProperty && hasPropertyDescriptors;
+            var supportsDescriptors = __webpack_require__(592)();
             var defineProperty = function(object, name, value, predicate) {
-                if (name in object) if (true === predicate) {
+                if (name in object) if (predicate === true) {
                     if (object[name] === value) return;
                 } else if (!isFunction(predicate) || !predicate()) return;
-                if (supportsDescriptors) origDefineProperty(object, name, {
-                    configurable: true,
-                    enumerable: false,
-                    value,
-                    writable: true
-                }); else object[name] = value;
+                if (supportsDescriptors) defineDataProperty(object, name, value, true); else defineDataProperty(object, name, value);
             };
             var defineProperties = function(object, map) {
                 var predicates = arguments.length > 2 ? arguments[2] : {};
@@ -1417,80 +1591,111 @@
             defineProperties.supportsDescriptors = !!supportsDescriptors;
             module.exports = defineProperties;
         },
-        91: module => {
+        655: (module, __unused_webpack_exports, __webpack_require__) => {
             "use strict";
-            function assign(target, firstSource) {
-                if (void 0 === target || null === target) throw new TypeError("Cannot convert first argument to object");
-                var to = Object(target);
-                for (var i = 1; i < arguments.length; i++) {
-                    var nextSource = arguments[i];
-                    if (void 0 === nextSource || null === nextSource) continue;
-                    var keysArray = Object.keys(Object(nextSource));
-                    for (var nextIndex = 0, len = keysArray.length; nextIndex < len; nextIndex++) {
-                        var nextKey = keysArray[nextIndex];
-                        var desc = Object.getOwnPropertyDescriptor(nextSource, nextKey);
-                        if (void 0 !== desc && desc.enumerable) to[nextKey] = nextSource[nextKey];
-                    }
-                }
-                return to;
-            }
-            function polyfill() {
-                if (!Object.assign) Object.defineProperty(Object, "assign", {
-                    enumerable: false,
-                    configurable: true,
-                    writable: true,
-                    value: assign
+            var GetIntrinsic = __webpack_require__(453);
+            var $defineProperty = GetIntrinsic("%Object.defineProperty%", true) || false;
+            if ($defineProperty) try {
+                $defineProperty({}, "a", {
+                    value: 1
                 });
+            } catch (e) {
+                $defineProperty = false;
             }
-            module.exports = {
-                assign,
-                polyfill
-            };
+            module.exports = $defineProperty;
         },
-        29: (module, __unused_webpack_exports, __webpack_require__) => {
+        1237: module => {
             "use strict";
-            var isCallable = __webpack_require__(320);
+            module.exports = EvalError;
+        },
+        9383: module => {
+            "use strict";
+            module.exports = Error;
+        },
+        9290: module => {
+            "use strict";
+            module.exports = RangeError;
+        },
+        9538: module => {
+            "use strict";
+            module.exports = ReferenceError;
+        },
+        8068: module => {
+            "use strict";
+            module.exports = SyntaxError;
+        },
+        9675: module => {
+            "use strict";
+            module.exports = TypeError;
+        },
+        5345: module => {
+            "use strict";
+            module.exports = URIError;
+        },
+        2682: (module, __unused_webpack_exports, __webpack_require__) => {
+            "use strict";
+            var isCallable = __webpack_require__(9600);
             var toStr = Object.prototype.toString;
             var hasOwnProperty = Object.prototype.hasOwnProperty;
             var forEachArray = function forEachArray(array, iterator, receiver) {
-                for (var i = 0, len = array.length; i < len; i++) if (hasOwnProperty.call(array, i)) if (null == receiver) iterator(array[i], i, array); else iterator.call(receiver, array[i], i, array);
+                for (var i = 0, len = array.length; i < len; i++) if (hasOwnProperty.call(array, i)) if (receiver == null) iterator(array[i], i, array); else iterator.call(receiver, array[i], i, array);
             };
             var forEachString = function forEachString(string, iterator, receiver) {
-                for (var i = 0, len = string.length; i < len; i++) if (null == receiver) iterator(string.charAt(i), i, string); else iterator.call(receiver, string.charAt(i), i, string);
+                for (var i = 0, len = string.length; i < len; i++) if (receiver == null) iterator(string.charAt(i), i, string); else iterator.call(receiver, string.charAt(i), i, string);
             };
             var forEachObject = function forEachObject(object, iterator, receiver) {
-                for (var k in object) if (hasOwnProperty.call(object, k)) if (null == receiver) iterator(object[k], k, object); else iterator.call(receiver, object[k], k, object);
+                for (var k in object) if (hasOwnProperty.call(object, k)) if (receiver == null) iterator(object[k], k, object); else iterator.call(receiver, object[k], k, object);
             };
             var forEach = function forEach(list, iterator, thisArg) {
                 if (!isCallable(iterator)) throw new TypeError("iterator must be a function");
                 var receiver;
                 if (arguments.length >= 3) receiver = thisArg;
-                if ("[object Array]" === toStr.call(list)) forEachArray(list, iterator, receiver); else if ("string" === typeof list) forEachString(list, iterator, receiver); else forEachObject(list, iterator, receiver);
+                if (toStr.call(list) === "[object Array]") forEachArray(list, iterator, receiver); else if (typeof list === "string") forEachString(list, iterator, receiver); else forEachObject(list, iterator, receiver);
             };
             module.exports = forEach;
         },
-        648: module => {
+        9353: module => {
             "use strict";
             var ERROR_MESSAGE = "Function.prototype.bind called on incompatible ";
-            var slice = Array.prototype.slice;
             var toStr = Object.prototype.toString;
+            var max = Math.max;
             var funcType = "[object Function]";
+            var concatty = function concatty(a, b) {
+                var arr = [];
+                for (var i = 0; i < a.length; i += 1) arr[i] = a[i];
+                for (var j = 0; j < b.length; j += 1) arr[j + a.length] = b[j];
+                return arr;
+            };
+            var slicy = function slicy(arrLike, offset) {
+                var arr = [];
+                for (var i = offset || 0, j = 0; i < arrLike.length; i += 1, j += 1) arr[j] = arrLike[i];
+                return arr;
+            };
+            var joiny = function(arr, joiner) {
+                var str = "";
+                for (var i = 0; i < arr.length; i += 1) {
+                    str += arr[i];
+                    if (i + 1 < arr.length) str += joiner;
+                }
+                return str;
+            };
             module.exports = function bind(that) {
                 var target = this;
-                if ("function" !== typeof target || toStr.call(target) !== funcType) throw new TypeError(ERROR_MESSAGE + target);
-                var args = slice.call(arguments, 1);
+                if (typeof target !== "function" || toStr.apply(target) !== funcType) throw new TypeError(ERROR_MESSAGE + target);
+                var args = slicy(arguments, 1);
                 var bound;
                 var binder = function() {
                     if (this instanceof bound) {
-                        var result = target.apply(this, args.concat(slice.call(arguments)));
+                        var result = target.apply(this, concatty(args, arguments));
                         if (Object(result) === result) return result;
                         return this;
-                    } else return target.apply(that, args.concat(slice.call(arguments)));
+                    }
+                    return target.apply(that, concatty(args, arguments));
                 };
-                var boundLength = Math.max(0, target.length - args.length);
+                var boundLength = max(0, target.length - args.length);
                 var boundArgs = [];
-                for (var i = 0; i < boundLength; i++) boundArgs.push("$" + i);
-                bound = Function("binder", "return function (" + boundArgs.join(",") + "){ return binder.apply(this,arguments); }")(binder);
+                for (var i = 0; i < boundLength; i++) boundArgs[i] = "$" + i;
+                bound = Function("binder", "return function (" + joiny(boundArgs, ",") + "){ return binder.apply(this,arguments); }")(binder);
                 if (target.prototype) {
                     var Empty = function Empty() {};
                     Empty.prototype = target.prototype;
@@ -1500,17 +1705,22 @@
                 return bound;
             };
         },
-        612: (module, __unused_webpack_exports, __webpack_require__) => {
+        6743: (module, __unused_webpack_exports, __webpack_require__) => {
             "use strict";
-            var implementation = __webpack_require__(648);
+            var implementation = __webpack_require__(9353);
             module.exports = Function.prototype.bind || implementation;
         },
-        210: (module, __unused_webpack_exports, __webpack_require__) => {
+        453: (module, __unused_webpack_exports, __webpack_require__) => {
             "use strict";
             var undefined;
-            var $SyntaxError = SyntaxError;
+            var $Error = __webpack_require__(9383);
+            var $EvalError = __webpack_require__(1237);
+            var $RangeError = __webpack_require__(9290);
+            var $ReferenceError = __webpack_require__(9538);
+            var $SyntaxError = __webpack_require__(8068);
+            var $TypeError = __webpack_require__(9675);
+            var $URIError = __webpack_require__(5345);
             var $Function = Function;
-            var $TypeError = TypeError;
             var getEvalledConstructor = function(expressionSyntax) {
                 try {
                     return $Function('"use strict"; return (' + expressionSyntax + ").constructor;")();
@@ -1537,81 +1747,83 @@
                     }
                 }
             }() : throwTypeError;
-            var hasSymbols = __webpack_require__(405)();
-            var getProto = Object.getPrototypeOf || function(x) {
+            var hasSymbols = __webpack_require__(4039)();
+            var hasProto = __webpack_require__(24)();
+            var getProto = Object.getPrototypeOf || (hasProto ? function(x) {
                 return x.__proto__;
-            };
+            } : null);
             var needsEval = {};
-            var TypedArray = "undefined" === typeof Uint8Array ? undefined : getProto(Uint8Array);
+            var TypedArray = typeof Uint8Array === "undefined" || !getProto ? undefined : getProto(Uint8Array);
             var INTRINSICS = {
-                "%AggregateError%": "undefined" === typeof AggregateError ? undefined : AggregateError,
+                __proto__: null,
+                "%AggregateError%": typeof AggregateError === "undefined" ? undefined : AggregateError,
                 "%Array%": Array,
-                "%ArrayBuffer%": "undefined" === typeof ArrayBuffer ? undefined : ArrayBuffer,
-                "%ArrayIteratorPrototype%": hasSymbols ? getProto([][Symbol.iterator]()) : undefined,
+                "%ArrayBuffer%": typeof ArrayBuffer === "undefined" ? undefined : ArrayBuffer,
+                "%ArrayIteratorPrototype%": hasSymbols && getProto ? getProto([][Symbol.iterator]()) : undefined,
                 "%AsyncFromSyncIteratorPrototype%": undefined,
                 "%AsyncFunction%": needsEval,
                 "%AsyncGenerator%": needsEval,
                 "%AsyncGeneratorFunction%": needsEval,
                 "%AsyncIteratorPrototype%": needsEval,
-                "%Atomics%": "undefined" === typeof Atomics ? undefined : Atomics,
-                "%BigInt%": "undefined" === typeof BigInt ? undefined : BigInt,
-                "%BigInt64Array%": "undefined" === typeof BigInt64Array ? undefined : BigInt64Array,
-                "%BigUint64Array%": "undefined" === typeof BigUint64Array ? undefined : BigUint64Array,
+                "%Atomics%": typeof Atomics === "undefined" ? undefined : Atomics,
+                "%BigInt%": typeof BigInt === "undefined" ? undefined : BigInt,
+                "%BigInt64Array%": typeof BigInt64Array === "undefined" ? undefined : BigInt64Array,
+                "%BigUint64Array%": typeof BigUint64Array === "undefined" ? undefined : BigUint64Array,
                 "%Boolean%": Boolean,
-                "%DataView%": "undefined" === typeof DataView ? undefined : DataView,
+                "%DataView%": typeof DataView === "undefined" ? undefined : DataView,
                 "%Date%": Date,
                 "%decodeURI%": decodeURI,
                 "%decodeURIComponent%": decodeURIComponent,
                 "%encodeURI%": encodeURI,
                 "%encodeURIComponent%": encodeURIComponent,
-                "%Error%": Error,
+                "%Error%": $Error,
                 "%eval%": eval,
-                "%EvalError%": EvalError,
-                "%Float32Array%": "undefined" === typeof Float32Array ? undefined : Float32Array,
-                "%Float64Array%": "undefined" === typeof Float64Array ? undefined : Float64Array,
-                "%FinalizationRegistry%": "undefined" === typeof FinalizationRegistry ? undefined : FinalizationRegistry,
+                "%EvalError%": $EvalError,
+                "%Float32Array%": typeof Float32Array === "undefined" ? undefined : Float32Array,
+                "%Float64Array%": typeof Float64Array === "undefined" ? undefined : Float64Array,
+                "%FinalizationRegistry%": typeof FinalizationRegistry === "undefined" ? undefined : FinalizationRegistry,
                 "%Function%": $Function,
                 "%GeneratorFunction%": needsEval,
-                "%Int8Array%": "undefined" === typeof Int8Array ? undefined : Int8Array,
-                "%Int16Array%": "undefined" === typeof Int16Array ? undefined : Int16Array,
-                "%Int32Array%": "undefined" === typeof Int32Array ? undefined : Int32Array,
+                "%Int8Array%": typeof Int8Array === "undefined" ? undefined : Int8Array,
+                "%Int16Array%": typeof Int16Array === "undefined" ? undefined : Int16Array,
+                "%Int32Array%": typeof Int32Array === "undefined" ? undefined : Int32Array,
                 "%isFinite%": isFinite,
                 "%isNaN%": isNaN,
-                "%IteratorPrototype%": hasSymbols ? getProto(getProto([][Symbol.iterator]())) : undefined,
-                "%JSON%": "object" === typeof JSON ? JSON : undefined,
-                "%Map%": "undefined" === typeof Map ? undefined : Map,
-                "%MapIteratorPrototype%": "undefined" === typeof Map || !hasSymbols ? undefined : getProto((new Map)[Symbol.iterator]()),
+                "%IteratorPrototype%": hasSymbols && getProto ? getProto(getProto([][Symbol.iterator]())) : undefined,
+                "%JSON%": typeof JSON === "object" ? JSON : undefined,
+                "%Map%": typeof Map === "undefined" ? undefined : Map,
+                "%MapIteratorPrototype%": typeof Map === "undefined" || !hasSymbols || !getProto ? undefined : getProto((new Map)[Symbol.iterator]()),
                 "%Math%": Math,
                 "%Number%": Number,
                 "%Object%": Object,
                 "%parseFloat%": parseFloat,
                 "%parseInt%": parseInt,
-                "%Promise%": "undefined" === typeof Promise ? undefined : Promise,
-                "%Proxy%": "undefined" === typeof Proxy ? undefined : Proxy,
-                "%RangeError%": RangeError,
-                "%ReferenceError%": ReferenceError,
-                "%Reflect%": "undefined" === typeof Reflect ? undefined : Reflect,
+                "%Promise%": typeof Promise === "undefined" ? undefined : Promise,
+                "%Proxy%": typeof Proxy === "undefined" ? undefined : Proxy,
+                "%RangeError%": $RangeError,
+                "%ReferenceError%": $ReferenceError,
+                "%Reflect%": typeof Reflect === "undefined" ? undefined : Reflect,
                 "%RegExp%": RegExp,
-                "%Set%": "undefined" === typeof Set ? undefined : Set,
-                "%SetIteratorPrototype%": "undefined" === typeof Set || !hasSymbols ? undefined : getProto((new Set)[Symbol.iterator]()),
-                "%SharedArrayBuffer%": "undefined" === typeof SharedArrayBuffer ? undefined : SharedArrayBuffer,
+                "%Set%": typeof Set === "undefined" ? undefined : Set,
+                "%SetIteratorPrototype%": typeof Set === "undefined" || !hasSymbols || !getProto ? undefined : getProto((new Set)[Symbol.iterator]()),
+                "%SharedArrayBuffer%": typeof SharedArrayBuffer === "undefined" ? undefined : SharedArrayBuffer,
                 "%String%": String,
-                "%StringIteratorPrototype%": hasSymbols ? getProto(""[Symbol.iterator]()) : undefined,
+                "%StringIteratorPrototype%": hasSymbols && getProto ? getProto(""[Symbol.iterator]()) : undefined,
                 "%Symbol%": hasSymbols ? Symbol : undefined,
                 "%SyntaxError%": $SyntaxError,
                 "%ThrowTypeError%": ThrowTypeError,
                 "%TypedArray%": TypedArray,
                 "%TypeError%": $TypeError,
-                "%Uint8Array%": "undefined" === typeof Uint8Array ? undefined : Uint8Array,
-                "%Uint8ClampedArray%": "undefined" === typeof Uint8ClampedArray ? undefined : Uint8ClampedArray,
-                "%Uint16Array%": "undefined" === typeof Uint16Array ? undefined : Uint16Array,
-                "%Uint32Array%": "undefined" === typeof Uint32Array ? undefined : Uint32Array,
-                "%URIError%": URIError,
-                "%WeakMap%": "undefined" === typeof WeakMap ? undefined : WeakMap,
-                "%WeakRef%": "undefined" === typeof WeakRef ? undefined : WeakRef,
-                "%WeakSet%": "undefined" === typeof WeakSet ? undefined : WeakSet
+                "%Uint8Array%": typeof Uint8Array === "undefined" ? undefined : Uint8Array,
+                "%Uint8ClampedArray%": typeof Uint8ClampedArray === "undefined" ? undefined : Uint8ClampedArray,
+                "%Uint16Array%": typeof Uint16Array === "undefined" ? undefined : Uint16Array,
+                "%Uint32Array%": typeof Uint32Array === "undefined" ? undefined : Uint32Array,
+                "%URIError%": $URIError,
+                "%WeakMap%": typeof WeakMap === "undefined" ? undefined : WeakMap,
+                "%WeakRef%": typeof WeakRef === "undefined" ? undefined : WeakRef,
+                "%WeakSet%": typeof WeakSet === "undefined" ? undefined : WeakSet
             };
-            try {
+            if (getProto) try {
                 null.error;
             } catch (e) {
                 var errorProto = getProto(getProto(e));
@@ -1619,17 +1831,18 @@
             }
             var doEval = function doEval(name) {
                 var value;
-                if ("%AsyncFunction%" === name) value = getEvalledConstructor("async function () {}"); else if ("%GeneratorFunction%" === name) value = getEvalledConstructor("function* () {}"); else if ("%AsyncGeneratorFunction%" === name) value = getEvalledConstructor("async function* () {}"); else if ("%AsyncGenerator%" === name) {
+                if (name === "%AsyncFunction%") value = getEvalledConstructor("async function () {}"); else if (name === "%GeneratorFunction%") value = getEvalledConstructor("function* () {}"); else if (name === "%AsyncGeneratorFunction%") value = getEvalledConstructor("async function* () {}"); else if (name === "%AsyncGenerator%") {
                     var fn = doEval("%AsyncGeneratorFunction%");
                     if (fn) value = fn.prototype;
-                } else if ("%AsyncIteratorPrototype%" === name) {
+                } else if (name === "%AsyncIteratorPrototype%") {
                     var gen = doEval("%AsyncGenerator%");
-                    if (gen) value = getProto(gen.prototype);
+                    if (gen && getProto) value = getProto(gen.prototype);
                 }
                 INTRINSICS[name] = value;
                 return value;
             };
             var LEGACY_ALIASES = {
+                __proto__: null,
                 "%ArrayBufferPrototype%": [ "ArrayBuffer", "prototype" ],
                 "%ArrayPrototype%": [ "Array", "prototype" ],
                 "%ArrayProto_entries%": [ "Array", "prototype", "entries" ],
@@ -1682,8 +1895,8 @@
                 "%WeakMapPrototype%": [ "WeakMap", "prototype" ],
                 "%WeakSetPrototype%": [ "WeakSet", "prototype" ]
             };
-            var bind = __webpack_require__(612);
-            var hasOwn = __webpack_require__(642);
+            var bind = __webpack_require__(6743);
+            var hasOwn = __webpack_require__(9957);
             var $concat = bind.call(Function.call, Array.prototype.concat);
             var $spliceApply = bind.call(Function.apply, Array.prototype.splice);
             var $replace = bind.call(Function.call, String.prototype.replace);
@@ -1694,7 +1907,7 @@
             var stringToPath = function stringToPath(string) {
                 var first = $strSlice(string, 0, 1);
                 var last = $strSlice(string, -1);
-                if ("%" === first && "%" !== last) throw new $SyntaxError("invalid intrinsic syntax, expected closing `%`"); else if ("%" === last && "%" !== first) throw new $SyntaxError("invalid intrinsic syntax, expected opening `%`");
+                if (first === "%" && last !== "%") throw new $SyntaxError("invalid intrinsic syntax, expected closing `%`"); else if (last === "%" && first !== "%") throw new $SyntaxError("invalid intrinsic syntax, expected opening `%`");
                 var result = [];
                 $replace(string, rePropName, (function(match, number, quote, subString) {
                     result[result.length] = quote ? $replace(subString, reEscapeChar, "$1") : number || match;
@@ -1711,7 +1924,7 @@
                 if (hasOwn(INTRINSICS, intrinsicName)) {
                     var value = INTRINSICS[intrinsicName];
                     if (value === needsEval) value = doEval(intrinsicName);
-                    if ("undefined" === typeof value && !allowMissing) throw new $TypeError("intrinsic " + name + " exists, but is not available. Please file an issue!");
+                    if (typeof value === "undefined" && !allowMissing) throw new $TypeError("intrinsic " + name + " exists, but is not available. Please file an issue!");
                     return {
                         alias,
                         name: intrinsicName,
@@ -1721,9 +1934,9 @@
                 throw new $SyntaxError("intrinsic " + name + " does not exist!");
             };
             module.exports = function GetIntrinsic(name, allowMissing) {
-                if ("string" !== typeof name || 0 === name.length) throw new $TypeError("intrinsic name must be a non-empty string");
-                if (arguments.length > 1 && "boolean" !== typeof allowMissing) throw new $TypeError('"allowMissing" argument must be a boolean');
-                if (null === $exec(/^%?[^%]*%?$/, name)) throw new $SyntaxError("`%` may not be present anywhere but at the beginning and end of the intrinsic name");
+                if (typeof name !== "string" || name.length === 0) throw new $TypeError("intrinsic name must be a non-empty string");
+                if (arguments.length > 1 && typeof allowMissing !== "boolean") throw new $TypeError('"allowMissing" argument must be a boolean');
+                if ($exec(/^%?[^%]*%?$/, name) === null) throw new $SyntaxError("`%` may not be present anywhere but at the beginning and end of the intrinsic name");
                 var parts = stringToPath(name);
                 var intrinsicBaseName = parts.length > 0 ? parts[0] : "";
                 var intrinsic = getBaseIntrinsic("%" + intrinsicBaseName + "%", allowMissing);
@@ -1739,11 +1952,11 @@
                     var part = parts[i];
                     var first = $strSlice(part, 0, 1);
                     var last = $strSlice(part, -1);
-                    if (('"' === first || "'" === first || "`" === first || '"' === last || "'" === last || "`" === last) && first !== last) throw new $SyntaxError("property names with quotes must have matching quotes");
-                    if ("constructor" === part || !isOwn) skipFurtherCaching = true;
+                    if ((first === '"' || first === "'" || first === "`" || last === '"' || last === "'" || last === "`") && first !== last) throw new $SyntaxError("property names with quotes must have matching quotes");
+                    if (part === "constructor" || !isOwn) skipFurtherCaching = true;
                     intrinsicBaseName += "." + part;
                     intrinsicRealName = "%" + intrinsicBaseName + "%";
-                    if (hasOwn(INTRINSICS, intrinsicRealName)) value = INTRINSICS[intrinsicRealName]; else if (null != value) {
+                    if (hasOwn(INTRINSICS, intrinsicRealName)) value = INTRINSICS[intrinsicRealName]; else if (value != null) {
                         if (!(part in value)) {
                             if (!allowMissing) throw new $TypeError("base intrinsic for " + name + " exists, but the property is not available.");
                             return;
@@ -1762,9 +1975,9 @@
                 return value;
             };
         },
-        296: (module, __unused_webpack_exports, __webpack_require__) => {
+        5795: (module, __unused_webpack_exports, __webpack_require__) => {
             "use strict";
-            var GetIntrinsic = __webpack_require__(210);
+            var GetIntrinsic = __webpack_require__(453);
             var $gOPD = GetIntrinsic("%Object.getOwnPropertyDescriptor%", true);
             if ($gOPD) try {
                 $gOPD([], "length");
@@ -1773,85 +1986,91 @@
             }
             module.exports = $gOPD;
         },
-        44: (module, __unused_webpack_exports, __webpack_require__) => {
+        592: (module, __unused_webpack_exports, __webpack_require__) => {
             "use strict";
-            var GetIntrinsic = __webpack_require__(210);
-            var $defineProperty = GetIntrinsic("%Object.defineProperty%", true);
+            var $defineProperty = __webpack_require__(655);
             var hasPropertyDescriptors = function hasPropertyDescriptors() {
-                if ($defineProperty) try {
-                    $defineProperty({}, "a", {
-                        value: 1
-                    });
-                    return true;
-                } catch (e) {
-                    return false;
-                }
-                return false;
+                return !!$defineProperty;
             };
             hasPropertyDescriptors.hasArrayLengthDefineBug = function hasArrayLengthDefineBug() {
-                if (!hasPropertyDescriptors()) return null;
+                if (!$defineProperty) return null;
                 try {
-                    return 1 !== $defineProperty([], "length", {
+                    return $defineProperty([], "length", {
                         value: 1
-                    }).length;
+                    }).length !== 1;
                 } catch (e) {
                     return true;
                 }
             };
             module.exports = hasPropertyDescriptors;
         },
-        405: (module, __unused_webpack_exports, __webpack_require__) => {
+        24: module => {
             "use strict";
-            var origSymbol = "undefined" !== typeof Symbol && Symbol;
-            var hasSymbolSham = __webpack_require__(419);
+            var test = {
+                __proto__: null,
+                foo: {}
+            };
+            var $Object = Object;
+            module.exports = function hasProto() {
+                return {
+                    __proto__: test
+                }.foo === test.foo && !(test instanceof $Object);
+            };
+        },
+        4039: (module, __unused_webpack_exports, __webpack_require__) => {
+            "use strict";
+            var origSymbol = typeof Symbol !== "undefined" && Symbol;
+            var hasSymbolSham = __webpack_require__(1333);
             module.exports = function hasNativeSymbols() {
-                if ("function" !== typeof origSymbol) return false;
-                if ("function" !== typeof Symbol) return false;
-                if ("symbol" !== typeof origSymbol("foo")) return false;
-                if ("symbol" !== typeof Symbol("bar")) return false;
+                if (typeof origSymbol !== "function") return false;
+                if (typeof Symbol !== "function") return false;
+                if (typeof origSymbol("foo") !== "symbol") return false;
+                if (typeof Symbol("bar") !== "symbol") return false;
                 return hasSymbolSham();
             };
         },
-        419: module => {
+        1333: module => {
             "use strict";
             module.exports = function hasSymbols() {
-                if ("function" !== typeof Symbol || "function" !== typeof Object.getOwnPropertySymbols) return false;
-                if ("symbol" === typeof Symbol.iterator) return true;
+                if (typeof Symbol !== "function" || typeof Object.getOwnPropertySymbols !== "function") return false;
+                if (typeof Symbol.iterator === "symbol") return true;
                 var obj = {};
                 var sym = Symbol("test");
                 var symObj = Object(sym);
-                if ("string" === typeof sym) return false;
-                if ("[object Symbol]" !== Object.prototype.toString.call(sym)) return false;
-                if ("[object Symbol]" !== Object.prototype.toString.call(symObj)) return false;
+                if (typeof sym === "string") return false;
+                if (Object.prototype.toString.call(sym) !== "[object Symbol]") return false;
+                if (Object.prototype.toString.call(symObj) !== "[object Symbol]") return false;
                 var symVal = 42;
                 obj[sym] = symVal;
                 for (sym in obj) return false;
-                if ("function" === typeof Object.keys && 0 !== Object.keys(obj).length) return false;
-                if ("function" === typeof Object.getOwnPropertyNames && 0 !== Object.getOwnPropertyNames(obj).length) return false;
+                if (typeof Object.keys === "function" && Object.keys(obj).length !== 0) return false;
+                if (typeof Object.getOwnPropertyNames === "function" && Object.getOwnPropertyNames(obj).length !== 0) return false;
                 var syms = Object.getOwnPropertySymbols(obj);
-                if (1 !== syms.length || syms[0] !== sym) return false;
+                if (syms.length !== 1 || syms[0] !== sym) return false;
                 if (!Object.prototype.propertyIsEnumerable.call(obj, sym)) return false;
-                if ("function" === typeof Object.getOwnPropertyDescriptor) {
+                if (typeof Object.getOwnPropertyDescriptor === "function") {
                     var descriptor = Object.getOwnPropertyDescriptor(obj, sym);
-                    if (descriptor.value !== symVal || true !== descriptor.enumerable) return false;
+                    if (descriptor.value !== symVal || descriptor.enumerable !== true) return false;
                 }
                 return true;
             };
         },
-        410: (module, __unused_webpack_exports, __webpack_require__) => {
+        9092: (module, __unused_webpack_exports, __webpack_require__) => {
             "use strict";
-            var hasSymbols = __webpack_require__(419);
+            var hasSymbols = __webpack_require__(1333);
             module.exports = function hasToStringTagShams() {
                 return hasSymbols() && !!Symbol.toStringTag;
             };
         },
-        642: (module, __unused_webpack_exports, __webpack_require__) => {
+        9957: (module, __unused_webpack_exports, __webpack_require__) => {
             "use strict";
-            var bind = __webpack_require__(612);
-            module.exports = bind.call(Function.call, Object.prototype.hasOwnProperty);
+            var call = Function.prototype.call;
+            var $hasOwn = Object.prototype.hasOwnProperty;
+            var bind = __webpack_require__(6743);
+            module.exports = bind.call(call, $hasOwn);
         },
-        717: module => {
-            if ("function" === typeof Object.create) module.exports = function inherits(ctor, superCtor) {
+        6698: module => {
+            if (typeof Object.create === "function") module.exports = function inherits(ctor, superCtor) {
                 if (superCtor) {
                     ctor.super_ = superCtor;
                     ctor.prototype = Object.create(superCtor.prototype, {
@@ -1873,18 +2092,18 @@
                 }
             };
         },
-        584: (module, __unused_webpack_exports, __webpack_require__) => {
+        7244: (module, __unused_webpack_exports, __webpack_require__) => {
             "use strict";
-            var hasToStringTag = __webpack_require__(410)();
-            var callBound = __webpack_require__(924);
+            var hasToStringTag = __webpack_require__(9092)();
+            var callBound = __webpack_require__(8075);
             var $toString = callBound("Object.prototype.toString");
             var isStandardArguments = function isArguments(value) {
-                if (hasToStringTag && value && "object" === typeof value && Symbol.toStringTag in value) return false;
-                return "[object Arguments]" === $toString(value);
+                if (hasToStringTag && value && typeof value === "object" && Symbol.toStringTag in value) return false;
+                return $toString(value) === "[object Arguments]";
             };
             var isLegacyArguments = function isArguments(value) {
                 if (isStandardArguments(value)) return true;
-                return null !== value && "object" === typeof value && "number" === typeof value.length && value.length >= 0 && "[object Array]" !== $toString(value) && "[object Function]" === $toString(value.callee);
+                return value !== null && typeof value === "object" && typeof value.length === "number" && value.length >= 0 && $toString(value) !== "[object Array]" && $toString(value.callee) === "[object Function]";
             };
             var supportsStandardArguments = function() {
                 return isStandardArguments(arguments);
@@ -1892,13 +2111,13 @@
             isStandardArguments.isLegacyArguments = isLegacyArguments;
             module.exports = supportsStandardArguments ? isStandardArguments : isLegacyArguments;
         },
-        320: module => {
+        9600: module => {
             "use strict";
             var fnToStr = Function.prototype.toString;
-            var reflectApply = "object" === typeof Reflect && null !== Reflect && Reflect.apply;
+            var reflectApply = typeof Reflect === "object" && Reflect !== null && Reflect.apply;
             var badArrayLike;
             var isCallableMarker;
-            if ("function" === typeof reflectApply && "function" === typeof Object.defineProperty) try {
+            if (typeof reflectApply === "function" && typeof Object.defineProperty === "function") try {
                 badArrayLike = Object.defineProperty({}, "length", {
                     get: function() {
                         throw isCallableMarker;
@@ -1936,17 +2155,17 @@
             var ddaClass = "[object HTMLAllCollection]";
             var ddaClass2 = "[object HTML document.all class]";
             var ddaClass3 = "[object HTMLCollection]";
-            var hasToStringTag = "function" === typeof Symbol && !!Symbol.toStringTag;
+            var hasToStringTag = typeof Symbol === "function" && !!Symbol.toStringTag;
             var isIE68 = !(0 in [ ,  ]);
             var isDDA = function isDocumentDotAll() {
                 return false;
             };
-            if ("object" === typeof document) {
+            if (typeof document === "object") {
                 var all = document.all;
                 if (toStr.call(all) === toStr.call(document.all)) isDDA = function isDocumentDotAll(value) {
-                    if ((isIE68 || !value) && ("undefined" === typeof value || "object" === typeof value)) try {
+                    if ((isIE68 || !value) && (typeof value === "undefined" || typeof value === "object")) try {
                         var str = toStr.call(value);
-                        return (str === ddaClass || str === ddaClass2 || str === ddaClass3 || str === objectClass) && null == value("");
+                        return (str === ddaClass || str === ddaClass2 || str === ddaClass3 || str === objectClass) && value("") == null;
                     } catch (e) {}
                     return false;
                 };
@@ -1954,7 +2173,7 @@
             module.exports = reflectApply ? function isCallable(value) {
                 if (isDDA(value)) return true;
                 if (!value) return false;
-                if ("function" !== typeof value && "object" !== typeof value) return false;
+                if (typeof value !== "function" && typeof value !== "object") return false;
                 try {
                     reflectApply(value, null, badArrayLike);
                 } catch (e) {
@@ -1964,7 +2183,7 @@
             } : function isCallable(value) {
                 if (isDDA(value)) return true;
                 if (!value) return false;
-                if ("function" !== typeof value && "object" !== typeof value) return false;
+                if (typeof value !== "function" && typeof value !== "object") return false;
                 if (hasToStringTag) return tryFunctionObject(value);
                 if (isES6ClassFn(value)) return false;
                 var strClass = toStr.call(value);
@@ -1972,12 +2191,12 @@
                 return tryFunctionObject(value);
             };
         },
-        662: (module, __unused_webpack_exports, __webpack_require__) => {
+        8184: (module, __unused_webpack_exports, __webpack_require__) => {
             "use strict";
             var toStr = Object.prototype.toString;
             var fnToStr = Function.prototype.toString;
             var isFnRegex = /^\s*(?:function)?\*/;
-            var hasToStringTag = __webpack_require__(410)();
+            var hasToStringTag = __webpack_require__(9092)();
             var getProto = Object.getPrototypeOf;
             var getGeneratorFunc = function() {
                 if (!hasToStringTag) return false;
@@ -1987,33 +2206,33 @@
             };
             var GeneratorFunction;
             module.exports = function isGeneratorFunction(fn) {
-                if ("function" !== typeof fn) return false;
+                if (typeof fn !== "function") return false;
                 if (isFnRegex.test(fnToStr.call(fn))) return true;
                 if (!hasToStringTag) {
                     var str = toStr.call(fn);
-                    return "[object GeneratorFunction]" === str;
+                    return str === "[object GeneratorFunction]";
                 }
                 if (!getProto) return false;
-                if ("undefined" === typeof GeneratorFunction) {
+                if (typeof GeneratorFunction === "undefined") {
                     var generatorFunc = getGeneratorFunc();
                     GeneratorFunction = generatorFunc ? getProto(generatorFunc) : false;
                 }
                 return getProto(fn) === GeneratorFunction;
             };
         },
-        611: module => {
+        3003: module => {
             "use strict";
             module.exports = function isNaN(value) {
                 return value !== value;
             };
         },
-        360: (module, __unused_webpack_exports, __webpack_require__) => {
+        4133: (module, __unused_webpack_exports, __webpack_require__) => {
             "use strict";
-            var callBind = __webpack_require__(559);
-            var define = __webpack_require__(289);
-            var implementation = __webpack_require__(611);
-            var getPolyfill = __webpack_require__(415);
-            var shim = __webpack_require__(194);
+            var callBind = __webpack_require__(487);
+            var define = __webpack_require__(8452);
+            var implementation = __webpack_require__(3003);
+            var getPolyfill = __webpack_require__(6642);
+            var shim = __webpack_require__(2464);
             var polyfill = callBind(getPolyfill(), Number);
             define(polyfill, {
                 getPolyfill,
@@ -2022,18 +2241,18 @@
             });
             module.exports = polyfill;
         },
-        415: (module, __unused_webpack_exports, __webpack_require__) => {
+        6642: (module, __unused_webpack_exports, __webpack_require__) => {
             "use strict";
-            var implementation = __webpack_require__(611);
+            var implementation = __webpack_require__(3003);
             module.exports = function getPolyfill() {
                 if (Number.isNaN && Number.isNaN(NaN) && !Number.isNaN("a")) return Number.isNaN;
                 return implementation;
             };
         },
-        194: (module, __unused_webpack_exports, __webpack_require__) => {
+        2464: (module, __unused_webpack_exports, __webpack_require__) => {
             "use strict";
-            var define = __webpack_require__(289);
-            var getPolyfill = __webpack_require__(415);
+            var define = __webpack_require__(8452);
+            var getPolyfill = __webpack_require__(6642);
             module.exports = function shimNumberIsNaN() {
                 var polyfill = getPolyfill();
                 define(Number, {
@@ -2046,73 +2265,32 @@
                 return polyfill;
             };
         },
-        692: (module, __unused_webpack_exports, __webpack_require__) => {
+        5680: (module, __unused_webpack_exports, __webpack_require__) => {
             "use strict";
-            var forEach = __webpack_require__(29);
-            var availableTypedArrays = __webpack_require__(83);
-            var callBound = __webpack_require__(924);
-            var $toString = callBound("Object.prototype.toString");
-            var hasToStringTag = __webpack_require__(410)();
-            var gOPD = __webpack_require__(296);
-            var g = "undefined" === typeof globalThis ? __webpack_require__.g : globalThis;
-            var typedArrays = availableTypedArrays();
-            var $indexOf = callBound("Array.prototype.indexOf", true) || function indexOf(array, value) {
-                for (var i = 0; i < array.length; i += 1) if (array[i] === value) return i;
-                return -1;
-            };
-            var $slice = callBound("String.prototype.slice");
-            var toStrTags = {};
-            var getPrototypeOf = Object.getPrototypeOf;
-            if (hasToStringTag && gOPD && getPrototypeOf) forEach(typedArrays, (function(typedArray) {
-                var arr = new g[typedArray];
-                if (Symbol.toStringTag in arr) {
-                    var proto = getPrototypeOf(arr);
-                    var descriptor = gOPD(proto, Symbol.toStringTag);
-                    if (!descriptor) {
-                        var superProto = getPrototypeOf(proto);
-                        descriptor = gOPD(superProto, Symbol.toStringTag);
-                    }
-                    toStrTags[typedArray] = descriptor.get;
-                }
-            }));
-            var tryTypedArrays = function tryAllTypedArrays(value) {
-                var anyTrue = false;
-                forEach(toStrTags, (function(getter, typedArray) {
-                    if (!anyTrue) try {
-                        anyTrue = getter.call(value) === typedArray;
-                    } catch (e) {}
-                }));
-                return anyTrue;
-            };
+            var whichTypedArray = __webpack_require__(5767);
             module.exports = function isTypedArray(value) {
-                if (!value || "object" !== typeof value) return false;
-                if (!hasToStringTag || !(Symbol.toStringTag in value)) {
-                    var tag = $slice($toString(value), 8, -1);
-                    return $indexOf(typedArrays, tag) > -1;
-                }
-                if (!gOPD) return false;
-                return tryTypedArrays(value);
+                return !!whichTypedArray(value);
             };
         },
-        244: module => {
+        9211: module => {
             "use strict";
             var numberIsNaN = function(value) {
                 return value !== value;
             };
             module.exports = function is(a, b) {
-                if (0 === a && 0 === b) return 1 / a === 1 / b;
+                if (a === 0 && b === 0) return 1 / a === 1 / b;
                 if (a === b) return true;
                 if (numberIsNaN(a) && numberIsNaN(b)) return true;
                 return false;
             };
         },
-        609: (module, __unused_webpack_exports, __webpack_require__) => {
+        7653: (module, __unused_webpack_exports, __webpack_require__) => {
             "use strict";
-            var define = __webpack_require__(289);
-            var callBind = __webpack_require__(559);
-            var implementation = __webpack_require__(244);
-            var getPolyfill = __webpack_require__(624);
-            var shim = __webpack_require__(281);
+            var define = __webpack_require__(8452);
+            var callBind = __webpack_require__(487);
+            var implementation = __webpack_require__(9211);
+            var getPolyfill = __webpack_require__(9394);
+            var shim = __webpack_require__(6576);
             var polyfill = callBind(getPolyfill(), Object);
             define(polyfill, {
                 getPolyfill,
@@ -2121,17 +2299,17 @@
             });
             module.exports = polyfill;
         },
-        624: (module, __unused_webpack_exports, __webpack_require__) => {
+        9394: (module, __unused_webpack_exports, __webpack_require__) => {
             "use strict";
-            var implementation = __webpack_require__(244);
+            var implementation = __webpack_require__(9211);
             module.exports = function getPolyfill() {
-                return "function" === typeof Object.is ? Object.is : implementation;
+                return typeof Object.is === "function" ? Object.is : implementation;
             };
         },
-        281: (module, __unused_webpack_exports, __webpack_require__) => {
+        6576: (module, __unused_webpack_exports, __webpack_require__) => {
             "use strict";
-            var getPolyfill = __webpack_require__(624);
-            var define = __webpack_require__(289);
+            var getPolyfill = __webpack_require__(9394);
+            var define = __webpack_require__(8452);
             module.exports = function shimObjectIs() {
                 var polyfill = getPolyfill();
                 define(Object, {
@@ -2144,13 +2322,13 @@
                 return polyfill;
             };
         },
-        987: (module, __unused_webpack_exports, __webpack_require__) => {
+        8875: (module, __unused_webpack_exports, __webpack_require__) => {
             "use strict";
             var keysShim;
             if (!Object.keys) {
                 var has = Object.prototype.hasOwnProperty;
                 var toStr = Object.prototype.toString;
-                var isArgs = __webpack_require__(414);
+                var isArgs = __webpack_require__(1093);
                 var isEnumerable = Object.prototype.propertyIsEnumerable;
                 var hasDontEnumBug = !isEnumerable.call({
                     toString: null
@@ -2187,9 +2365,9 @@
                     $window: true
                 };
                 var hasAutomationEqualityBug = function() {
-                    if ("undefined" === typeof window) return false;
+                    if (typeof window === "undefined") return false;
                     for (var k in window) try {
-                        if (!excludedKeys["$" + k] && has.call(window, k) && null !== window[k] && "object" === typeof window[k]) try {
+                        if (!excludedKeys["$" + k] && has.call(window, k) && window[k] !== null && typeof window[k] === "object") try {
                             equalsConstructorPrototype(window[k]);
                         } catch (e) {
                             return true;
@@ -2200,7 +2378,7 @@
                     return false;
                 }();
                 var equalsConstructorPrototypeIfNotBuggy = function(o) {
-                    if ("undefined" === typeof window || !hasAutomationEqualityBug) return equalsConstructorPrototype(o);
+                    if (typeof window === "undefined" || !hasAutomationEqualityBug) return equalsConstructorPrototype(o);
                     try {
                         return equalsConstructorPrototype(o);
                     } catch (e) {
@@ -2208,32 +2386,32 @@
                     }
                 };
                 keysShim = function keys(object) {
-                    var isObject = null !== object && "object" === typeof object;
-                    var isFunction = "[object Function]" === toStr.call(object);
+                    var isObject = object !== null && typeof object === "object";
+                    var isFunction = toStr.call(object) === "[object Function]";
                     var isArguments = isArgs(object);
-                    var isString = isObject && "[object String]" === toStr.call(object);
+                    var isString = isObject && toStr.call(object) === "[object String]";
                     var theKeys = [];
                     if (!isObject && !isFunction && !isArguments) throw new TypeError("Object.keys called on a non-object");
                     var skipProto = hasProtoEnumBug && isFunction;
                     if (isString && object.length > 0 && !has.call(object, 0)) for (var i = 0; i < object.length; ++i) theKeys.push(String(i));
-                    if (isArguments && object.length > 0) for (var j = 0; j < object.length; ++j) theKeys.push(String(j)); else for (var name in object) if (!(skipProto && "prototype" === name) && has.call(object, name)) theKeys.push(String(name));
+                    if (isArguments && object.length > 0) for (var j = 0; j < object.length; ++j) theKeys.push(String(j)); else for (var name in object) if (!(skipProto && name === "prototype") && has.call(object, name)) theKeys.push(String(name));
                     if (hasDontEnumBug) {
                         var skipConstructor = equalsConstructorPrototypeIfNotBuggy(object);
-                        for (var k = 0; k < dontEnums.length; ++k) if (!(skipConstructor && "constructor" === dontEnums[k]) && has.call(object, dontEnums[k])) theKeys.push(dontEnums[k]);
+                        for (var k = 0; k < dontEnums.length; ++k) if (!(skipConstructor && dontEnums[k] === "constructor") && has.call(object, dontEnums[k])) theKeys.push(dontEnums[k]);
                     }
                     return theKeys;
                 };
             }
             module.exports = keysShim;
         },
-        215: (module, __unused_webpack_exports, __webpack_require__) => {
+        1189: (module, __unused_webpack_exports, __webpack_require__) => {
             "use strict";
             var slice = Array.prototype.slice;
-            var isArgs = __webpack_require__(414);
+            var isArgs = __webpack_require__(1093);
             var origKeys = Object.keys;
             var keysShim = origKeys ? function keys(o) {
                 return origKeys(o);
-            } : __webpack_require__(987);
+            } : __webpack_require__(8875);
             var originalKeys = Object.keys;
             keysShim.shim = function shimObjectKeys() {
                 if (Object.keys) {
@@ -2250,17 +2428,89 @@
             };
             module.exports = keysShim;
         },
-        414: module => {
+        1093: module => {
             "use strict";
             var toStr = Object.prototype.toString;
             module.exports = function isArguments(value) {
                 var str = toStr.call(value);
-                var isArgs = "[object Arguments]" === str;
-                if (!isArgs) isArgs = "[object Array]" !== str && null !== value && "object" === typeof value && "number" === typeof value.length && value.length >= 0 && "[object Function]" === toStr.call(value.callee);
+                var isArgs = str === "[object Arguments]";
+                if (!isArgs) isArgs = str !== "[object Array]" && value !== null && typeof value === "object" && typeof value.length === "number" && value.length >= 0 && toStr.call(value.callee) === "[object Function]";
                 return isArgs;
             };
         },
-        155: module => {
+        8403: (module, __unused_webpack_exports, __webpack_require__) => {
+            "use strict";
+            var objectKeys = __webpack_require__(1189);
+            var hasSymbols = __webpack_require__(1333)();
+            var callBound = __webpack_require__(8075);
+            var toObject = Object;
+            var $push = callBound("Array.prototype.push");
+            var $propIsEnumerable = callBound("Object.prototype.propertyIsEnumerable");
+            var originalGetSymbols = hasSymbols ? Object.getOwnPropertySymbols : null;
+            module.exports = function assign(target, source1) {
+                if (target == null) throw new TypeError("target must be an object");
+                var to = toObject(target);
+                if (arguments.length === 1) return to;
+                for (var s = 1; s < arguments.length; ++s) {
+                    var from = toObject(arguments[s]);
+                    var keys = objectKeys(from);
+                    var getSymbols = hasSymbols && (Object.getOwnPropertySymbols || originalGetSymbols);
+                    if (getSymbols) {
+                        var syms = getSymbols(from);
+                        for (var j = 0; j < syms.length; ++j) {
+                            var key = syms[j];
+                            if ($propIsEnumerable(from, key)) $push(keys, key);
+                        }
+                    }
+                    for (var i = 0; i < keys.length; ++i) {
+                        var nextKey = keys[i];
+                        if ($propIsEnumerable(from, nextKey)) {
+                            var propValue = from[nextKey];
+                            to[nextKey] = propValue;
+                        }
+                    }
+                }
+                return to;
+            };
+        },
+        1514: (module, __unused_webpack_exports, __webpack_require__) => {
+            "use strict";
+            var implementation = __webpack_require__(8403);
+            var lacksProperEnumerationOrder = function() {
+                if (!Object.assign) return false;
+                var str = "abcdefghijklmnopqrst";
+                var letters = str.split("");
+                var map = {};
+                for (var i = 0; i < letters.length; ++i) map[letters[i]] = letters[i];
+                var obj = Object.assign({}, map);
+                var actual = "";
+                for (var k in obj) actual += k;
+                return str !== actual;
+            };
+            var assignHasPendingExceptions = function() {
+                if (!Object.assign || !Object.preventExtensions) return false;
+                var thrower = Object.preventExtensions({
+                    1: 2
+                });
+                try {
+                    Object.assign(thrower, "xy");
+                } catch (e) {
+                    return thrower[1] === "y";
+                }
+                return false;
+            };
+            module.exports = function getPolyfill() {
+                if (!Object.assign) return implementation;
+                if (lacksProperEnumerationOrder()) return implementation;
+                if (assignHasPendingExceptions()) return implementation;
+                return Object.assign;
+            };
+        },
+        6578: module => {
+            "use strict";
+            module.exports = [ "Float32Array", "Float64Array", "Int8Array", "Int16Array", "Int32Array", "Uint8Array", "Uint8ClampedArray", "Uint16Array", "Uint32Array", "BigInt64Array", "BigUint64Array" ];
+        },
+        5606: module => {
             var process = module.exports = {};
             var cachedSetTimeout;
             var cachedClearTimeout;
@@ -2272,12 +2522,12 @@
             }
             (function() {
                 try {
-                    if ("function" === typeof setTimeout) cachedSetTimeout = setTimeout; else cachedSetTimeout = defaultSetTimout;
+                    if (typeof setTimeout === "function") cachedSetTimeout = setTimeout; else cachedSetTimeout = defaultSetTimout;
                 } catch (e) {
                     cachedSetTimeout = defaultSetTimout;
                 }
                 try {
-                    if ("function" === typeof clearTimeout) cachedClearTimeout = clearTimeout; else cachedClearTimeout = defaultClearTimeout;
+                    if (typeof clearTimeout === "function") cachedClearTimeout = clearTimeout; else cachedClearTimeout = defaultClearTimeout;
                 } catch (e) {
                     cachedClearTimeout = defaultClearTimeout;
                 }
@@ -2344,7 +2594,7 @@
                 var args = new Array(arguments.length - 1);
                 if (arguments.length > 1) for (var i = 1; i < arguments.length; i++) args[i - 1] = arguments[i];
                 queue.push(new Item(fun, args));
-                if (1 === queue.length && !draining) runTimeout(drainQueue);
+                if (queue.length === 1 && !draining) runTimeout(drainQueue);
             };
             function Item(fun, array) {
                 this.fun = fun;
@@ -2385,7 +2635,30 @@
                 return 0;
             };
         },
-        2: function(module, exports, __webpack_require__) {
+        6897: (module, __unused_webpack_exports, __webpack_require__) => {
+            "use strict";
+            var GetIntrinsic = __webpack_require__(453);
+            var define = __webpack_require__(41);
+            var hasDescriptors = __webpack_require__(592)();
+            var gOPD = __webpack_require__(5795);
+            var $TypeError = __webpack_require__(9675);
+            var $floor = GetIntrinsic("%Math.floor%");
+            module.exports = function setFunctionLength(fn, length) {
+                if (typeof fn !== "function") throw new $TypeError("`fn` is not a function");
+                if (typeof length !== "number" || length < 0 || length > 4294967295 || $floor(length) !== length) throw new $TypeError("`length` must be a positive 32-bit integer");
+                var loose = arguments.length > 2 && !!arguments[2];
+                var functionLengthIsConfigurable = true;
+                var functionLengthIsWritable = true;
+                if ("length" in fn && gOPD) {
+                    var desc = gOPD(fn, "length");
+                    if (desc && !desc.configurable) functionLengthIsConfigurable = false;
+                    if (desc && !desc.writable) functionLengthIsWritable = false;
+                }
+                if (functionLengthIsConfigurable || functionLengthIsWritable || !loose) if (hasDescriptors) define(fn, "length", length, true, true); else define(fn, "length", length);
+                return fn;
+            };
+        },
+        1496: function(module, exports, __webpack_require__) {
             var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;
  /*! smooth-scroll v16.1.3 | (c) 2020 Chris Ferdinandi | MIT License | http://github.com/cferdinandi/smooth-scroll */            window.Element && !Element.prototype.closest && (Element.prototype.closest = function(e) {
                 var t, n = (this.document || this.ownerDocument).querySelectorAll(e), o = this;
@@ -2419,7 +2692,7 @@
             }(), function(e, t) {
                 true ? !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function() {
                     return t(e);
-                }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), void 0 !== __WEBPACK_AMD_DEFINE_RESULT__ && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) : 0;
+                }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== void 0 && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)) : 0;
             }("undefined" != typeof __webpack_require__.g ? __webpack_require__.g : "undefined" != typeof window ? window : this, (function(M) {
                 "use strict";
                 var q = {
@@ -2555,22 +2828,22 @@
                 };
             }));
         },
-        384: module => {
+        1135: module => {
             module.exports = function isBuffer(arg) {
-                return arg && "object" === typeof arg && "function" === typeof arg.copy && "function" === typeof arg.fill && "function" === typeof arg.readUInt8;
+                return arg && typeof arg === "object" && typeof arg.copy === "function" && typeof arg.fill === "function" && typeof arg.readUInt8 === "function";
             };
         },
-        955: (__unused_webpack_module, exports, __webpack_require__) => {
+        9032: (__unused_webpack_module, exports, __webpack_require__) => {
             "use strict";
-            var isArgumentsObject = __webpack_require__(584);
-            var isGeneratorFunction = __webpack_require__(662);
-            var whichTypedArray = __webpack_require__(430);
-            var isTypedArray = __webpack_require__(692);
+            var isArgumentsObject = __webpack_require__(7244);
+            var isGeneratorFunction = __webpack_require__(8184);
+            var whichTypedArray = __webpack_require__(5767);
+            var isTypedArray = __webpack_require__(5680);
             function uncurryThis(f) {
                 return f.call.bind(f);
             }
-            var BigIntSupported = "undefined" !== typeof BigInt;
-            var SymbolSupported = "undefined" !== typeof Symbol;
+            var BigIntSupported = typeof BigInt !== "undefined";
+            var SymbolSupported = typeof Symbol !== "undefined";
             var ObjectToString = uncurryThis(Object.prototype.toString);
             var numberValue = uncurryThis(Number.prototype.valueOf);
             var stringValue = uncurryThis(String.prototype.valueOf);
@@ -2578,7 +2851,7 @@
             if (BigIntSupported) var bigIntValue = uncurryThis(BigInt.prototype.valueOf);
             if (SymbolSupported) var symbolValue = uncurryThis(Symbol.prototype.valueOf);
             function checkBoxedPrimitive(value, prototypeValueOf) {
-                if ("object" !== typeof value) return false;
+                if (typeof value !== "object") return false;
                 try {
                     prototypeValueOf(value);
                     return true;
@@ -2590,139 +2863,139 @@
             exports.isGeneratorFunction = isGeneratorFunction;
             exports.isTypedArray = isTypedArray;
             function isPromise(input) {
-                return "undefined" !== typeof Promise && input instanceof Promise || null !== input && "object" === typeof input && "function" === typeof input.then && "function" === typeof input.catch;
+                return typeof Promise !== "undefined" && input instanceof Promise || input !== null && typeof input === "object" && typeof input.then === "function" && typeof input.catch === "function";
             }
             exports.isPromise = isPromise;
             function isArrayBufferView(value) {
-                if ("undefined" !== typeof ArrayBuffer && ArrayBuffer.isView) return ArrayBuffer.isView(value);
+                if (typeof ArrayBuffer !== "undefined" && ArrayBuffer.isView) return ArrayBuffer.isView(value);
                 return isTypedArray(value) || isDataView(value);
             }
             exports.isArrayBufferView = isArrayBufferView;
             function isUint8Array(value) {
-                return "Uint8Array" === whichTypedArray(value);
+                return whichTypedArray(value) === "Uint8Array";
             }
             exports.isUint8Array = isUint8Array;
             function isUint8ClampedArray(value) {
-                return "Uint8ClampedArray" === whichTypedArray(value);
+                return whichTypedArray(value) === "Uint8ClampedArray";
             }
             exports.isUint8ClampedArray = isUint8ClampedArray;
             function isUint16Array(value) {
-                return "Uint16Array" === whichTypedArray(value);
+                return whichTypedArray(value) === "Uint16Array";
             }
             exports.isUint16Array = isUint16Array;
             function isUint32Array(value) {
-                return "Uint32Array" === whichTypedArray(value);
+                return whichTypedArray(value) === "Uint32Array";
             }
             exports.isUint32Array = isUint32Array;
             function isInt8Array(value) {
-                return "Int8Array" === whichTypedArray(value);
+                return whichTypedArray(value) === "Int8Array";
             }
             exports.isInt8Array = isInt8Array;
             function isInt16Array(value) {
-                return "Int16Array" === whichTypedArray(value);
+                return whichTypedArray(value) === "Int16Array";
             }
             exports.isInt16Array = isInt16Array;
             function isInt32Array(value) {
-                return "Int32Array" === whichTypedArray(value);
+                return whichTypedArray(value) === "Int32Array";
             }
             exports.isInt32Array = isInt32Array;
             function isFloat32Array(value) {
-                return "Float32Array" === whichTypedArray(value);
+                return whichTypedArray(value) === "Float32Array";
             }
             exports.isFloat32Array = isFloat32Array;
             function isFloat64Array(value) {
-                return "Float64Array" === whichTypedArray(value);
+                return whichTypedArray(value) === "Float64Array";
             }
             exports.isFloat64Array = isFloat64Array;
             function isBigInt64Array(value) {
-                return "BigInt64Array" === whichTypedArray(value);
+                return whichTypedArray(value) === "BigInt64Array";
             }
             exports.isBigInt64Array = isBigInt64Array;
             function isBigUint64Array(value) {
-                return "BigUint64Array" === whichTypedArray(value);
+                return whichTypedArray(value) === "BigUint64Array";
             }
             exports.isBigUint64Array = isBigUint64Array;
             function isMapToString(value) {
-                return "[object Map]" === ObjectToString(value);
+                return ObjectToString(value) === "[object Map]";
             }
-            isMapToString.working = "undefined" !== typeof Map && isMapToString(new Map);
+            isMapToString.working = typeof Map !== "undefined" && isMapToString(new Map);
             function isMap(value) {
-                if ("undefined" === typeof Map) return false;
+                if (typeof Map === "undefined") return false;
                 return isMapToString.working ? isMapToString(value) : value instanceof Map;
             }
             exports.isMap = isMap;
             function isSetToString(value) {
-                return "[object Set]" === ObjectToString(value);
+                return ObjectToString(value) === "[object Set]";
             }
-            isSetToString.working = "undefined" !== typeof Set && isSetToString(new Set);
+            isSetToString.working = typeof Set !== "undefined" && isSetToString(new Set);
             function isSet(value) {
-                if ("undefined" === typeof Set) return false;
+                if (typeof Set === "undefined") return false;
                 return isSetToString.working ? isSetToString(value) : value instanceof Set;
             }
             exports.isSet = isSet;
             function isWeakMapToString(value) {
-                return "[object WeakMap]" === ObjectToString(value);
+                return ObjectToString(value) === "[object WeakMap]";
             }
-            isWeakMapToString.working = "undefined" !== typeof WeakMap && isWeakMapToString(new WeakMap);
+            isWeakMapToString.working = typeof WeakMap !== "undefined" && isWeakMapToString(new WeakMap);
             function isWeakMap(value) {
-                if ("undefined" === typeof WeakMap) return false;
+                if (typeof WeakMap === "undefined") return false;
                 return isWeakMapToString.working ? isWeakMapToString(value) : value instanceof WeakMap;
             }
             exports.isWeakMap = isWeakMap;
             function isWeakSetToString(value) {
-                return "[object WeakSet]" === ObjectToString(value);
+                return ObjectToString(value) === "[object WeakSet]";
             }
-            isWeakSetToString.working = "undefined" !== typeof WeakSet && isWeakSetToString(new WeakSet);
+            isWeakSetToString.working = typeof WeakSet !== "undefined" && isWeakSetToString(new WeakSet);
             function isWeakSet(value) {
                 return isWeakSetToString(value);
             }
             exports.isWeakSet = isWeakSet;
             function isArrayBufferToString(value) {
-                return "[object ArrayBuffer]" === ObjectToString(value);
+                return ObjectToString(value) === "[object ArrayBuffer]";
             }
-            isArrayBufferToString.working = "undefined" !== typeof ArrayBuffer && isArrayBufferToString(new ArrayBuffer);
+            isArrayBufferToString.working = typeof ArrayBuffer !== "undefined" && isArrayBufferToString(new ArrayBuffer);
             function isArrayBuffer(value) {
-                if ("undefined" === typeof ArrayBuffer) return false;
+                if (typeof ArrayBuffer === "undefined") return false;
                 return isArrayBufferToString.working ? isArrayBufferToString(value) : value instanceof ArrayBuffer;
             }
             exports.isArrayBuffer = isArrayBuffer;
             function isDataViewToString(value) {
-                return "[object DataView]" === ObjectToString(value);
+                return ObjectToString(value) === "[object DataView]";
             }
-            isDataViewToString.working = "undefined" !== typeof ArrayBuffer && "undefined" !== typeof DataView && isDataViewToString(new DataView(new ArrayBuffer(1), 0, 1));
+            isDataViewToString.working = typeof ArrayBuffer !== "undefined" && typeof DataView !== "undefined" && isDataViewToString(new DataView(new ArrayBuffer(1), 0, 1));
             function isDataView(value) {
-                if ("undefined" === typeof DataView) return false;
+                if (typeof DataView === "undefined") return false;
                 return isDataViewToString.working ? isDataViewToString(value) : value instanceof DataView;
             }
             exports.isDataView = isDataView;
-            var SharedArrayBufferCopy = "undefined" !== typeof SharedArrayBuffer ? SharedArrayBuffer : void 0;
+            var SharedArrayBufferCopy = typeof SharedArrayBuffer !== "undefined" ? SharedArrayBuffer : void 0;
             function isSharedArrayBufferToString(value) {
-                return "[object SharedArrayBuffer]" === ObjectToString(value);
+                return ObjectToString(value) === "[object SharedArrayBuffer]";
             }
             function isSharedArrayBuffer(value) {
-                if ("undefined" === typeof SharedArrayBufferCopy) return false;
-                if ("undefined" === typeof isSharedArrayBufferToString.working) isSharedArrayBufferToString.working = isSharedArrayBufferToString(new SharedArrayBufferCopy);
+                if (typeof SharedArrayBufferCopy === "undefined") return false;
+                if (typeof isSharedArrayBufferToString.working === "undefined") isSharedArrayBufferToString.working = isSharedArrayBufferToString(new SharedArrayBufferCopy);
                 return isSharedArrayBufferToString.working ? isSharedArrayBufferToString(value) : value instanceof SharedArrayBufferCopy;
             }
             exports.isSharedArrayBuffer = isSharedArrayBuffer;
             function isAsyncFunction(value) {
-                return "[object AsyncFunction]" === ObjectToString(value);
+                return ObjectToString(value) === "[object AsyncFunction]";
             }
             exports.isAsyncFunction = isAsyncFunction;
             function isMapIterator(value) {
-                return "[object Map Iterator]" === ObjectToString(value);
+                return ObjectToString(value) === "[object Map Iterator]";
             }
             exports.isMapIterator = isMapIterator;
             function isSetIterator(value) {
-                return "[object Set Iterator]" === ObjectToString(value);
+                return ObjectToString(value) === "[object Set Iterator]";
             }
             exports.isSetIterator = isSetIterator;
             function isGeneratorObject(value) {
-                return "[object Generator]" === ObjectToString(value);
+                return ObjectToString(value) === "[object Generator]";
             }
             exports.isGeneratorObject = isGeneratorObject;
             function isWebAssemblyCompiledModule(value) {
-                return "[object WebAssembly.Module]" === ObjectToString(value);
+                return ObjectToString(value) === "[object WebAssembly.Module]";
             }
             exports.isWebAssemblyCompiledModule = isWebAssemblyCompiledModule;
             function isNumberObject(value) {
@@ -2750,7 +3023,7 @@
             }
             exports.isBoxedPrimitive = isBoxedPrimitive;
             function isAnyArrayBuffer(value) {
-                return "undefined" !== typeof Uint8Array && (isArrayBuffer(value) || isSharedArrayBuffer(value));
+                return typeof Uint8Array !== "undefined" && (isArrayBuffer(value) || isSharedArrayBuffer(value));
             }
             exports.isAnyArrayBuffer = isAnyArrayBuffer;
             [ "isProxy", "isExternal", "isModuleNamespaceObject" ].forEach((function(method) {
@@ -2762,9 +3035,9 @@
                 });
             }));
         },
-        539: (__unused_webpack_module, exports, __webpack_require__) => {
-            var process = __webpack_require__(155);
-            var console = __webpack_require__(108);
+        537: (__unused_webpack_module, exports, __webpack_require__) => {
+            var process = __webpack_require__(5606);
+            var console = __webpack_require__(6763);
             var getOwnPropertyDescriptors = Object.getOwnPropertyDescriptors || function getOwnPropertyDescriptors(obj) {
                 var keys = Object.keys(obj);
                 var descriptors = {};
@@ -2782,7 +3055,7 @@
                 var args = arguments;
                 var len = args.length;
                 var str = String(f).replace(formatRegExp, (function(x) {
-                    if ("%%" === x) return "%";
+                    if (x === "%%") return "%";
                     if (i >= len) return x;
                     switch (x) {
                       case "%s":
@@ -2806,8 +3079,8 @@
                 return str;
             };
             exports.deprecate = function(fn, msg) {
-                if ("undefined" !== typeof process && true === process.noDeprecation) return fn;
-                if ("undefined" === typeof process) return function() {
+                if (typeof process !== "undefined" && process.noDeprecation === true) return fn;
+                if (typeof process === "undefined") return function() {
                     return exports.deprecate(fn, msg).apply(this, arguments);
                 };
                 var warned = false;
@@ -2905,7 +3178,7 @@
                 var visibleKeys = arrayToHash(keys);
                 if (ctx.showHidden) keys = Object.getOwnPropertyNames(value);
                 if (isError(value) && (keys.indexOf("message") >= 0 || keys.indexOf("description") >= 0)) return formatError(value);
-                if (0 === keys.length) {
+                if (keys.length === 0) {
                     if (isFunction(value)) {
                         var name = value.name ? ": " + value.name : "";
                         return ctx.stylize("[Function" + name + "]", "special");
@@ -2926,7 +3199,7 @@
                 if (isRegExp(value)) base = " " + RegExp.prototype.toString.call(value);
                 if (isDate(value)) base = " " + Date.prototype.toUTCString.call(value);
                 if (isError(value)) base = " " + formatError(value);
-                if (0 === keys.length && (!array || 0 == value.length)) return braces[0] + base + braces[1];
+                if (keys.length === 0 && (!array || value.length == 0)) return braces[0] + base + braces[1];
                 if (recurseTimes < 0) if (isRegExp(value)) return ctx.stylize(RegExp.prototype.toString.call(value), "regexp"); else return ctx.stylize("[Object]", "special");
                 ctx.seen.push(value);
                 var output;
@@ -2992,70 +3265,70 @@
                     if (cur.indexOf("\n") >= 0) numLinesEst++;
                     return prev + cur.replace(/\u001b\[\d\d?m/g, "").length + 1;
                 }), 0);
-                if (length > 60) return braces[0] + ("" === base ? "" : base + "\n ") + " " + output.join(",\n  ") + " " + braces[1];
+                if (length > 60) return braces[0] + (base === "" ? "" : base + "\n ") + " " + output.join(",\n  ") + " " + braces[1];
                 return braces[0] + base + " " + output.join(", ") + " " + braces[1];
             }
-            exports.types = __webpack_require__(955);
+            exports.types = __webpack_require__(9032);
             function isArray(ar) {
                 return Array.isArray(ar);
             }
             exports.isArray = isArray;
             function isBoolean(arg) {
-                return "boolean" === typeof arg;
+                return typeof arg === "boolean";
             }
             exports.isBoolean = isBoolean;
             function isNull(arg) {
-                return null === arg;
+                return arg === null;
             }
             exports.isNull = isNull;
             function isNullOrUndefined(arg) {
-                return null == arg;
+                return arg == null;
             }
             exports.isNullOrUndefined = isNullOrUndefined;
             function isNumber(arg) {
-                return "number" === typeof arg;
+                return typeof arg === "number";
             }
             exports.isNumber = isNumber;
             function isString(arg) {
-                return "string" === typeof arg;
+                return typeof arg === "string";
             }
             exports.isString = isString;
             function isSymbol(arg) {
-                return "symbol" === typeof arg;
+                return typeof arg === "symbol";
             }
             exports.isSymbol = isSymbol;
             function isUndefined(arg) {
-                return void 0 === arg;
+                return arg === void 0;
             }
             exports.isUndefined = isUndefined;
             function isRegExp(re) {
-                return isObject(re) && "[object RegExp]" === objectToString(re);
+                return isObject(re) && objectToString(re) === "[object RegExp]";
             }
             exports.isRegExp = isRegExp;
             exports.types.isRegExp = isRegExp;
             function isObject(arg) {
-                return "object" === typeof arg && null !== arg;
+                return typeof arg === "object" && arg !== null;
             }
             exports.isObject = isObject;
             function isDate(d) {
-                return isObject(d) && "[object Date]" === objectToString(d);
+                return isObject(d) && objectToString(d) === "[object Date]";
             }
             exports.isDate = isDate;
             exports.types.isDate = isDate;
             function isError(e) {
-                return isObject(e) && ("[object Error]" === objectToString(e) || e instanceof Error);
+                return isObject(e) && (objectToString(e) === "[object Error]" || e instanceof Error);
             }
             exports.isError = isError;
             exports.types.isNativeError = isError;
             function isFunction(arg) {
-                return "function" === typeof arg;
+                return typeof arg === "function";
             }
             exports.isFunction = isFunction;
             function isPrimitive(arg) {
-                return null === arg || "boolean" === typeof arg || "number" === typeof arg || "string" === typeof arg || "symbol" === typeof arg || "undefined" === typeof arg;
+                return arg === null || typeof arg === "boolean" || typeof arg === "number" || typeof arg === "string" || typeof arg === "symbol" || typeof arg === "undefined";
             }
             exports.isPrimitive = isPrimitive;
-            exports.isBuffer = __webpack_require__(384);
+            exports.isBuffer = __webpack_require__(1135);
             function objectToString(o) {
                 return Object.prototype.toString.call(o);
             }
@@ -3071,7 +3344,7 @@
             exports.log = function() {
                 console.log("%s - %s", timestamp(), exports.format.apply(exports, arguments));
             };
-            exports.inherits = __webpack_require__(717);
+            exports.inherits = __webpack_require__(6698);
             exports._extend = function(origin, add) {
                 if (!add || !isObject(add)) return origin;
                 var keys = Object.keys(add);
@@ -3082,12 +3355,12 @@
             function hasOwnProperty(obj, prop) {
                 return Object.prototype.hasOwnProperty.call(obj, prop);
             }
-            var kCustomPromisifiedSymbol = "undefined" !== typeof Symbol ? Symbol("util.promisify.custom") : void 0;
+            var kCustomPromisifiedSymbol = typeof Symbol !== "undefined" ? Symbol("util.promisify.custom") : void 0;
             exports.promisify = function promisify(original) {
-                if ("function" !== typeof original) throw new TypeError('The "original" argument must be of type Function');
+                if (typeof original !== "function") throw new TypeError('The "original" argument must be of type Function');
                 if (kCustomPromisifiedSymbol && original[kCustomPromisifiedSymbol]) {
                     var fn = original[kCustomPromisifiedSymbol];
-                    if ("function" !== typeof fn) throw new TypeError('The "util.promisify.custom" argument must be of type Function');
+                    if (typeof fn !== "function") throw new TypeError('The "util.promisify.custom" argument must be of type Function');
                     Object.defineProperty(fn, kCustomPromisifiedSymbol, {
                         value: fn,
                         enumerable: false,
@@ -3133,12 +3406,12 @@
                 return cb(reason);
             }
             function callbackify(original) {
-                if ("function" !== typeof original) throw new TypeError('The "original" argument must be of type Function');
+                if (typeof original !== "function") throw new TypeError('The "original" argument must be of type Function');
                 function callbackified() {
                     var args = [];
                     for (var i = 0; i < arguments.length; i++) args.push(arguments[i]);
                     var maybeCb = args.pop();
-                    if ("function" !== typeof maybeCb) throw new TypeError("The last argument must be of type Function");
+                    if (typeof maybeCb !== "function") throw new TypeError("The last argument must be of type Function");
                     var self = this;
                     var cb = function() {
                         return maybeCb.apply(self, arguments);
@@ -3155,7 +3428,7 @@
             }
             exports.callbackify = callbackify;
         },
-        732: function(module) {
+        4144: function(module) {
             !function(n, t) {
                 true ? module.exports = t() : 0;
             }(0, (function() {
@@ -3218,7 +3491,7 @@
                         });
                     }
                     window.dispatchEvent(e);
-                }, u = "src", s = "srcset", d = "sizes", f = "poster", _ = "llOriginalAttrs", g = "data", v = "loading", b = "loaded", m = "applied", p = "error", h = "native", E = "data-", I = "ll-status", y = function(n, t) {
+                }, u = "src", s = "srcset", d = "sizes", f = "poster", _ = "llOriginalAttrs", g = "data", v = "loading", b = "loaded", p = "applied", m = "error", h = "native", E = "data-", I = "ll-status", y = function(n, t) {
                     return n.getAttribute(E + t);
                 }, k = function(n) {
                     return y(n, I);
@@ -3233,12 +3506,12 @@
                     return null === k(n);
                 }, O = function(n) {
                     return k(n) === h;
-                }, x = [ v, b, m, p ], C = function(n, t, e, i) {
-                    n && (void 0 === i ? void 0 === e ? n(t) : n(t, e) : n(t, e, i));
+                }, x = [ v, b, p, m ], C = function(n, t, e, i) {
+                    n && "function" == typeof n && (void 0 === i ? void 0 === e ? n(t) : n(t, e) : n(t, e, i));
                 }, N = function(n, t) {
-                    o ? n.classList.add(t) : n.className += (n.className ? " " : "") + t;
+                    "" !== t && (o ? n.classList.add(t) : n.className += (n.className ? " " : "") + t);
                 }, M = function(n, t) {
-                    o ? n.classList.remove(t) : n.className = n.className.replace(new RegExp("(^|\\s+)" + t + "(\\s+|$)"), " ").replace(/^\s+/, "").replace(/\s+$/, "");
+                    "" !== t && (o ? n.classList.remove(t) : n.className = n.className.replace(new RegExp("(^|\\s+)" + t + "(\\s+|$)"), " ").replace(/^\s+/, "").replace(/\s+$/, ""));
                 }, z = function(n) {
                     return n.llTempImage;
                 }, T = function(n, t) {
@@ -3281,7 +3554,7 @@
                         }));
                     }
                 }, K = function(n, t, e) {
-                    N(n, t.class_applied), w(n, m), e && (t.unobserve_completed && T(n, t), C(t.callback_applied, n, e));
+                    N(n, t.class_applied), w(n, p), e && (t.unobserve_completed && T(n, t), C(t.callback_applied, n, e));
                 }, Q = function(n, t, e) {
                     N(n, t.class_loading), w(n, v), e && (R(e, 1), C(t.callback_loading, n, e));
                 }, W = function(n, t, e) {
@@ -3346,7 +3619,7 @@
                     }), (function(o) {
                         !function(n, t, e, i) {
                             var o = O(t);
-                            rn(t, e, i), N(t, e.class_error), w(t, p), C(e.callback_error, t, i), e.restore_on_error && q(t, B), 
+                            rn(t, e, i), N(t, e.class_error), w(t, m), C(e.callback_error, t, i), e.restore_on_error && q(t, B), 
                             o || nn(e, i);
                         }(0, n, t, e), an(i);
                     }));
@@ -3443,16 +3716,16 @@
                     }));
                 }, bn = function(n) {
                     return Array.prototype.slice.call(n);
-                }, mn = function(n) {
-                    return n.container.querySelectorAll(n.elements_selector);
                 }, pn = function(n) {
+                    return n.container.querySelectorAll(n.elements_selector);
+                }, mn = function(n) {
                     return function(n) {
-                        return k(n) === p;
+                        return k(n) === m;
                     }(n);
                 }, hn = function(n, t) {
                     return function(n) {
                         return bn(n).filter(L);
-                    }(n || mn(t));
+                    }(n || pn(t));
                 }, En = function(n, e) {
                     var o = c(n);
                     this._settings = o, this.loadingCount = 0, function(n, t) {
@@ -3468,7 +3741,7 @@
                         t && (e._onlineHandler = function() {
                             !function(n, t) {
                                 var e;
-                                (e = mn(n), bn(e).filter(pn)).forEach((function(t) {
+                                (e = pn(n), bn(e).filter(mn)).forEach((function(t) {
                                     M(t, n.class_error), A(t);
                                 })), t.update();
                             }(n, e);
@@ -3497,7 +3770,7 @@
                     },
                     destroy: function() {
                         this._observer && this._observer.disconnect(), t && window.removeEventListener("online", this._onlineHandler), 
-                        mn(this._settings).forEach((function(n) {
+                        pn(this._settings).forEach((function(n) {
                             U(n);
                         })), delete this._observer, delete this._settings, delete this._onlineHandler, delete this.loadingCount, 
                         delete this.toLoadCount;
@@ -3510,7 +3783,7 @@
                     },
                     restoreAll: function() {
                         var n = this._settings;
-                        mn(n).forEach((function(t) {
+                        pn(n).forEach((function(t) {
                             fn(t, n);
                         }));
                     }
@@ -3524,57 +3797,80 @@
                 }(En, window.lazyLoadOptions), En;
             }));
         },
-        430: (module, __unused_webpack_exports, __webpack_require__) => {
+        5767: (module, __unused_webpack_exports, __webpack_require__) => {
             "use strict";
-            var forEach = __webpack_require__(29);
-            var availableTypedArrays = __webpack_require__(83);
-            var callBound = __webpack_require__(924);
-            var gOPD = __webpack_require__(296);
+            var forEach = __webpack_require__(2682);
+            var availableTypedArrays = __webpack_require__(9209);
+            var callBind = __webpack_require__(487);
+            var callBound = __webpack_require__(8075);
+            var gOPD = __webpack_require__(5795);
             var $toString = callBound("Object.prototype.toString");
-            var hasToStringTag = __webpack_require__(410)();
-            var g = "undefined" === typeof globalThis ? __webpack_require__.g : globalThis;
+            var hasToStringTag = __webpack_require__(9092)();
+            var g = typeof globalThis === "undefined" ? __webpack_require__.g : globalThis;
             var typedArrays = availableTypedArrays();
             var $slice = callBound("String.prototype.slice");
-            var toStrTags = {};
             var getPrototypeOf = Object.getPrototypeOf;
+            var $indexOf = callBound("Array.prototype.indexOf", true) || function indexOf(array, value) {
+                for (var i = 0; i < array.length; i += 1) if (array[i] === value) return i;
+                return -1;
+            };
+            var cache = {
+                __proto__: null
+            };
             if (hasToStringTag && gOPD && getPrototypeOf) forEach(typedArrays, (function(typedArray) {
-                if ("function" === typeof g[typedArray]) {
-                    var arr = new g[typedArray];
-                    if (Symbol.toStringTag in arr) {
-                        var proto = getPrototypeOf(arr);
-                        var descriptor = gOPD(proto, Symbol.toStringTag);
-                        if (!descriptor) {
-                            var superProto = getPrototypeOf(proto);
-                            descriptor = gOPD(superProto, Symbol.toStringTag);
-                        }
-                        toStrTags[typedArray] = descriptor.get;
+                var arr = new g[typedArray];
+                if (Symbol.toStringTag in arr) {
+                    var proto = getPrototypeOf(arr);
+                    var descriptor = gOPD(proto, Symbol.toStringTag);
+                    if (!descriptor) {
+                        var superProto = getPrototypeOf(proto);
+                        descriptor = gOPD(superProto, Symbol.toStringTag);
                     }
+                    cache["$" + typedArray] = callBind(descriptor.get);
                 }
+            })); else forEach(typedArrays, (function(typedArray) {
+                var arr = new g[typedArray];
+                var fn = arr.slice || arr.set;
+                if (fn) cache["$" + typedArray] = callBind(fn);
             }));
             var tryTypedArrays = function tryAllTypedArrays(value) {
-                var foundName = false;
-                forEach(toStrTags, (function(getter, typedArray) {
-                    if (!foundName) try {
-                        var name = getter.call(value);
-                        if (name === typedArray) foundName = name;
+                var found = false;
+                forEach(cache, (function(getter, typedArray) {
+                    if (!found) try {
+                        if ("$" + getter(value) === typedArray) found = $slice(typedArray, 1);
                     } catch (e) {}
                 }));
-                return foundName;
+                return found;
             };
-            var isTypedArray = __webpack_require__(692);
+            var trySlices = function tryAllSlices(value) {
+                var found = false;
+                forEach(cache, (function(getter, name) {
+                    if (!found) try {
+                        getter(value);
+                        found = $slice(name, 1);
+                    } catch (e) {}
+                }));
+                return found;
+            };
             module.exports = function whichTypedArray(value) {
-                if (!isTypedArray(value)) return false;
-                if (!hasToStringTag || !(Symbol.toStringTag in value)) return $slice($toString(value), 8, -1);
+                if (!value || typeof value !== "object") return false;
+                if (!hasToStringTag) {
+                    var tag = $slice($toString(value), 8, -1);
+                    if ($indexOf(typedArrays, tag) > -1) return tag;
+                    if (tag !== "Object") return false;
+                    return trySlices(value);
+                }
+                if (!gOPD) return null;
                 return tryTypedArrays(value);
             };
         },
-        83: (module, __unused_webpack_exports, __webpack_require__) => {
+        9209: (module, __unused_webpack_exports, __webpack_require__) => {
             "use strict";
-            var possibleNames = [ "BigInt64Array", "BigUint64Array", "Float32Array", "Float64Array", "Int16Array", "Int32Array", "Int8Array", "Uint16Array", "Uint32Array", "Uint8Array", "Uint8ClampedArray" ];
-            var g = "undefined" === typeof globalThis ? __webpack_require__.g : globalThis;
+            var possibleNames = __webpack_require__(6578);
+            var g = typeof globalThis === "undefined" ? __webpack_require__.g : globalThis;
             module.exports = function availableTypedArrays() {
                 var out = [];
-                for (var i = 0; i < possibleNames.length; i++) if ("function" === typeof g[possibleNames[i]]) out[out.length] = possibleNames[i];
+                for (var i = 0; i < possibleNames.length; i++) if (typeof g[possibleNames[i]] === "function") out[out.length] = possibleNames[i];
                 return out;
             };
         }
@@ -3582,7 +3878,7 @@
     var __webpack_module_cache__ = {};
     function __webpack_require__(moduleId) {
         var cachedModule = __webpack_module_cache__[moduleId];
-        if (void 0 !== cachedModule) return cachedModule.exports;
+        if (cachedModule !== void 0) return cachedModule.exports;
         var module = __webpack_module_cache__[moduleId] = {
             exports: {}
         };
@@ -3591,23 +3887,24 @@
     }
     (() => {
         __webpack_require__.g = function() {
-            if ("object" === typeof globalThis) return globalThis;
+            if (typeof globalThis === "object") return globalThis;
             try {
                 return this || new Function("return this")();
             } catch (e) {
-                if ("object" === typeof window) return window;
+                if (typeof window === "object") return window;
             }
         }();
     })();
     (() => {
         "use strict";
-        var console = __webpack_require__(108);
+        var console = __webpack_require__(6763);
         function addLoadedClass() {
             window.addEventListener("load", (function() {
                 setTimeout((function() {
                     document.documentElement.classList.add("loaded");
                 }), 0);
             }));
+            if (document.readyState === "complete") document.documentElement.classList.add("loaded");
         }
         function getHash() {
             if (location.hash) return location.hash.replace("#", "");
@@ -3617,8 +3914,8 @@
             history.pushState("", "", hash);
         }
         var _slideUp = function _slideUp(target) {
-            var duration = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : 500;
-            var showmore = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : 0;
+            var duration = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : 500;
+            var showmore = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : 0;
             if (!target.classList.contains("_slide")) {
                 target.classList.add("_slide");
                 target.style.transitionProperty = "height, margin, padding";
@@ -3651,8 +3948,8 @@
             }
         };
         var _slideDown = function _slideDown(target) {
-            var duration = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : 500;
-            var showmore = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : 0;
+            var duration = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : 500;
+            var showmore = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : 0;
             if (!target.classList.contains("_slide")) {
                 target.classList.add("_slide");
                 target.hidden = target.hidden ? false : null;
@@ -3687,16 +3984,16 @@
             }
         };
         var _slideToggle = function _slideToggle(target) {
-            var duration = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : 500;
+            var duration = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : 500;
             if (target.hidden) return _slideDown(target, duration); else return _slideUp(target, duration);
         };
         var bodyLockStatus = true;
         var bodyLockToggle = function bodyLockToggle() {
-            var delay = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : 500;
+            var delay = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : 500;
             if (document.documentElement.classList.contains("lock")) bodyUnlock(delay); else bodyLock(delay);
         };
         var bodyUnlock = function bodyUnlock() {
-            var delay = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : 500;
+            var delay = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : 500;
             var body = document.querySelector("body");
             if (bodyLockStatus) {
                 var lock_padding = document.querySelectorAll("[data-lp]");
@@ -3715,7 +4012,7 @@
             }
         };
         var bodyLock = function bodyLock() {
-            var delay = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : 500;
+            var delay = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : 500;
             var body = document.querySelector("body");
             if (bodyLockStatus) {
                 var lock_padding = document.querySelectorAll("[data-lp]");
@@ -3735,7 +4032,7 @@
             var spollersArray = document.querySelectorAll("[data-spollers]");
             if (spollersArray.length > 0) {
                 var initSpollers = function initSpollers(spollersArray) {
-                    var matchMedia = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : false;
+                    var matchMedia = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : false;
                     spollersArray.forEach((function(spollersBlock) {
                         spollersBlock = matchMedia ? spollersBlock.item : spollersBlock;
                         if (matchMedia.matches || !matchMedia) {
@@ -3750,7 +4047,7 @@
                     }));
                 };
                 var initSpollerBody = function initSpollerBody(spollersBlock) {
-                    var hideSpollerBody = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : true;
+                    var hideSpollerBody = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : true;
                     var spollerTitles = spollersBlock.querySelectorAll("[data-spoller]");
                     if (spollerTitles.length) {
                         spollerTitles = Array.from(spollerTitles).filter((function(item) {
@@ -3987,78 +4284,71 @@
             }
         }
         var flsModules = {};
-        function _typeof(obj) {
+        function _typeof(o) {
             "@babel/helpers - typeof";
-            return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(obj) {
-                return typeof obj;
-            } : function(obj) {
-                return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-            }, _typeof(obj);
+            return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(o) {
+                return typeof o;
+            } : function(o) {
+                return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o;
+            }, _typeof(o);
         }
-        function ownKeys(object, enumerableOnly) {
-            var keys = Object.keys(object);
+        function ownKeys(e, r) {
+            var t = Object.keys(e);
             if (Object.getOwnPropertySymbols) {
-                var symbols = Object.getOwnPropertySymbols(object);
-                enumerableOnly && (symbols = symbols.filter((function(sym) {
-                    return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-                }))), keys.push.apply(keys, symbols);
+                var o = Object.getOwnPropertySymbols(e);
+                r && (o = o.filter((function(r) {
+                    return Object.getOwnPropertyDescriptor(e, r).enumerable;
+                }))), t.push.apply(t, o);
             }
-            return keys;
+            return t;
         }
-        function _objectSpread(target) {
-            for (var i = 1; i < arguments.length; i++) {
-                var source = null != arguments[i] ? arguments[i] : {};
-                i % 2 ? ownKeys(Object(source), !0).forEach((function(key) {
-                    _defineProperty(target, key, source[key]);
-                })) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach((function(key) {
-                    Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+        function _objectSpread(e) {
+            for (var r = 1; r < arguments.length; r++) {
+                var t = null != arguments[r] ? arguments[r] : {};
+                r % 2 ? ownKeys(Object(t), !0).forEach((function(r) {
+                    _defineProperty(e, r, t[r]);
+                })) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach((function(r) {
+                    Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r));
                 }));
             }
-            return target;
+            return e;
         }
-        function _defineProperty(obj, key, value) {
-            key = _toPropertyKey(key);
-            if (key in obj) Object.defineProperty(obj, key, {
-                value,
-                enumerable: true,
-                configurable: true,
-                writable: true
-            }); else obj[key] = value;
-            return obj;
+        function _defineProperty(e, r, t) {
+            return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, {
+                value: t,
+                enumerable: !0,
+                configurable: !0,
+                writable: !0
+            }) : e[r] = t, e;
         }
-        function _classCallCheck(instance, Constructor) {
-            if (!(instance instanceof Constructor)) throw new TypeError("Cannot call a class as a function");
+        function _classCallCheck(a, n) {
+            if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function");
         }
-        function _defineProperties(target, props) {
-            for (var i = 0; i < props.length; i++) {
-                var descriptor = props[i];
-                descriptor.enumerable = descriptor.enumerable || false;
-                descriptor.configurable = true;
-                if ("value" in descriptor) descriptor.writable = true;
-                Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor);
+        function _defineProperties(e, r) {
+            for (var t = 0; t < r.length; t++) {
+                var o = r[t];
+                o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), 
+                Object.defineProperty(e, _toPropertyKey(o.key), o);
             }
         }
-        function _createClass(Constructor, protoProps, staticProps) {
-            if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-            if (staticProps) _defineProperties(Constructor, staticProps);
-            Object.defineProperty(Constructor, "prototype", {
-                writable: false
-            });
-            return Constructor;
+        function _createClass(e, r, t) {
+            return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", {
+                writable: !1
+            }), e;
         }
-        function _toPropertyKey(arg) {
-            var key = _toPrimitive(arg, "string");
-            return "symbol" === _typeof(key) ? key : String(key);
+        function _toPropertyKey(t) {
+            var i = _toPrimitive(t, "string");
+            return "symbol" == _typeof(i) ? i : i + "";
         }
-        function _toPrimitive(input, hint) {
-            if ("object" !== _typeof(input) || null === input) return input;
-            var prim = input[Symbol.toPrimitive];
-            if (void 0 !== prim) {
-                var res = prim.call(input, hint || "default");
-                if ("object" !== _typeof(res)) return res;
+        function _toPrimitive(t, r) {
+            if ("object" != _typeof(t) || !t) return t;
+            var e = t[Symbol.toPrimitive];
+            if (void 0 !== e) {
+                var i = e.call(t, r || "default");
+                if ("object" != _typeof(i)) return i;
                 throw new TypeError("@@toPrimitive must return a primitive value.");
             }
-            return ("string" === hint ? String : Number)(input);
+            return ("string" === r ? String : Number)(t);
         }
         var Popup = function() {
             function Popup(options) {
@@ -4113,14 +4403,14 @@
                 this.lastFocusEl = false;
                 this._focusEl = [ "a[href]", 'input:not([disabled]):not([type="hidden"]):not([aria-hidden])', "button:not([disabled]):not([aria-hidden])", "select:not([disabled]):not([aria-hidden])", "textarea:not([disabled]):not([aria-hidden])", "area[href]", "iframe", "object", "embed", "[contenteditable]", '[tabindex]:not([tabindex^="-"])' ];
                 this.options = _objectSpread(_objectSpread(_objectSpread({}, config), options), {}, {
-                    classes: _objectSpread(_objectSpread({}, config.classes), null === options || void 0 === options ? void 0 : options.classes),
-                    hashSettings: _objectSpread(_objectSpread({}, config.hashSettings), null === options || void 0 === options ? void 0 : options.hashSettings),
-                    on: _objectSpread(_objectSpread({}, config.on), null === options || void 0 === options ? void 0 : options.on)
+                    classes: _objectSpread(_objectSpread({}, config.classes), options === null || options === void 0 ? void 0 : options.classes),
+                    hashSettings: _objectSpread(_objectSpread({}, config.hashSettings), options === null || options === void 0 ? void 0 : options.hashSettings),
+                    on: _objectSpread(_objectSpread({}, config.on), options === null || options === void 0 ? void 0 : options.on)
                 });
                 this.bodyLock = false;
                 this.options.init ? this.initPopups() : null;
             }
-            _createClass(Popup, [ {
+            return _createClass(Popup, [ {
                 key: "initPopups",
                 value: function initPopups() {
                     this.popupLogging("Проснулся");
@@ -4135,7 +4425,7 @@
                             e.preventDefault();
                             this._dataValue = buttonOpen.getAttribute(this.options.attributeOpenButton) ? buttonOpen.getAttribute(this.options.attributeOpenButton) : "error";
                             this.youTubeCode = buttonOpen.getAttribute(this.options.youtubeAttribute) ? buttonOpen.getAttribute(this.options.youtubeAttribute) : null;
-                            if ("error" !== this._dataValue) {
+                            if (this._dataValue !== "error") {
                                 if (!this.isOpen) this.lastFocusEl = buttonOpen;
                                 this.targetOpen.selector = "".concat(this._dataValue);
                                 this._selectorOpen = true;
@@ -4152,12 +4442,12 @@
                         }
                     }.bind(this));
                     document.addEventListener("keydown", function(e) {
-                        if (this.options.closeEsc && 27 == e.which && "Escape" === e.code && this.isOpen) {
+                        if (this.options.closeEsc && e.which == 27 && e.code === "Escape" && this.isOpen) {
                             e.preventDefault();
                             this.close();
                             return;
                         }
-                        if (this.options.focusCatch && 9 == e.which && this.isOpen) {
+                        if (this.options.focusCatch && e.which == 9 && this.isOpen) {
                             this._focusCatch(e);
                             return;
                         }
@@ -4177,7 +4467,7 @@
                     var _this = this;
                     if (bodyLockStatus) {
                         this.bodyLock = document.documentElement.classList.contains("lock") && !this.isOpen ? true : false;
-                        if (selectorValue && "string" === typeof selectorValue && "" !== selectorValue.trim()) {
+                        if (selectorValue && typeof selectorValue === "string" && selectorValue.trim() !== "") {
                             this.targetOpen.selector = selectorValue;
                             this._selectorOpen = true;
                         }
@@ -4235,7 +4525,7 @@
                 key: "close",
                 value: function close(selectorValue) {
                     var _this2 = this;
-                    if (selectorValue && "string" === typeof selectorValue && "" !== selectorValue.trim()) this.previousOpen.selector = selectorValue;
+                    if (selectorValue && typeof selectorValue === "string" && selectorValue.trim() !== "") this.previousOpen.selector = selectorValue;
                     if (!this.isOpen || !bodyLockStatus) return;
                     this.options.on.beforeClose(this);
                     document.dispatchEvent(new CustomEvent("beforePopupClose", {
@@ -4295,7 +4585,7 @@
                     var focusable = this.targetOpen.element.querySelectorAll(this._focusEl);
                     var focusArray = Array.prototype.slice.call(focusable);
                     var focusedIndex = focusArray.indexOf(document.activeElement);
-                    if (e.shiftKey && 0 === focusedIndex) {
+                    if (e.shiftKey && focusedIndex === 0) {
                         focusArray[focusArray.length - 1].focus();
                         e.preventDefault();
                     }
@@ -4316,54 +4606,49 @@
                     this.options.logging ? FLS("[Попапос]: ".concat(message)) : null;
                 }
             } ]);
-            return Popup;
         }();
         flsModules.popup = new Popup({});
-        function select_typeof(obj) {
+        function select_typeof(o) {
             "@babel/helpers - typeof";
-            return select_typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(obj) {
-                return typeof obj;
-            } : function(obj) {
-                return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-            }, select_typeof(obj);
+            return select_typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(o) {
+                return typeof o;
+            } : function(o) {
+                return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o;
+            }, select_typeof(o);
         }
-        function select_classCallCheck(instance, Constructor) {
-            if (!(instance instanceof Constructor)) throw new TypeError("Cannot call a class as a function");
+        function select_classCallCheck(a, n) {
+            if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function");
         }
-        function select_defineProperties(target, props) {
-            for (var i = 0; i < props.length; i++) {
-                var descriptor = props[i];
-                descriptor.enumerable = descriptor.enumerable || false;
-                descriptor.configurable = true;
-                if ("value" in descriptor) descriptor.writable = true;
-                Object.defineProperty(target, select_toPropertyKey(descriptor.key), descriptor);
+        function select_defineProperties(e, r) {
+            for (var t = 0; t < r.length; t++) {
+                var o = r[t];
+                o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), 
+                Object.defineProperty(e, select_toPropertyKey(o.key), o);
             }
         }
-        function select_createClass(Constructor, protoProps, staticProps) {
-            if (protoProps) select_defineProperties(Constructor.prototype, protoProps);
-            if (staticProps) select_defineProperties(Constructor, staticProps);
-            Object.defineProperty(Constructor, "prototype", {
-                writable: false
-            });
-            return Constructor;
+        function select_createClass(e, r, t) {
+            return r && select_defineProperties(e.prototype, r), t && select_defineProperties(e, t), 
+            Object.defineProperty(e, "prototype", {
+                writable: !1
+            }), e;
         }
-        function select_toPropertyKey(arg) {
-            var key = select_toPrimitive(arg, "string");
-            return "symbol" === select_typeof(key) ? key : String(key);
+        function select_toPropertyKey(t) {
+            var i = select_toPrimitive(t, "string");
+            return "symbol" == select_typeof(i) ? i : i + "";
         }
-        function select_toPrimitive(input, hint) {
-            if ("object" !== select_typeof(input) || null === input) return input;
-            var prim = input[Symbol.toPrimitive];
-            if (void 0 !== prim) {
-                var res = prim.call(input, hint || "default");
-                if ("object" !== select_typeof(res)) return res;
+        function select_toPrimitive(t, r) {
+            if ("object" != select_typeof(t) || !t) return t;
+            var e = t[Symbol.toPrimitive];
+            if (void 0 !== e) {
+                var i = e.call(t, r || "default");
+                if ("object" != select_typeof(i)) return i;
                 throw new TypeError("@@toPrimitive must return a primitive value.");
             }
-            return ("string" === hint ? String : Number)(input);
+            return ("string" === r ? String : Number)(t);
         }
         var SelectConstructor = function() {
             function SelectConstructor(props) {
-                var data = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : null;
+                var data = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : null;
                 select_classCallCheck(this, SelectConstructor);
                 var defaultConfig = {
                     init: true,
@@ -4404,7 +4689,7 @@
                     } else this.setLogging("Сплю, нет ни одного select zzZZZzZZz");
                 }
             }
-            select_createClass(SelectConstructor, [ {
+            return select_createClass(SelectConstructor, [ {
                 key: "getSelectClass",
                 value: function getSelectClass(className) {
                     return ".".concat(className);
@@ -4483,7 +4768,7 @@
                     if (targetElement.closest(this.getSelectClass(this.selectClasses.classSelect)) || targetElement.closest(this.getSelectClass(this.selectClasses.classSelectTag))) {
                         var selectItem = targetElement.closest(".select") ? targetElement.closest(".select") : document.querySelector(".".concat(this.selectClasses.classSelect, '[data-id="').concat(targetElement.closest(this.getSelectClass(this.selectClasses.classSelectTag)).dataset.selectId, '"]'));
                         var originalSelect = this.getSelectElement(selectItem).originalSelect;
-                        if ("click" === targetType) {
+                        if (targetType === "click") {
                             if (!originalSelect.disabled) if (targetElement.closest(this.getSelectClass(this.selectClasses.classSelectTag))) {
                                 var targetTag = targetElement.closest(this.getSelectClass(this.selectClasses.classSelectTag));
                                 var optionItem = document.querySelector(".".concat(this.selectClasses.classSelect, '[data-id="').concat(targetTag.dataset.selectId, '"] .select__option[data-value="').concat(targetTag.dataset.value, '"]'));
@@ -4492,9 +4777,9 @@
                                 var _optionItem = targetElement.closest(this.getSelectClass(this.selectClasses.classSelectOption));
                                 this.optionAction(selectItem, originalSelect, _optionItem);
                             }
-                        } else if ("focusin" === targetType || "focusout" === targetType) {
-                            if (targetElement.closest(this.getSelectClass(this.selectClasses.classSelect))) "focusin" === targetType ? selectItem.classList.add(this.selectClasses.classSelectFocus) : selectItem.classList.remove(this.selectClasses.classSelectFocus);
-                        } else if ("keydown" === targetType && "Escape" === e.code) this.selectsСlose();
+                        } else if (targetType === "focusin" || targetType === "focusout") {
+                            if (targetElement.closest(this.getSelectClass(this.selectClasses.classSelect))) targetType === "focusin" ? selectItem.classList.add(this.selectClasses.classSelectFocus) : selectItem.classList.remove(this.selectClasses.classSelectFocus);
+                        } else if (targetType === "keydown" && e.code === "Escape") this.selectsСlose();
                     } else this.selectsСlose();
                 }
             }, {
@@ -4729,7 +5014,7 @@
                         selectOptionsItems.forEach((function(selectOptionsItem) {
                             if (selectOptionsItem.textContent.toUpperCase().indexOf(selectInput.value.toUpperCase()) >= 0) selectOptionsItem.hidden = false; else selectOptionsItem.hidden = true;
                         }));
-                        true === selectOptions.hidden ? _this.selectAction(selectItem) : null;
+                        selectOptions.hidden === true ? _this.selectAction(selectItem) : null;
                     }));
                 }
             }, {
@@ -4747,15 +5032,14 @@
                     this.config.logging ? FLS("[select]: ".concat(message)) : null;
                 }
             } ]);
-            return SelectConstructor;
         }();
         flsModules.select = new SelectConstructor({});
         function ssr_window_esm_isObject(obj) {
-            return null !== obj && "object" === typeof obj && "constructor" in obj && obj.constructor === Object;
+            return obj !== null && typeof obj === "object" && "constructor" in obj && obj.constructor === Object;
         }
         function extend(target = {}, src = {}) {
             Object.keys(src).forEach((key => {
-                if ("undefined" === typeof target[key]) target[key] = src[key]; else if (ssr_window_esm_isObject(src[key]) && ssr_window_esm_isObject(target[key]) && Object.keys(src[key]).length > 0) extend(target[key], src[key]);
+                if (typeof target[key] === "undefined") target[key] = src[key]; else if (ssr_window_esm_isObject(src[key]) && ssr_window_esm_isObject(target[key]) && Object.keys(src[key]).length > 0) extend(target[key], src[key]);
             }));
         }
         const ssrDocument = {
@@ -4809,7 +5093,7 @@
             }
         };
         function ssr_window_esm_getDocument() {
-            const doc = "undefined" !== typeof document ? document : {};
+            const doc = typeof document !== "undefined" ? document : {};
             extend(doc, ssrDocument);
             return doc;
         }
@@ -4855,19 +5139,19 @@
                 return {};
             },
             requestAnimationFrame(callback) {
-                if ("undefined" === typeof setTimeout) {
+                if (typeof setTimeout === "undefined") {
                     callback();
                     return null;
                 }
                 return setTimeout(callback, 0);
             },
             cancelAnimationFrame(id) {
-                if ("undefined" === typeof setTimeout) return;
+                if (typeof setTimeout === "undefined") return;
                 clearTimeout(id);
             }
         };
         function ssr_window_esm_getWindow() {
-            const win = "undefined" !== typeof window ? window : {};
+            const win = typeof window !== "undefined" ? window : {};
             extend(win, ssrWindow);
             return win;
         }
@@ -4884,7 +5168,7 @@
         }
         class Dom7 extends Array {
             constructor(items) {
-                if ("number" === typeof items) super(items); else {
+                if (typeof items === "number") super(items); else {
                     super(...items || []);
                     makeReactive(this);
                 }
@@ -4902,11 +5186,11 @@
         }
         function arrayUnique(arr) {
             const uniqueArray = [];
-            for (let i = 0; i < arr.length; i += 1) if (-1 === uniqueArray.indexOf(arr[i])) uniqueArray.push(arr[i]);
+            for (let i = 0; i < arr.length; i += 1) if (uniqueArray.indexOf(arr[i]) === -1) uniqueArray.push(arr[i]);
             return uniqueArray;
         }
         function qsa(selector, context) {
-            if ("string" !== typeof selector) return [ selector ];
+            if (typeof selector !== "string") return [ selector ];
             const a = [];
             const res = context.querySelectorAll(selector);
             for (let i = 0; i < res.length; i += 1) a.push(res[i]);
@@ -4918,15 +5202,15 @@
             let arr = [];
             if (!context && selector instanceof Dom7) return selector;
             if (!selector) return new Dom7(arr);
-            if ("string" === typeof selector) {
+            if (typeof selector === "string") {
                 const html = selector.trim();
                 if (html.indexOf("<") >= 0 && html.indexOf(">") >= 0) {
                     let toCreate = "div";
-                    if (0 === html.indexOf("<li")) toCreate = "ul";
-                    if (0 === html.indexOf("<tr")) toCreate = "tbody";
-                    if (0 === html.indexOf("<td") || 0 === html.indexOf("<th")) toCreate = "tr";
-                    if (0 === html.indexOf("<tbody")) toCreate = "table";
-                    if (0 === html.indexOf("<option")) toCreate = "select";
+                    if (html.indexOf("<li") === 0) toCreate = "ul";
+                    if (html.indexOf("<tr") === 0) toCreate = "tbody";
+                    if (html.indexOf("<td") === 0 || html.indexOf("<th") === 0) toCreate = "tr";
+                    if (html.indexOf("<tbody") === 0) toCreate = "table";
+                    if (html.indexOf("<option") === 0) toCreate = "select";
                     const tempParent = document.createElement(toCreate);
                     tempParent.innerHTML = html;
                     for (let i = 0; i < tempParent.childNodes.length; i += 1) arr.push(tempParent.childNodes[i]);
@@ -4965,11 +5249,11 @@
             return arrayFilter(this, (el => classNames.filter((className => el.classList.contains(className))).length > 0)).length > 0;
         }
         function attr(attrs, value) {
-            if (1 === arguments.length && "string" === typeof attrs) {
+            if (arguments.length === 1 && typeof attrs === "string") {
                 if (this[0]) return this[0].getAttribute(attrs);
                 return;
             }
-            for (let i = 0; i < this.length; i += 1) if (2 === arguments.length) this[i].setAttribute(attrs, value); else for (const attrName in attrs) {
+            for (let i = 0; i < this.length; i += 1) if (arguments.length === 2) this[i].setAttribute(attrs, value); else for (const attrName in attrs) {
                 this[i][attrName] = attrs[attrName];
                 this[i].setAttribute(attrName, attrs[attrName]);
             }
@@ -4984,12 +5268,12 @@
             return this;
         }
         function transition(duration) {
-            for (let i = 0; i < this.length; i += 1) this[i].style.transitionDuration = "string" !== typeof duration ? `${duration}ms` : duration;
+            for (let i = 0; i < this.length; i += 1) this[i].style.transitionDuration = typeof duration !== "string" ? `${duration}ms` : duration;
             return this;
         }
         function on(...args) {
             let [eventType, targetSelector, listener, capture] = args;
-            if ("function" === typeof args[1]) {
+            if (typeof args[1] === "function") {
                 [eventType, listener, capture] = args;
                 targetSelector = void 0;
             }
@@ -5037,7 +5321,7 @@
         }
         function off(...args) {
             let [eventType, targetSelector, listener, capture] = args;
-            if ("function" === typeof args[1]) {
+            if (typeof args[1] === "function") {
                 [eventType, listener, capture] = args;
                 targetSelector = void 0;
             }
@@ -5145,13 +5429,13 @@
         function css(props, value) {
             const window = ssr_window_esm_getWindow();
             let i;
-            if (1 === arguments.length) if ("string" === typeof props) {
+            if (arguments.length === 1) if (typeof props === "string") {
                 if (this[0]) return window.getComputedStyle(this[0], null).getPropertyValue(props);
             } else {
                 for (i = 0; i < this.length; i += 1) for (const prop in props) this[i].style[prop] = props[prop];
                 return this;
             }
-            if (2 === arguments.length && "string" === typeof props) {
+            if (arguments.length === 2 && typeof props === "string") {
                 for (i = 0; i < this.length; i += 1) this[i].style[props] = value;
                 return this;
             }
@@ -5169,12 +5453,12 @@
             return dom7_esm_$(result);
         }
         function html(html) {
-            if ("undefined" === typeof html) return this[0] ? this[0].innerHTML : null;
+            if (typeof html === "undefined") return this[0] ? this[0].innerHTML : null;
             for (let i = 0; i < this.length; i += 1) this[i].innerHTML = html;
             return this;
         }
         function dom7_esm_text(text) {
-            if ("undefined" === typeof text) return this[0] ? this[0].textContent.trim() : null;
+            if (typeof text === "undefined") return this[0] ? this[0].textContent.trim() : null;
             for (let i = 0; i < this.length; i += 1) this[i].textContent = text;
             return this;
         }
@@ -5184,8 +5468,8 @@
             const el = this[0];
             let compareWith;
             let i;
-            if (!el || "undefined" === typeof selector) return false;
-            if ("string" === typeof selector) {
+            if (!el || typeof selector === "undefined") return false;
+            if (typeof selector === "string") {
                 if (el.matches) return el.matches(selector);
                 if (el.webkitMatchesSelector) return el.webkitMatchesSelector(selector);
                 if (el.msMatchesSelector) return el.msMatchesSelector(selector);
@@ -5207,13 +5491,13 @@
             let i;
             if (child) {
                 i = 0;
-                while (null !== (child = child.previousSibling)) if (1 === child.nodeType) i += 1;
+                while ((child = child.previousSibling) !== null) if (child.nodeType === 1) i += 1;
                 return i;
             }
             return;
         }
         function eq(index) {
-            if ("undefined" === typeof index) return this;
+            if (typeof index === "undefined") return this;
             const length = this.length;
             if (index > length - 1) return dom7_esm_$([]);
             if (index < 0) {
@@ -5228,7 +5512,7 @@
             const document = ssr_window_esm_getDocument();
             for (let k = 0; k < els.length; k += 1) {
                 newChild = els[k];
-                for (let i = 0; i < this.length; i += 1) if ("string" === typeof newChild) {
+                for (let i = 0; i < this.length; i += 1) if (typeof newChild === "string") {
                     const tempDiv = document.createElement("div");
                     tempDiv.innerHTML = newChild;
                     while (tempDiv.firstChild) this[i].appendChild(tempDiv.firstChild);
@@ -5240,7 +5524,7 @@
             const document = ssr_window_esm_getDocument();
             let i;
             let j;
-            for (i = 0; i < this.length; i += 1) if ("string" === typeof newChild) {
+            for (i = 0; i < this.length; i += 1) if (typeof newChild === "string") {
                 const tempDiv = document.createElement("div");
                 tempDiv.innerHTML = newChild;
                 for (j = tempDiv.childNodes.length - 1; j >= 0; j -= 1) this[i].insertBefore(tempDiv.childNodes[j], this[i].childNodes[0]);
@@ -5298,7 +5582,7 @@
         }
         function dom7_esm_parent(selector) {
             const parents = [];
-            for (let i = 0; i < this.length; i += 1) if (null !== this[i].parentNode) if (selector) {
+            for (let i = 0; i < this.length; i += 1) if (this[i].parentNode !== null) if (selector) {
                 if (dom7_esm_$(this[i].parentNode).is(selector)) parents.push(this[i].parentNode);
             } else parents.push(this[i].parentNode);
             return dom7_esm_$(parents);
@@ -5318,7 +5602,7 @@
         }
         function closest(selector) {
             let closest = this;
-            if ("undefined" === typeof selector) return dom7_esm_$([]);
+            if (typeof selector === "undefined") return dom7_esm_$([]);
             if (!closest.is(selector)) closest = closest.parents(selector).eq(0);
             return closest;
         }
@@ -5345,7 +5629,7 @@
         const noTrigger = "resize scroll".split(" ");
         function shortcut(name) {
             function eventHandler(...args) {
-                if ("undefined" === typeof args[0]) {
+                if (typeof args[0] === "undefined") {
                     for (let i = 0; i < this.length; i += 1) if (noTrigger.indexOf(name) < 0) if (name in this[i]) this[i][name](); else dom7_esm_$(this[i]).trigger(name);
                     return this;
                 }
@@ -5454,33 +5738,33 @@
             if (window.WebKitCSSMatrix) {
                 curTransform = curStyle.transform || curStyle.webkitTransform;
                 if (curTransform.split(",").length > 6) curTransform = curTransform.split(", ").map((a => a.replace(",", "."))).join(", ");
-                transformMatrix = new window.WebKitCSSMatrix("none" === curTransform ? "" : curTransform);
+                transformMatrix = new window.WebKitCSSMatrix(curTransform === "none" ? "" : curTransform);
             } else {
                 transformMatrix = curStyle.MozTransform || curStyle.OTransform || curStyle.MsTransform || curStyle.msTransform || curStyle.transform || curStyle.getPropertyValue("transform").replace("translate(", "matrix(1, 0, 0, 1,");
                 matrix = transformMatrix.toString().split(",");
             }
-            if ("x" === axis) if (window.WebKitCSSMatrix) curTransform = transformMatrix.m41; else if (16 === matrix.length) curTransform = parseFloat(matrix[12]); else curTransform = parseFloat(matrix[4]);
-            if ("y" === axis) if (window.WebKitCSSMatrix) curTransform = transformMatrix.m42; else if (16 === matrix.length) curTransform = parseFloat(matrix[13]); else curTransform = parseFloat(matrix[5]);
+            if (axis === "x") if (window.WebKitCSSMatrix) curTransform = transformMatrix.m41; else if (matrix.length === 16) curTransform = parseFloat(matrix[12]); else curTransform = parseFloat(matrix[4]);
+            if (axis === "y") if (window.WebKitCSSMatrix) curTransform = transformMatrix.m42; else if (matrix.length === 16) curTransform = parseFloat(matrix[13]); else curTransform = parseFloat(matrix[5]);
             return curTransform || 0;
         }
         function utils_isObject(o) {
-            return "object" === typeof o && null !== o && o.constructor && "Object" === Object.prototype.toString.call(o).slice(8, -1);
+            return typeof o === "object" && o !== null && o.constructor && Object.prototype.toString.call(o).slice(8, -1) === "Object";
         }
         function isNode(node) {
-            if ("undefined" !== typeof window && "undefined" !== typeof window.HTMLElement) return node instanceof HTMLElement;
-            return node && (1 === node.nodeType || 11 === node.nodeType);
+            if (typeof window !== "undefined" && typeof window.HTMLElement !== "undefined") return node instanceof HTMLElement;
+            return node && (node.nodeType === 1 || node.nodeType === 11);
         }
         function utils_extend(...args) {
             const to = Object(args[0]);
             const noExtend = [ "__proto__", "constructor", "prototype" ];
             for (let i = 1; i < args.length; i += 1) {
                 const nextSource = args[i];
-                if (void 0 !== nextSource && null !== nextSource && !isNode(nextSource)) {
+                if (nextSource !== void 0 && nextSource !== null && !isNode(nextSource)) {
                     const keysArray = Object.keys(Object(nextSource)).filter((key => noExtend.indexOf(key) < 0));
                     for (let nextIndex = 0, len = keysArray.length; nextIndex < len; nextIndex += 1) {
                         const nextKey = keysArray[nextIndex];
                         const desc = Object.getOwnPropertyDescriptor(nextSource, nextKey);
-                        if (void 0 !== desc && desc.enumerable) if (utils_isObject(to[nextKey]) && utils_isObject(nextSource[nextKey])) if (nextSource[nextKey].__swiper__) to[nextKey] = nextSource[nextKey]; else utils_extend(to[nextKey], nextSource[nextKey]); else if (!utils_isObject(to[nextKey]) && utils_isObject(nextSource[nextKey])) {
+                        if (desc !== void 0 && desc.enumerable) if (utils_isObject(to[nextKey]) && utils_isObject(nextSource[nextKey])) if (nextSource[nextKey].__swiper__) to[nextKey] = nextSource[nextKey]; else utils_extend(to[nextKey], nextSource[nextKey]); else if (!utils_isObject(to[nextKey]) && utils_isObject(nextSource[nextKey])) {
                             to[nextKey] = {};
                             if (nextSource[nextKey].__swiper__) to[nextKey] = nextSource[nextKey]; else utils_extend(to[nextKey], nextSource[nextKey]);
                         } else to[nextKey] = nextSource[nextKey];
@@ -5501,10 +5785,10 @@
             swiper.wrapperEl.style.scrollSnapType = "none";
             window.cancelAnimationFrame(swiper.cssModeFrameID);
             const dir = targetPosition > startPosition ? "next" : "prev";
-            const isOutOfBound = (current, target) => "next" === dir && current >= target || "prev" === dir && current <= target;
+            const isOutOfBound = (current, target) => dir === "next" && current >= target || dir === "prev" && current <= target;
             const animate = () => {
                 time = (new Date).getTime();
-                if (null === startTime) startTime = time;
+                if (startTime === null) startTime = time;
                 const progress = Math.max(Math.min((time - startTime) / duration, 1), 0);
                 const easeProgress = .5 - Math.cos(progress * Math.PI) / 2;
                 let currentPosition = startPosition + easeProgress * (targetPosition - startPosition);
@@ -5572,8 +5856,8 @@
             let ipad = ua.match(/(iPad).*OS\s([\d_]+)/);
             const ipod = ua.match(/(iPod)(.*OS\s([\d_]+))?/);
             const iphone = !ipad && ua.match(/(iPhone\sOS|iOS)\s([\d_]+)/);
-            const windows = "Win32" === platform;
-            let macos = "MacIntel" === platform;
+            const windows = platform === "Win32";
+            let macos = platform === "MacIntel";
             const iPadScreens = [ "1024x1366", "1366x1024", "834x1194", "1194x834", "834x1112", "1112x834", "768x1024", "1024x768", "820x1180", "1180x820", "810x1080", "1080x810" ];
             if (!ipad && macos && support.touch && iPadScreens.indexOf(`${screenWidth}x${screenHeight}`) >= 0) {
                 ipad = ua.match(/(Version)\/([\d.]+)/);
@@ -5648,7 +5932,7 @@
                 emit("orientationchange");
             };
             on("init", (() => {
-                if (swiper.params.resizeObserver && "undefined" !== typeof window.ResizeObserver) {
+                if (swiper.params.resizeObserver && typeof window.ResizeObserver !== "undefined") {
                     createObserver();
                     return;
                 }
@@ -5667,7 +5951,7 @@
             const attach = (target, options = {}) => {
                 const ObserverFunc = window.MutationObserver || window.WebkitMutationObserver;
                 const observer = new ObserverFunc((mutations => {
-                    if (1 === mutations.length) {
+                    if (mutations.length === 1) {
                         emit("observerUpdate", mutations[0]);
                         return;
                     }
@@ -5677,9 +5961,9 @@
                     if (window.requestAnimationFrame) window.requestAnimationFrame(observerUpdate); else window.setTimeout(observerUpdate, 0);
                 }));
                 observer.observe(target, {
-                    attributes: "undefined" === typeof options.attributes ? true : options.attributes,
-                    childList: "undefined" === typeof options.childList ? true : options.childList,
-                    characterData: "undefined" === typeof options.characterData ? true : options.characterData
+                    attributes: typeof options.attributes === "undefined" ? true : options.attributes,
+                    childList: typeof options.childList === "undefined" ? true : options.childList,
+                    characterData: typeof options.characterData === "undefined" ? true : options.characterData
                 });
                 observers.push(observer);
             };
@@ -5714,7 +5998,7 @@
             on(events, handler, priority) {
                 const self = this;
                 if (!self.eventsListeners || self.destroyed) return self;
-                if ("function" !== typeof handler) return self;
+                if (typeof handler !== "function") return self;
                 const method = priority ? "unshift" : "push";
                 events.split(" ").forEach((event => {
                     if (!self.eventsListeners[event]) self.eventsListeners[event] = [];
@@ -5725,7 +6009,7 @@
             once(events, handler, priority) {
                 const self = this;
                 if (!self.eventsListeners || self.destroyed) return self;
-                if ("function" !== typeof handler) return self;
+                if (typeof handler !== "function") return self;
                 function onceHandler(...args) {
                     self.off(events, onceHandler);
                     if (onceHandler.__emitterProxy) delete onceHandler.__emitterProxy;
@@ -5737,7 +6021,7 @@
             onAny(handler, priority) {
                 const self = this;
                 if (!self.eventsListeners || self.destroyed) return self;
-                if ("function" !== typeof handler) return self;
+                if (typeof handler !== "function") return self;
                 const method = priority ? "unshift" : "push";
                 if (self.eventsAnyListeners.indexOf(handler) < 0) self.eventsAnyListeners[method](handler);
                 return self;
@@ -5755,7 +6039,7 @@
                 if (!self.eventsListeners || self.destroyed) return self;
                 if (!self.eventsListeners) return self;
                 events.split(" ").forEach((event => {
-                    if ("undefined" === typeof handler) self.eventsListeners[event] = []; else if (self.eventsListeners[event]) self.eventsListeners[event].forEach(((eventHandler, index) => {
+                    if (typeof handler === "undefined") self.eventsListeners[event] = []; else if (self.eventsListeners[event]) self.eventsListeners[event].forEach(((eventHandler, index) => {
                         if (eventHandler === handler || eventHandler.__emitterProxy && eventHandler.__emitterProxy === handler) self.eventsListeners[event].splice(index, 1);
                     }));
                 }));
@@ -5768,7 +6052,7 @@
                 let events;
                 let data;
                 let context;
-                if ("string" === typeof args[0] || Array.isArray(args[0])) {
+                if (typeof args[0] === "string" || Array.isArray(args[0])) {
                     events = args[0];
                     data = args.slice(1, args.length);
                     context = self;
@@ -5795,9 +6079,9 @@
             let width;
             let height;
             const $el = swiper.$el;
-            if ("undefined" !== typeof swiper.params.width && null !== swiper.params.width) width = swiper.params.width; else width = $el[0].clientWidth;
-            if ("undefined" !== typeof swiper.params.height && null !== swiper.params.height) height = swiper.params.height; else height = $el[0].clientHeight;
-            if (0 === width && swiper.isHorizontal() || 0 === height && swiper.isVertical()) return;
+            if (typeof swiper.params.width !== "undefined" && swiper.params.width !== null) width = swiper.params.width; else width = $el[0].clientWidth;
+            if (typeof swiper.params.height !== "undefined" && swiper.params.height !== null) height = swiper.params.height; else height = $el[0].clientHeight;
+            if (width === 0 && swiper.isHorizontal() || height === 0 && swiper.isVertical()) return;
             width = width - parseInt($el.css("padding-left") || 0, 10) - parseInt($el.css("padding-right") || 0, 10);
             height = height - parseInt($el.css("padding-top") || 0, 10) - parseInt($el.css("padding-bottom") || 0, 10);
             if (Number.isNaN(width)) width = 0;
@@ -5836,17 +6120,17 @@
             const slidesGrid = [];
             const slidesSizesGrid = [];
             let offsetBefore = params.slidesOffsetBefore;
-            if ("function" === typeof offsetBefore) offsetBefore = params.slidesOffsetBefore.call(swiper);
+            if (typeof offsetBefore === "function") offsetBefore = params.slidesOffsetBefore.call(swiper);
             let offsetAfter = params.slidesOffsetAfter;
-            if ("function" === typeof offsetAfter) offsetAfter = params.slidesOffsetAfter.call(swiper);
+            if (typeof offsetAfter === "function") offsetAfter = params.slidesOffsetAfter.call(swiper);
             const previousSnapGridLength = swiper.snapGrid.length;
             const previousSlidesGridLength = swiper.slidesGrid.length;
             let spaceBetween = params.spaceBetween;
             let slidePosition = -offsetBefore;
             let prevSlideSize = 0;
             let index = 0;
-            if ("undefined" === typeof swiperSize) return;
-            if ("string" === typeof spaceBetween && spaceBetween.indexOf("%") >= 0) spaceBetween = parseFloat(spaceBetween.replace("%", "")) / 100 * swiperSize;
+            if (typeof swiperSize === "undefined") return;
+            if (typeof spaceBetween === "string" && spaceBetween.indexOf("%") >= 0) spaceBetween = parseFloat(spaceBetween.replace("%", "")) / 100 * swiperSize;
             swiper.virtualSize = -spaceBetween;
             if (rtl) slides.css({
                 marginLeft: "",
@@ -5864,13 +6148,13 @@
             const gridEnabled = params.grid && params.grid.rows > 1 && swiper.grid;
             if (gridEnabled) swiper.grid.initSlides(slidesLength);
             let slideSize;
-            const shouldResetSlideSize = "auto" === params.slidesPerView && params.breakpoints && Object.keys(params.breakpoints).filter((key => "undefined" !== typeof params.breakpoints[key].slidesPerView)).length > 0;
+            const shouldResetSlideSize = params.slidesPerView === "auto" && params.breakpoints && Object.keys(params.breakpoints).filter((key => typeof params.breakpoints[key].slidesPerView !== "undefined")).length > 0;
             for (let i = 0; i < slidesLength; i += 1) {
                 slideSize = 0;
                 const slide = slides.eq(i);
                 if (gridEnabled) swiper.grid.updateSlide(i, slide, slidesLength, getDirectionLabel);
-                if ("none" === slide.css("display")) continue;
-                if ("auto" === params.slidesPerView) {
+                if (slide.css("display") === "none") continue;
+                if (params.slidesPerView === "auto") {
                     if (shouldResetSlideSize) slides[i].style[getDirectionLabel("width")] = ``;
                     const slideStyles = getComputedStyle(slide[0]);
                     const currentTransform = slide[0].style.transform;
@@ -5884,7 +6168,7 @@
                         const marginLeft = getDirectionPropertyValue(slideStyles, "margin-left");
                         const marginRight = getDirectionPropertyValue(slideStyles, "margin-right");
                         const boxSizing = slideStyles.getPropertyValue("box-sizing");
-                        if (boxSizing && "border-box" === boxSizing) slideSize = width + marginLeft + marginRight; else {
+                        if (boxSizing && boxSizing === "border-box") slideSize = width + marginLeft + marginRight; else {
                             const {clientWidth, offsetWidth} = slide[0];
                             slideSize = width + paddingLeft + paddingRight + marginLeft + marginRight + (offsetWidth - clientWidth);
                         }
@@ -5901,8 +6185,8 @@
                 slidesSizesGrid.push(slideSize);
                 if (params.centeredSlides) {
                     slidePosition = slidePosition + slideSize / 2 + prevSlideSize / 2 + spaceBetween;
-                    if (0 === prevSlideSize && 0 !== i) slidePosition = slidePosition - swiperSize / 2 - spaceBetween;
-                    if (0 === i) slidePosition = slidePosition - swiperSize / 2 - spaceBetween;
+                    if (prevSlideSize === 0 && i !== 0) slidePosition = slidePosition - swiperSize / 2 - spaceBetween;
+                    if (i === 0) slidePosition = slidePosition - swiperSize / 2 - spaceBetween;
                     if (Math.abs(slidePosition) < 1 / 1e3) slidePosition = 0;
                     if (params.roundLengths) slidePosition = Math.floor(slidePosition);
                     if (index % params.slidesPerGroup === 0) snapGrid.push(slidePosition);
@@ -5918,7 +6202,7 @@
                 index += 1;
             }
             swiper.virtualSize = Math.max(swiper.virtualSize, swiperSize) + offsetAfter;
-            if (rtl && wrongRTL && ("slide" === params.effect || "coverflow" === params.effect)) $wrapperEl.css({
+            if (rtl && wrongRTL && (params.effect === "slide" || params.effect === "coverflow")) $wrapperEl.css({
                 width: `${swiper.virtualSize + params.spaceBetween}px`
             });
             if (params.setWrapperSize) $wrapperEl.css({
@@ -5935,8 +6219,8 @@
                 snapGrid = newSlidesGrid;
                 if (Math.floor(swiper.virtualSize - swiperSize) - Math.floor(snapGrid[snapGrid.length - 1]) > 1) snapGrid.push(swiper.virtualSize - swiperSize);
             }
-            if (0 === snapGrid.length) snapGrid = [ 0 ];
-            if (0 !== params.spaceBetween) {
+            if (snapGrid.length === 0) snapGrid = [ 0 ];
+            if (params.spaceBetween !== 0) {
                 const key = swiper.isHorizontal() && rtl ? "marginLeft" : getDirectionLabel("marginRight");
                 slides.filter(((_, slideIndex) => {
                     if (!params.cssMode) return true;
@@ -5996,7 +6280,7 @@
             }
             if (slidesGrid.length !== previousSlidesGridLength) swiper.emit("slidesGridLengthChange");
             if (params.watchSlidesProgress) swiper.updateSlidesOffset();
-            if (!isVirtual && !params.cssMode && ("slide" === params.effect || "fade" === params.effect)) {
+            if (!isVirtual && !params.cssMode && (params.effect === "slide" || params.effect === "fade")) {
                 const backFaceHiddenClass = `${params.containerModifierClass}backface-hidden`;
                 const hasClassBackfaceClassAdded = swiper.$el.hasClass(backFaceHiddenClass);
                 if (slidesLength <= params.maxBackfaceHiddenSlides) {
@@ -6010,23 +6294,23 @@
             const isVirtual = swiper.virtual && swiper.params.virtual.enabled;
             let newHeight = 0;
             let i;
-            if ("number" === typeof speed) swiper.setTransition(speed); else if (true === speed) swiper.setTransition(swiper.params.speed);
+            if (typeof speed === "number") swiper.setTransition(speed); else if (speed === true) swiper.setTransition(swiper.params.speed);
             const getSlideByIndex = index => {
                 if (isVirtual) return swiper.slides.filter((el => parseInt(el.getAttribute("data-swiper-slide-index"), 10) === index))[0];
                 return swiper.slides.eq(index)[0];
             };
-            if ("auto" !== swiper.params.slidesPerView && swiper.params.slidesPerView > 1) if (swiper.params.centeredSlides) (swiper.visibleSlides || dom([])).each((slide => {
+            if (swiper.params.slidesPerView !== "auto" && swiper.params.slidesPerView > 1) if (swiper.params.centeredSlides) (swiper.visibleSlides || dom([])).each((slide => {
                 activeSlides.push(slide);
             })); else for (i = 0; i < Math.ceil(swiper.params.slidesPerView); i += 1) {
                 const index = swiper.activeIndex + i;
                 if (index > swiper.slides.length && !isVirtual) break;
                 activeSlides.push(getSlideByIndex(index));
             } else activeSlides.push(getSlideByIndex(swiper.activeIndex));
-            for (i = 0; i < activeSlides.length; i += 1) if ("undefined" !== typeof activeSlides[i]) {
+            for (i = 0; i < activeSlides.length; i += 1) if (typeof activeSlides[i] !== "undefined") {
                 const height = activeSlides[i].offsetHeight;
                 newHeight = height > newHeight ? height : newHeight;
             }
-            if (newHeight || 0 === newHeight) swiper.$wrapperEl.css("height", `${newHeight}px`);
+            if (newHeight || newHeight === 0) swiper.$wrapperEl.css("height", `${newHeight}px`);
         }
         function updateSlidesOffset() {
             const swiper = this;
@@ -6037,8 +6321,8 @@
             const swiper = this;
             const params = swiper.params;
             const {slides, rtlTranslate: rtl, snapGrid} = swiper;
-            if (0 === slides.length) return;
-            if ("undefined" === typeof slides[0].swiperSlideOffset) swiper.updateSlidesOffset();
+            if (slides.length === 0) return;
+            if (typeof slides[0].swiperSlideOffset === "undefined") swiper.updateSlidesOffset();
             let offsetCenter = -translate;
             if (rtl) offsetCenter = translate;
             slides.removeClass(params.slideVisibleClass);
@@ -6065,7 +6349,7 @@
         }
         function updateProgress(translate) {
             const swiper = this;
-            if ("undefined" === typeof translate) {
+            if (typeof translate === "undefined") {
                 const multiplier = swiper.rtlTranslate ? -1 : 1;
                 translate = swiper && swiper.translate && swiper.translate * multiplier || 0;
             }
@@ -6074,7 +6358,7 @@
             let {progress, isBeginning, isEnd} = swiper;
             const wasBeginning = isBeginning;
             const wasEnd = isEnd;
-            if (0 === translatesDiff) {
+            if (translatesDiff === 0) {
                 progress = 0;
                 isBeginning = true;
                 isEnd = true;
@@ -6104,12 +6388,12 @@
             activeSlide.addClass(params.slideActiveClass);
             if (params.loop) if (activeSlide.hasClass(params.slideDuplicateClass)) $wrapperEl.children(`.${params.slideClass}:not(.${params.slideDuplicateClass})[data-swiper-slide-index="${realIndex}"]`).addClass(params.slideDuplicateActiveClass); else $wrapperEl.children(`.${params.slideClass}.${params.slideDuplicateClass}[data-swiper-slide-index="${realIndex}"]`).addClass(params.slideDuplicateActiveClass);
             let nextSlide = activeSlide.nextAll(`.${params.slideClass}`).eq(0).addClass(params.slideNextClass);
-            if (params.loop && 0 === nextSlide.length) {
+            if (params.loop && nextSlide.length === 0) {
                 nextSlide = slides.eq(0);
                 nextSlide.addClass(params.slideNextClass);
             }
             let prevSlide = activeSlide.prevAll(`.${params.slideClass}`).eq(0).addClass(params.slidePrevClass);
-            if (params.loop && 0 === prevSlide.length) {
+            if (params.loop && prevSlide.length === 0) {
                 prevSlide = slides.eq(-1);
                 prevSlide.addClass(params.slidePrevClass);
             }
@@ -6125,11 +6409,11 @@
             const {slidesGrid, snapGrid, params, activeIndex: previousIndex, realIndex: previousRealIndex, snapIndex: previousSnapIndex} = swiper;
             let activeIndex = newActiveIndex;
             let snapIndex;
-            if ("undefined" === typeof activeIndex) {
-                for (let i = 0; i < slidesGrid.length; i += 1) if ("undefined" !== typeof slidesGrid[i + 1]) {
+            if (typeof activeIndex === "undefined") {
+                for (let i = 0; i < slidesGrid.length; i += 1) if (typeof slidesGrid[i + 1] !== "undefined") {
                     if (translate >= slidesGrid[i] && translate < slidesGrid[i + 1] - (slidesGrid[i + 1] - slidesGrid[i]) / 2) activeIndex = i; else if (translate >= slidesGrid[i] && translate < slidesGrid[i + 1]) activeIndex = i + 1;
                 } else if (translate >= slidesGrid[i]) activeIndex = i;
-                if (params.normalizeSlideIndex) if (activeIndex < 0 || "undefined" === typeof activeIndex) activeIndex = 0;
+                if (params.normalizeSlideIndex) if (activeIndex < 0 || typeof activeIndex === "undefined") activeIndex = 0;
             }
             if (snapGrid.indexOf(translate) >= 0) snapIndex = snapGrid.indexOf(translate); else {
                 const skip = Math.min(params.slidesPerGroupSkip, activeIndex);
@@ -6174,7 +6458,7 @@
                 swiper.clickedIndex = void 0;
                 return;
             }
-            if (params.slideToClickedSlide && void 0 !== swiper.clickedIndex && swiper.clickedIndex !== swiper.activeIndex) swiper.slideToClickedSlide();
+            if (params.slideToClickedSlide && swiper.clickedIndex !== void 0 && swiper.clickedIndex !== swiper.activeIndex) swiper.slideToClickedSlide();
         }
         const update = {
             updateSize,
@@ -6212,7 +6496,7 @@
             swiper.translate = swiper.isHorizontal() ? x : y;
             let newProgress;
             const translatesDiff = swiper.maxTranslate() - swiper.minTranslate();
-            if (0 === translatesDiff) newProgress = 0; else newProgress = (translate - swiper.minTranslate()) / translatesDiff;
+            if (translatesDiff === 0) newProgress = 0; else newProgress = (translate - swiper.minTranslate()) / translatesDiff;
             if (newProgress !== progress) swiper.updateProgress(translate);
             swiper.emit("setTranslate", swiper.translate, byController);
         }
@@ -6233,7 +6517,7 @@
             swiper.updateProgress(newTranslate);
             if (params.cssMode) {
                 const isH = swiper.isHorizontal();
-                if (0 === speed) wrapperEl[isH ? "scrollLeft" : "scrollTop"] = -newTranslate; else {
+                if (speed === 0) wrapperEl[isH ? "scrollLeft" : "scrollTop"] = -newTranslate; else {
                     if (!swiper.support.smoothScroll) {
                         animateCSSModeScroll({
                             swiper,
@@ -6249,7 +6533,7 @@
                 }
                 return true;
             }
-            if (0 === speed) {
+            if (speed === 0) {
                 swiper.setTransition(0);
                 swiper.setTranslate(newTranslate);
                 if (runCallbacks) {
@@ -6298,12 +6582,12 @@
             if (!dir) if (activeIndex > previousIndex) dir = "next"; else if (activeIndex < previousIndex) dir = "prev"; else dir = "reset";
             swiper.emit(`transition${step}`);
             if (runCallbacks && activeIndex !== previousIndex) {
-                if ("reset" === dir) {
+                if (dir === "reset") {
                     swiper.emit(`slideResetTransition${step}`);
                     return;
                 }
                 swiper.emit(`slideChangeTransition${step}`);
-                if ("next" === dir) swiper.emit(`slideNextTransition${step}`); else swiper.emit(`slidePrevTransition${step}`);
+                if (dir === "next") swiper.emit(`slideNextTransition${step}`); else swiper.emit(`slidePrevTransition${step}`);
             }
         }
         function transitionStart_transitionStart(runCallbacks = true, direction) {
@@ -6337,8 +6621,8 @@
             transitionEnd: transitionEnd_transitionEnd
         };
         function slideTo(index = 0, speed = this.params.speed, runCallbacks = true, internal, initial) {
-            if ("number" !== typeof index && "string" !== typeof index) throw new Error(`The 'index' argument cannot have type other than 'number' or 'string'. [${typeof index}] given.`);
-            if ("string" === typeof index) {
+            if (typeof index !== "number" && typeof index !== "string") throw new Error(`The 'index' argument cannot have type other than 'number' or 'string'. [${typeof index}] given.`);
+            if (typeof index === "string") {
                 const indexAsNumber = parseInt(index, 10);
                 const isValidNumber = isFinite(indexAsNumber);
                 if (!isValidNumber) throw new Error(`The passed-in 'index' (string) couldn't be converted to 'number'. [${index}] given.`);
@@ -6354,10 +6638,10 @@
             if (snapIndex >= snapGrid.length) snapIndex = snapGrid.length - 1;
             const translate = -snapGrid[snapIndex];
             if (params.normalizeSlideIndex) for (let i = 0; i < slidesGrid.length; i += 1) {
-                const normalizedTranslate = -Math.floor(100 * translate);
-                const normalizedGrid = Math.floor(100 * slidesGrid[i]);
-                const normalizedGridNext = Math.floor(100 * slidesGrid[i + 1]);
-                if ("undefined" !== typeof slidesGrid[i + 1]) {
+                const normalizedTranslate = -Math.floor(translate * 100);
+                const normalizedGrid = Math.floor(slidesGrid[i] * 100);
+                const normalizedGridNext = Math.floor(slidesGrid[i + 1] * 100);
+                if (typeof slidesGrid[i + 1] !== "undefined") {
                     if (normalizedTranslate >= normalizedGrid && normalizedTranslate < normalizedGridNext - (normalizedGridNext - normalizedGrid) / 2) slideIndex = i; else if (normalizedTranslate >= normalizedGrid && normalizedTranslate < normalizedGridNext) slideIndex = i + 1;
                 } else if (normalizedTranslate >= normalizedGrid) slideIndex = i;
             }
@@ -6373,8 +6657,8 @@
                 swiper.updateActiveIndex(slideIndex);
                 if (params.autoHeight) swiper.updateAutoHeight();
                 swiper.updateSlidesClasses();
-                if ("slide" !== params.effect) swiper.setTranslate(translate);
-                if ("reset" !== direction) {
+                if (params.effect !== "slide") swiper.setTranslate(translate);
+                if (direction !== "reset") {
                     swiper.transitionStart(runCallbacks, direction);
                     swiper.transitionEnd(runCallbacks, direction);
                 }
@@ -6383,7 +6667,7 @@
             if (params.cssMode) {
                 const isH = swiper.isHorizontal();
                 const t = rtl ? translate : -translate;
-                if (0 === speed) {
+                if (speed === 0) {
                     const isVirtual = swiper.virtual && swiper.params.virtual.enabled;
                     if (isVirtual) {
                         swiper.wrapperEl.style.scrollSnapType = "none";
@@ -6416,7 +6700,7 @@
             swiper.updateSlidesClasses();
             swiper.emit("beforeTransitionStart", speed, internal);
             swiper.transitionStart(runCallbacks, direction);
-            if (0 === speed) swiper.transitionEnd(runCallbacks, direction); else if (!swiper.animating) {
+            if (speed === 0) swiper.transitionEnd(runCallbacks, direction); else if (!swiper.animating) {
                 swiper.animating = true;
                 if (!swiper.onSlideToWrapperTransitionEnd) swiper.onSlideToWrapperTransitionEnd = function transitionEnd(e) {
                     if (!swiper || swiper.destroyed) return;
@@ -6433,7 +6717,7 @@
             return true;
         }
         function slideToLoop(index = 0, speed = this.params.speed, runCallbacks = true, internal) {
-            if ("string" === typeof index) {
+            if (typeof index === "string") {
                 const indexAsNumber = parseInt(index, 10);
                 const isValidNumber = isFinite(indexAsNumber);
                 if (!isValidNumber) throw new Error(`The passed-in 'index' (string) couldn't be converted to 'number'. [${index}] given.`);
@@ -6449,7 +6733,7 @@
             const {animating, enabled, params} = swiper;
             if (!enabled) return swiper;
             let perGroup = params.slidesPerGroup;
-            if ("auto" === params.slidesPerView && 1 === params.slidesPerGroup && params.slidesPerGroupAuto) perGroup = Math.max(swiper.slidesPerViewDynamic("current", true), 1);
+            if (params.slidesPerView === "auto" && params.slidesPerGroup === 1 && params.slidesPerGroupAuto) perGroup = Math.max(swiper.slidesPerViewDynamic("current", true), 1);
             const increment = swiper.activeIndex < params.slidesPerGroupSkip ? 1 : perGroup;
             if (params.loop) {
                 if (animating && params.loopPreventsSlide) return false;
@@ -6476,18 +6760,18 @@
             const normalizedTranslate = normalize(translate);
             const normalizedSnapGrid = snapGrid.map((val => normalize(val)));
             let prevSnap = snapGrid[normalizedSnapGrid.indexOf(normalizedTranslate) - 1];
-            if ("undefined" === typeof prevSnap && params.cssMode) {
+            if (typeof prevSnap === "undefined" && params.cssMode) {
                 let prevSnapIndex;
                 snapGrid.forEach(((snap, snapIndex) => {
                     if (normalizedTranslate >= snap) prevSnapIndex = snapIndex;
                 }));
-                if ("undefined" !== typeof prevSnapIndex) prevSnap = snapGrid[prevSnapIndex > 0 ? prevSnapIndex - 1 : prevSnapIndex];
+                if (typeof prevSnapIndex !== "undefined") prevSnap = snapGrid[prevSnapIndex > 0 ? prevSnapIndex - 1 : prevSnapIndex];
             }
             let prevIndex = 0;
-            if ("undefined" !== typeof prevSnap) {
+            if (typeof prevSnap !== "undefined") {
                 prevIndex = slidesGrid.indexOf(prevSnap);
                 if (prevIndex < 0) prevIndex = swiper.activeIndex - 1;
-                if ("auto" === params.slidesPerView && 1 === params.slidesPerGroup && params.slidesPerGroupAuto) {
+                if (params.slidesPerView === "auto" && params.slidesPerGroup === 1 && params.slidesPerGroupAuto) {
                     prevIndex = prevIndex - swiper.slidesPerViewDynamic("previous", true) + 1;
                     prevIndex = Math.max(prevIndex, 0);
                 }
@@ -6524,7 +6808,7 @@
         function slideToClickedSlide() {
             const swiper = this;
             const {params, $wrapperEl} = swiper;
-            const slidesPerView = "auto" === params.slidesPerView ? swiper.slidesPerViewDynamic() : params.slidesPerView;
+            const slidesPerView = params.slidesPerView === "auto" ? swiper.slidesPerViewDynamic() : params.slidesPerView;
             let slideToIndex = swiper.clickedIndex;
             let realIndex;
             if (params.loop) {
@@ -6571,7 +6855,7 @@
                     slides = $selector.children(`.${params.slideClass}`);
                 }
             }
-            if ("auto" === params.slidesPerView && !params.loopedSlides) params.loopedSlides = slides.length;
+            if (params.slidesPerView === "auto" && !params.loopedSlides) params.loopedSlides = slides.length;
             swiper.loopedSlides = Math.ceil(parseFloat(params.loopedSlides || params.slidesPerView, 10));
             swiper.loopedSlides += params.loopAdditionalSlides;
             if (swiper.loopedSlides > slides.length && swiper.params.loopedSlidesLimit) swiper.loopedSlides = slides.length;
@@ -6599,15 +6883,15 @@
             const snapTranslate = -snapGrid[activeIndex];
             const diff = snapTranslate - swiper.getTranslate();
             if (activeIndex < loopedSlides) {
-                newIndex = slides.length - 3 * loopedSlides + activeIndex;
+                newIndex = slides.length - loopedSlides * 3 + activeIndex;
                 newIndex += loopedSlides;
                 const slideChanged = swiper.slideTo(newIndex, 0, false, true);
-                if (slideChanged && 0 !== diff) swiper.setTranslate((rtl ? -swiper.translate : swiper.translate) - diff);
+                if (slideChanged && diff !== 0) swiper.setTranslate((rtl ? -swiper.translate : swiper.translate) - diff);
             } else if (activeIndex >= slides.length - loopedSlides) {
                 newIndex = -slides.length + activeIndex + loopedSlides;
                 newIndex += loopedSlides;
                 const slideChanged = swiper.slideTo(newIndex, 0, false, true);
-                if (slideChanged && 0 !== diff) swiper.setTranslate((rtl ? -swiper.translate : swiper.translate) - diff);
+                if (slideChanged && diff !== 0) swiper.setTranslate((rtl ? -swiper.translate : swiper.translate) - diff);
             }
             swiper.allowSlidePrev = allowSlidePrev;
             swiper.allowSlideNext = allowSlideNext;
@@ -6627,14 +6911,14 @@
         function setGrabCursor(moving) {
             const swiper = this;
             if (swiper.support.touch || !swiper.params.simulateTouch || swiper.params.watchOverflow && swiper.isLocked || swiper.params.cssMode) return;
-            const el = "container" === swiper.params.touchEventsTarget ? swiper.el : swiper.wrapperEl;
+            const el = swiper.params.touchEventsTarget === "container" ? swiper.el : swiper.wrapperEl;
             el.style.cursor = "move";
             el.style.cursor = moving ? "grabbing" : "grab";
         }
         function unsetGrabCursor() {
             const swiper = this;
             if (swiper.support.touch || swiper.params.watchOverflow && swiper.isLocked || swiper.params.cssMode) return;
-            swiper["container" === swiper.params.touchEventsTarget ? "el" : "wrapperEl"].style.cursor = "";
+            swiper[swiper.params.touchEventsTarget === "container" ? "el" : "wrapperEl"].style.cursor = "";
         }
         const grab_cursor = {
             setGrabCursor,
@@ -6662,12 +6946,12 @@
             let e = event;
             if (e.originalEvent) e = e.originalEvent;
             let $targetEl = dom(e.target);
-            if ("wrapper" === params.touchEventsTarget) if (!$targetEl.closest(swiper.wrapperEl).length) return;
-            data.isTouchEvent = "touchstart" === e.type;
-            if (!data.isTouchEvent && "which" in e && 3 === e.which) return;
+            if (params.touchEventsTarget === "wrapper") if (!$targetEl.closest(swiper.wrapperEl).length) return;
+            data.isTouchEvent = e.type === "touchstart";
+            if (!data.isTouchEvent && "which" in e && e.which === 3) return;
             if (!data.isTouchEvent && "button" in e && e.button > 0) return;
             if (data.isTouched && data.isMoved) return;
-            const swipingClassHasValue = !!params.noSwipingClass && "" !== params.noSwipingClass;
+            const swipingClassHasValue = !!params.noSwipingClass && params.noSwipingClass !== "";
             const eventPath = event.composedPath ? event.composedPath() : event.path;
             if (swipingClassHasValue && e.target && e.target.shadowRoot && eventPath) $targetEl = dom(eventPath[0]);
             const noSwipingSelector = params.noSwipingSelector ? params.noSwipingSelector : `.${params.noSwipingClass}`;
@@ -6677,13 +6961,13 @@
                 return;
             }
             if (params.swipeHandler) if (!$targetEl.closest(params.swipeHandler)[0]) return;
-            touches.currentX = "touchstart" === e.type ? e.targetTouches[0].pageX : e.pageX;
-            touches.currentY = "touchstart" === e.type ? e.targetTouches[0].pageY : e.pageY;
+            touches.currentX = e.type === "touchstart" ? e.targetTouches[0].pageX : e.pageX;
+            touches.currentY = e.type === "touchstart" ? e.targetTouches[0].pageY : e.pageY;
             const startX = touches.currentX;
             const startY = touches.currentY;
             const edgeSwipeDetection = params.edgeSwipeDetection || params.iOSEdgeSwipeDetection;
             const edgeSwipeThreshold = params.edgeSwipeThreshold || params.iOSEdgeSwipeThreshold;
-            if (edgeSwipeDetection && (startX <= edgeSwipeThreshold || startX >= window.innerWidth - edgeSwipeThreshold)) if ("prevent" === edgeSwipeDetection) event.preventDefault(); else return;
+            if (edgeSwipeDetection && (startX <= edgeSwipeThreshold || startX >= window.innerWidth - edgeSwipeThreshold)) if (edgeSwipeDetection === "prevent") event.preventDefault(); else return;
             Object.assign(data, {
                 isTouched: true,
                 isMoved: false,
@@ -6698,11 +6982,11 @@
             swiper.updateSize();
             swiper.swipeDirection = void 0;
             if (params.threshold > 0) data.allowThresholdMove = false;
-            if ("touchstart" !== e.type) {
+            if (e.type !== "touchstart") {
                 let preventDefault = true;
                 if ($targetEl.is(data.focusableElements)) {
                     preventDefault = false;
-                    if ("SELECT" === $targetEl[0].nodeName) data.isTouched = false;
+                    if ($targetEl[0].nodeName === "SELECT") data.isTouched = false;
                 }
                 if (document.activeElement && dom(document.activeElement).is(data.focusableElements) && document.activeElement !== $targetEl[0]) document.activeElement.blur();
                 const shouldPreventDefault = preventDefault && swiper.allowTouchMove && params.touchStartPreventDefault;
@@ -6723,10 +7007,10 @@
                 if (data.startMoving && data.isScrolling) swiper.emit("touchMoveOpposite", e);
                 return;
             }
-            if (data.isTouchEvent && "touchmove" !== e.type) return;
-            const targetTouch = "touchmove" === e.type && e.targetTouches && (e.targetTouches[0] || e.changedTouches[0]);
-            const pageX = "touchmove" === e.type ? targetTouch.pageX : e.pageX;
-            const pageY = "touchmove" === e.type ? targetTouch.pageY : e.pageY;
+            if (data.isTouchEvent && e.type !== "touchmove") return;
+            const targetTouch = e.type === "touchmove" && e.targetTouches && (e.targetTouches[0] || e.changedTouches[0]);
+            const pageX = e.type === "touchmove" ? targetTouch.pageX : e.pageX;
+            const pageY = e.type === "touchmove" ? targetTouch.pageY : e.pageY;
             if (e.preventedByNestedSwiper) {
                 touches.startX = pageX;
                 touches.startY = pageY;
@@ -6764,15 +7048,15 @@
             const diffX = touches.currentX - touches.startX;
             const diffY = touches.currentY - touches.startY;
             if (swiper.params.threshold && Math.sqrt(diffX ** 2 + diffY ** 2) < swiper.params.threshold) return;
-            if ("undefined" === typeof data.isScrolling) {
+            if (typeof data.isScrolling === "undefined") {
                 let touchAngle;
                 if (swiper.isHorizontal() && touches.currentY === touches.startY || swiper.isVertical() && touches.currentX === touches.startX) data.isScrolling = false; else if (diffX * diffX + diffY * diffY >= 25) {
-                    touchAngle = 180 * Math.atan2(Math.abs(diffY), Math.abs(diffX)) / Math.PI;
+                    touchAngle = Math.atan2(Math.abs(diffY), Math.abs(diffX)) * 180 / Math.PI;
                     data.isScrolling = swiper.isHorizontal() ? touchAngle > params.touchAngle : 90 - touchAngle > params.touchAngle;
                 }
             }
             if (data.isScrolling) swiper.emit("touchMoveOpposite", e);
-            if ("undefined" === typeof data.startMoving) if (touches.currentX !== touches.startX || touches.currentY !== touches.startY) data.startMoving = true;
+            if (typeof data.startMoving === "undefined") if (touches.currentX !== touches.startX || touches.currentY !== touches.startY) data.startMoving = true;
             if (data.isScrolling) {
                 data.isTouched = false;
                 return;
@@ -6787,7 +7071,7 @@
                 swiper.setTransition(0);
                 if (swiper.animating) swiper.$wrapperEl.trigger("webkitTransitionEnd transitionend");
                 data.allowMomentumBounce = false;
-                if (params.grabCursor && (true === swiper.allowSlideNext || true === swiper.allowSlidePrev)) swiper.setGrabCursor(true);
+                if (params.grabCursor && (swiper.allowSlideNext === true || swiper.allowSlidePrev === true)) swiper.setGrabCursor(true);
                 swiper.emit("sliderFirstMove", e);
             }
             swiper.emit("sliderMove", e);
@@ -6809,8 +7093,8 @@
                 if (params.resistance) data.currentTranslate = swiper.maxTranslate() + 1 - (swiper.maxTranslate() - data.startTranslate - diff) ** resistanceRatio;
             }
             if (disableParentSwiper) e.preventedByNestedSwiper = true;
-            if (!swiper.allowSlideNext && "next" === swiper.swipeDirection && data.currentTranslate < data.startTranslate) data.currentTranslate = data.startTranslate;
-            if (!swiper.allowSlidePrev && "prev" === swiper.swipeDirection && data.currentTranslate > data.startTranslate) data.currentTranslate = data.startTranslate;
+            if (!swiper.allowSlideNext && swiper.swipeDirection === "next" && data.currentTranslate < data.startTranslate) data.currentTranslate = data.startTranslate;
+            if (!swiper.allowSlidePrev && swiper.swipeDirection === "prev" && data.currentTranslate > data.startTranslate) data.currentTranslate = data.startTranslate;
             if (!swiper.allowSlidePrev && !swiper.allowSlideNext) data.currentTranslate = data.startTranslate;
             if (params.threshold > 0) if (Math.abs(diff) > params.threshold || data.allowThresholdMove) {
                 if (!data.allowThresholdMove) {
@@ -6849,7 +7133,7 @@
                 data.startMoving = false;
                 return;
             }
-            if (params.grabCursor && data.isMoved && data.isTouched && (true === swiper.allowSlideNext || true === swiper.allowSlidePrev)) swiper.setGrabCursor(false);
+            if (params.grabCursor && data.isMoved && data.isTouched && (swiper.allowSlideNext === true || swiper.allowSlidePrev === true)) swiper.setGrabCursor(false);
             const touchEndTime = utils_now();
             const timeDiff = touchEndTime - data.touchStartTime;
             if (swiper.allowClick) {
@@ -6862,7 +7146,7 @@
             utils_nextTick((() => {
                 if (!swiper.destroyed) swiper.allowClick = true;
             }));
-            if (!data.isTouched || !data.isMoved || !swiper.swipeDirection || 0 === touches.diff || data.currentTranslate === data.startTranslate) {
+            if (!data.isTouched || !data.isMoved || !swiper.swipeDirection || touches.diff === 0 || data.currentTranslate === data.startTranslate) {
                 data.isTouched = false;
                 data.isMoved = false;
                 data.startMoving = false;
@@ -6884,7 +7168,7 @@
             let groupSize = swiper.slidesSizesGrid[0];
             for (let i = 0; i < slidesGrid.length; i += i < params.slidesPerGroupSkip ? 1 : params.slidesPerGroup) {
                 const increment = i < params.slidesPerGroupSkip - 1 ? 1 : params.slidesPerGroup;
-                if ("undefined" !== typeof slidesGrid[i + increment]) {
+                if (typeof slidesGrid[i + increment] !== "undefined") {
                     if (currentPos >= slidesGrid[i] && currentPos < slidesGrid[i + increment]) {
                         stopIndex = i;
                         groupSize = slidesGrid[i + increment] - slidesGrid[i];
@@ -6904,8 +7188,8 @@
                     swiper.slideTo(swiper.activeIndex);
                     return;
                 }
-                if ("next" === swiper.swipeDirection) if (ratio >= params.longSwipesRatio) swiper.slideTo(params.rewind && swiper.isEnd ? rewindFirstIndex : stopIndex + increment); else swiper.slideTo(stopIndex);
-                if ("prev" === swiper.swipeDirection) if (ratio > 1 - params.longSwipesRatio) swiper.slideTo(stopIndex + increment); else if (null !== rewindLastIndex && ratio < 0 && Math.abs(ratio) > params.longSwipesRatio) swiper.slideTo(rewindLastIndex); else swiper.slideTo(stopIndex);
+                if (swiper.swipeDirection === "next") if (ratio >= params.longSwipesRatio) swiper.slideTo(params.rewind && swiper.isEnd ? rewindFirstIndex : stopIndex + increment); else swiper.slideTo(stopIndex);
+                if (swiper.swipeDirection === "prev") if (ratio > 1 - params.longSwipesRatio) swiper.slideTo(stopIndex + increment); else if (rewindLastIndex !== null && ratio < 0 && Math.abs(ratio) > params.longSwipesRatio) swiper.slideTo(rewindLastIndex); else swiper.slideTo(stopIndex);
             } else {
                 if (!params.shortSwipes) {
                     swiper.slideTo(swiper.activeIndex);
@@ -6913,15 +7197,15 @@
                 }
                 const isNavButtonTarget = swiper.navigation && (e.target === swiper.navigation.nextEl || e.target === swiper.navigation.prevEl);
                 if (!isNavButtonTarget) {
-                    if ("next" === swiper.swipeDirection) swiper.slideTo(null !== rewindFirstIndex ? rewindFirstIndex : stopIndex + increment);
-                    if ("prev" === swiper.swipeDirection) swiper.slideTo(null !== rewindLastIndex ? rewindLastIndex : stopIndex);
+                    if (swiper.swipeDirection === "next") swiper.slideTo(rewindFirstIndex !== null ? rewindFirstIndex : stopIndex + increment);
+                    if (swiper.swipeDirection === "prev") swiper.slideTo(rewindLastIndex !== null ? rewindLastIndex : stopIndex);
                 } else if (e.target === swiper.navigation.nextEl) swiper.slideTo(stopIndex + increment); else swiper.slideTo(stopIndex);
             }
         }
         function onResize() {
             const swiper = this;
             const {params, el} = swiper;
-            if (el && 0 === el.offsetWidth) return;
+            if (el && el.offsetWidth === 0) return;
             if (params.breakpoints) swiper.setBreakpoint();
             const {allowSlideNext, allowSlidePrev, snapGrid} = swiper;
             swiper.allowSlideNext = true;
@@ -6929,7 +7213,7 @@
             swiper.updateSize();
             swiper.updateSlides();
             swiper.updateSlidesClasses();
-            if (("auto" === params.slidesPerView || params.slidesPerView > 1) && swiper.isEnd && !swiper.isBeginning && !swiper.params.centeredSlides) swiper.slideTo(swiper.slides.length - 1, 0, false, true); else swiper.slideTo(swiper.activeIndex, 0, false, true);
+            if ((params.slidesPerView === "auto" || params.slidesPerView > 1) && swiper.isEnd && !swiper.isBeginning && !swiper.params.centeredSlides) swiper.slideTo(swiper.slides.length - 1, 0, false, true); else swiper.slideTo(swiper.activeIndex, 0, false, true);
             if (swiper.autoplay && swiper.autoplay.running && swiper.autoplay.paused) swiper.autoplay.run();
             swiper.allowSlidePrev = allowSlidePrev;
             swiper.allowSlideNext = allowSlideNext;
@@ -6952,12 +7236,12 @@
             if (!enabled) return;
             swiper.previousTranslate = swiper.translate;
             if (swiper.isHorizontal()) swiper.translate = -wrapperEl.scrollLeft; else swiper.translate = -wrapperEl.scrollTop;
-            if (0 === swiper.translate) swiper.translate = 0;
+            if (swiper.translate === 0) swiper.translate = 0;
             swiper.updateActiveIndex();
             swiper.updateSlidesClasses();
             let newProgress;
             const translatesDiff = swiper.maxTranslate() - swiper.minTranslate();
-            if (0 === translatesDiff) newProgress = 0; else newProgress = (swiper.translate - swiper.minTranslate()) / translatesDiff;
+            if (translatesDiff === 0) newProgress = 0; else newProgress = (swiper.translate - swiper.minTranslate()) / translatesDiff;
             if (newProgress !== swiper.progress) swiper.updateProgress(rtlTranslate ? -swiper.translate : swiper.translate);
             swiper.emit("setTranslate", swiper.translate, false);
         }
@@ -6967,14 +7251,14 @@
             const document = ssr_window_esm_getDocument();
             const {params, touchEvents, el, wrapperEl, device, support} = swiper;
             const capture = !!params.nested;
-            const domMethod = "on" === method ? "addEventListener" : "removeEventListener";
+            const domMethod = method === "on" ? "addEventListener" : "removeEventListener";
             const swiperMethod = method;
             if (!support.touch) {
                 el[domMethod](touchEvents.start, swiper.onTouchStart, false);
                 document[domMethod](touchEvents.move, swiper.onTouchMove, capture);
                 document[domMethod](touchEvents.end, swiper.onTouchEnd, false);
             } else {
-                const passiveListener = "touchstart" === touchEvents.start && support.passiveListener && params.passiveListeners ? {
+                const passiveListener = touchEvents.start === "touchstart" && support.passiveListener && params.passiveListeners ? {
                     passive: true,
                     capture: false
                 } : false;
@@ -7018,7 +7302,7 @@
             const swiper = this;
             const {activeIndex, initialized, loopedSlides = 0, params, $el} = swiper;
             const breakpoints = params.breakpoints;
-            if (!breakpoints || breakpoints && 0 === Object.keys(breakpoints).length) return;
+            if (!breakpoints || breakpoints && Object.keys(breakpoints).length === 0) return;
             const breakpoint = swiper.getBreakpoint(breakpoints, swiper.params.breakpointsBase, swiper.el);
             if (!breakpoint || swiper.currentBreakpoint === breakpoint) return;
             const breakpointOnlyParams = breakpoint in breakpoints ? breakpoints[breakpoint] : void 0;
@@ -7031,7 +7315,7 @@
                 swiper.emitContainerClasses();
             } else if (!wasMultiRow && isMultiRow) {
                 $el.addClass(`${params.containerModifierClass}grid`);
-                if (breakpointParams.grid.fill && "column" === breakpointParams.grid.fill || !breakpointParams.grid.fill && "column" === params.grid.fill) $el.addClass(`${params.containerModifierClass}grid-column`);
+                if (breakpointParams.grid.fill && breakpointParams.grid.fill === "column" || !breakpointParams.grid.fill && params.grid.fill === "column") $el.addClass(`${params.containerModifierClass}grid-column`);
                 swiper.emitContainerClasses();
             }
             [ "navigation", "pagination", "scrollbar" ].forEach((prop => {
@@ -7062,12 +7346,12 @@
             swiper.emit("breakpoint", breakpointParams);
         }
         function getBreakpoint(breakpoints, base = "window", containerEl) {
-            if (!breakpoints || "container" === base && !containerEl) return;
+            if (!breakpoints || base === "container" && !containerEl) return;
             let breakpoint = false;
             const window = ssr_window_esm_getWindow();
-            const currentHeight = "window" === base ? window.innerHeight : containerEl.clientHeight;
+            const currentHeight = base === "window" ? window.innerHeight : containerEl.clientHeight;
             const points = Object.keys(breakpoints).map((point => {
-                if ("string" === typeof point && 0 === point.indexOf("@")) {
+                if (typeof point === "string" && point.indexOf("@") === 0) {
                     const minRatio = parseFloat(point.substr(1));
                     const value = currentHeight * minRatio;
                     return {
@@ -7083,7 +7367,7 @@
             points.sort(((a, b) => parseInt(a.value, 10) - parseInt(b.value, 10)));
             for (let i = 0; i < points.length; i += 1) {
                 const {point, value} = points[i];
-                if ("window" === base) {
+                if (base === "window") {
                     if (window.matchMedia(`(min-width: ${value}px)`).matches) breakpoint = point;
                 } else if (value <= containerEl.clientWidth) breakpoint = point;
             }
@@ -7096,9 +7380,9 @@
         function prepareClasses(entries, prefix) {
             const resultClasses = [];
             entries.forEach((item => {
-                if ("object" === typeof item) Object.keys(item).forEach((classNames => {
+                if (typeof item === "object") Object.keys(item).forEach((classNames => {
                     if (item[classNames]) resultClasses.push(prefix + classNames);
-                })); else if ("string" === typeof item) resultClasses.push(prefix + item);
+                })); else if (typeof item === "string") resultClasses.push(prefix + item);
             }));
             return resultClasses;
         }
@@ -7116,7 +7400,7 @@
             }, {
                 grid: params.grid && params.grid.rows > 1
             }, {
-                "grid-column": params.grid && params.grid.rows > 1 && "column" === params.grid.fill
+                "grid-column": params.grid && params.grid.rows > 1 && params.grid.fill === "column"
             }, {
                 android: device.android
             }, {
@@ -7162,8 +7446,8 @@
             const swiper = this;
             swiper.imagesToLoad = swiper.$el.find("img");
             function onReady() {
-                if ("undefined" === typeof swiper || null === swiper || !swiper || swiper.destroyed) return;
-                if (void 0 !== swiper.imagesLoaded) swiper.imagesLoaded += 1;
+                if (typeof swiper === "undefined" || swiper === null || !swiper || swiper.destroyed) return;
+                if (swiper.imagesLoaded !== void 0) swiper.imagesLoaded += 1;
                 if (swiper.imagesLoaded === swiper.imagesToLoad.length) {
                     if (swiper.params.updateOnImagesReady) swiper.update();
                     swiper.emit("imagesReady");
@@ -7184,11 +7468,11 @@
             const {slidesOffsetBefore} = params;
             if (slidesOffsetBefore) {
                 const lastSlideIndex = swiper.slides.length - 1;
-                const lastSlideRightEdge = swiper.slidesGrid[lastSlideIndex] + swiper.slidesSizesGrid[lastSlideIndex] + 2 * slidesOffsetBefore;
+                const lastSlideRightEdge = swiper.slidesGrid[lastSlideIndex] + swiper.slidesSizesGrid[lastSlideIndex] + slidesOffsetBefore * 2;
                 swiper.isLocked = swiper.size > lastSlideRightEdge;
-            } else swiper.isLocked = 1 === swiper.snapGrid.length;
-            if (true === params.allowSlideNext) swiper.allowSlideNext = !swiper.isLocked;
-            if (true === params.allowSlidePrev) swiper.allowSlidePrev = !swiper.isLocked;
+            } else swiper.isLocked = swiper.snapGrid.length === 1;
+            if (params.allowSlideNext === true) swiper.allowSlideNext = !swiper.isLocked;
+            if (params.allowSlidePrev === true) swiper.allowSlidePrev = !swiper.isLocked;
             if (wasLocked && wasLocked !== swiper.isLocked) swiper.isEnd = false;
             if (wasLocked !== swiper.isLocked) swiper.emit(swiper.isLocked ? "lock" : "unlock");
         }
@@ -7292,21 +7576,21 @@
             return function extendParams(obj = {}) {
                 const moduleParamName = Object.keys(obj)[0];
                 const moduleParams = obj[moduleParamName];
-                if ("object" !== typeof moduleParams || null === moduleParams) {
+                if (typeof moduleParams !== "object" || moduleParams === null) {
                     utils_extend(allModulesParams, obj);
                     return;
                 }
-                if ([ "navigation", "pagination", "scrollbar" ].indexOf(moduleParamName) >= 0 && true === params[moduleParamName]) params[moduleParamName] = {
+                if ([ "navigation", "pagination", "scrollbar" ].indexOf(moduleParamName) >= 0 && params[moduleParamName] === true) params[moduleParamName] = {
                     auto: true
                 };
                 if (!(moduleParamName in params && "enabled" in moduleParams)) {
                     utils_extend(allModulesParams, obj);
                     return;
                 }
-                if (true === params[moduleParamName]) params[moduleParamName] = {
+                if (params[moduleParamName] === true) params[moduleParamName] = {
                     enabled: true
                 };
-                if ("object" === typeof params[moduleParamName] && !("enabled" in params[moduleParamName])) params[moduleParamName].enabled = true;
+                if (typeof params[moduleParamName] === "object" && !("enabled" in params[moduleParamName])) params[moduleParamName].enabled = true;
                 if (!params[moduleParamName]) params[moduleParamName] = {
                     enabled: false
                 };
@@ -7332,7 +7616,7 @@
             constructor(...args) {
                 let el;
                 let params;
-                if (1 === args.length && args[0].constructor && "Object" === Object.prototype.toString.call(args[0]).slice(8, -1)) params = args[0]; else [el, params] = args;
+                if (args.length === 1 && args[0].constructor && Object.prototype.toString.call(args[0]).slice(8, -1) === "Object") params = args[0]; else [el, params] = args;
                 if (!params) params = {};
                 params = utils_extend({}, params);
                 if (el && !params.el) params.el = el;
@@ -7386,10 +7670,10 @@
                     snapGrid: [],
                     slidesSizesGrid: [],
                     isHorizontal() {
-                        return "horizontal" === swiper.params.direction;
+                        return swiper.params.direction === "horizontal";
                     },
                     isVertical() {
-                        return "vertical" === swiper.params.direction;
+                        return swiper.params.direction === "vertical";
                     },
                     activeIndex: 0,
                     realIndex: 0,
@@ -7471,20 +7755,20 @@
                 const min = swiper.minTranslate();
                 const max = swiper.maxTranslate();
                 const current = (max - min) * progress + min;
-                swiper.translateTo(current, "undefined" === typeof speed ? 0 : speed);
+                swiper.translateTo(current, typeof speed === "undefined" ? 0 : speed);
                 swiper.updateActiveIndex();
                 swiper.updateSlidesClasses();
             }
             emitContainerClasses() {
                 const swiper = this;
                 if (!swiper.params._emitClasses || !swiper.el) return;
-                const cls = swiper.el.className.split(" ").filter((className => 0 === className.indexOf("swiper") || 0 === className.indexOf(swiper.params.containerModifierClass)));
+                const cls = swiper.el.className.split(" ").filter((className => className.indexOf("swiper") === 0 || className.indexOf(swiper.params.containerModifierClass) === 0));
                 swiper.emit("_containerClasses", cls.join(" "));
             }
             getSlideClasses(slideEl) {
                 const swiper = this;
                 if (swiper.destroyed) return "";
-                return slideEl.className.split(" ").filter((className => 0 === className.indexOf("swiper-slide") || 0 === className.indexOf(swiper.params.slideClass))).join(" ");
+                return slideEl.className.split(" ").filter((className => className.indexOf("swiper-slide") === 0 || className.indexOf(swiper.params.slideClass) === 0)).join(" ");
             }
             emitSlidesClasses() {
                 const swiper = this;
@@ -7517,7 +7801,7 @@
                         spv += 1;
                         if (slideSize > swiperSize) breakLoop = true;
                     }
-                } else if ("current" === view) for (let i = activeIndex + 1; i < slides.length; i += 1) {
+                } else if (view === "current") for (let i = activeIndex + 1; i < slides.length; i += 1) {
                     const slideInView = exact ? slidesGrid[i] + slidesSizesGrid[i] - slidesGrid[activeIndex] < swiperSize : slidesGrid[i] - slidesGrid[activeIndex] < swiperSize;
                     if (slideInView) spv += 1;
                 } else for (let i = activeIndex - 1; i >= 0; i -= 1) {
@@ -7536,7 +7820,7 @@
                 swiper.updateProgress();
                 swiper.updateSlidesClasses();
                 function setTranslate() {
-                    const translateValue = swiper.rtlTranslate ? -1 * swiper.translate : swiper.translate;
+                    const translateValue = swiper.rtlTranslate ? swiper.translate * -1 : swiper.translate;
                     const newTranslate = Math.min(Math.max(translateValue, swiper.maxTranslate()), swiper.minTranslate());
                     swiper.setTranslate(newTranslate);
                     swiper.updateActiveIndex();
@@ -7547,7 +7831,7 @@
                     setTranslate();
                     if (swiper.params.autoHeight) swiper.updateAutoHeight();
                 } else {
-                    if (("auto" === swiper.params.slidesPerView || swiper.params.slidesPerView > 1) && swiper.isEnd && !swiper.params.centeredSlides) translated = swiper.slideTo(swiper.slides.length - 1, 0, false, true); else translated = swiper.slideTo(swiper.activeIndex, 0, false, true);
+                    if ((swiper.params.slidesPerView === "auto" || swiper.params.slidesPerView > 1) && swiper.isEnd && !swiper.params.centeredSlides) translated = swiper.slideTo(swiper.slides.length - 1, 0, false, true); else translated = swiper.slideTo(swiper.activeIndex, 0, false, true);
                     if (!translated) setTranslate();
                 }
                 if (params.watchOverflow && snapGrid !== swiper.snapGrid) swiper.checkOverflow();
@@ -7556,13 +7840,13 @@
             changeDirection(newDirection, needUpdate = true) {
                 const swiper = this;
                 const currentDirection = swiper.params.direction;
-                if (!newDirection) newDirection = "horizontal" === currentDirection ? "vertical" : "horizontal";
-                if (newDirection === currentDirection || "horizontal" !== newDirection && "vertical" !== newDirection) return swiper;
+                if (!newDirection) newDirection = currentDirection === "horizontal" ? "vertical" : "horizontal";
+                if (newDirection === currentDirection || newDirection !== "horizontal" && newDirection !== "vertical") return swiper;
                 swiper.$el.removeClass(`${swiper.params.containerModifierClass}${currentDirection}`).addClass(`${swiper.params.containerModifierClass}${newDirection}`);
                 swiper.emitContainerClasses();
                 swiper.params.direction = newDirection;
                 swiper.slides.each((slideEl => {
-                    if ("vertical" === newDirection) slideEl.style.width = ""; else slideEl.style.height = "";
+                    if (newDirection === "vertical") slideEl.style.width = ""; else slideEl.style.height = "";
                 }));
                 swiper.emit("changeDirection");
                 if (needUpdate) swiper.update();
@@ -7570,9 +7854,9 @@
             }
             changeLanguageDirection(direction) {
                 const swiper = this;
-                if (swiper.rtl && "rtl" === direction || !swiper.rtl && "ltr" === direction) return;
-                swiper.rtl = "rtl" === direction;
-                swiper.rtlTranslate = "horizontal" === swiper.params.direction && swiper.rtl;
+                if (swiper.rtl && direction === "rtl" || !swiper.rtl && direction === "ltr") return;
+                swiper.rtl = direction === "rtl";
+                swiper.rtlTranslate = swiper.params.direction === "horizontal" && swiper.rtl;
                 if (swiper.rtl) {
                     swiper.$el.addClass(`${swiper.params.containerModifierClass}rtl`);
                     swiper.el.dir = "rtl";
@@ -7600,7 +7884,7 @@
                     return $el.children(getWrapperSelector());
                 };
                 let $wrapperEl = getWrapper();
-                if (0 === $wrapperEl.length && swiper.params.createElements) {
+                if ($wrapperEl.length === 0 && swiper.params.createElements) {
                     const document = ssr_window_esm_getDocument();
                     const wrapper = document.createElement("div");
                     $wrapperEl = dom(wrapper);
@@ -7616,9 +7900,9 @@
                     $wrapperEl,
                     wrapperEl: $wrapperEl[0],
                     mounted: true,
-                    rtl: "rtl" === el.dir.toLowerCase() || "rtl" === $el.css("direction"),
-                    rtlTranslate: "horizontal" === swiper.params.direction && ("rtl" === el.dir.toLowerCase() || "rtl" === $el.css("direction")),
-                    wrongRTL: "-webkit-box" === $wrapperEl.css("display")
+                    rtl: el.dir.toLowerCase() === "rtl" || $el.css("direction") === "rtl",
+                    rtlTranslate: swiper.params.direction === "horizontal" && (el.dir.toLowerCase() === "rtl" || $el.css("direction") === "rtl"),
+                    wrongRTL: $wrapperEl.css("display") === "-webkit-box"
                 });
                 return true;
             }
@@ -7626,7 +7910,7 @@
                 const swiper = this;
                 if (swiper.initialized) return swiper;
                 const mounted = swiper.mount(el);
-                if (false === mounted) return swiper;
+                if (mounted === false) return swiper;
                 swiper.emit("beforeInit");
                 if (swiper.params.breakpoints) swiper.setBreakpoint();
                 swiper.addClasses();
@@ -7646,7 +7930,7 @@
             destroy(deleteInstance = true, cleanStyles = true) {
                 const swiper = this;
                 const {params, $el, $wrapperEl, slides} = swiper;
-                if ("undefined" === typeof swiper.params || swiper.destroyed) return null;
+                if (typeof swiper.params === "undefined" || swiper.destroyed) return null;
                 swiper.emit("beforeDestroy");
                 swiper.initialized = false;
                 swiper.detachEvents();
@@ -7661,7 +7945,7 @@
                 Object.keys(swiper.eventsListeners).forEach((eventName => {
                     swiper.off(eventName);
                 }));
-                if (false !== deleteInstance) {
+                if (deleteInstance !== false) {
                     swiper.$el[0].swiper = null;
                     deleteProps(swiper);
                 }
@@ -7680,7 +7964,7 @@
             static installModule(mod) {
                 if (!Swiper.prototype.__modules__) Swiper.prototype.__modules__ = [];
                 const modules = Swiper.prototype.__modules__;
-                if ("function" === typeof mod && modules.indexOf(mod) < 0) modules.push(mod);
+                if (typeof mod === "function" && modules.indexOf(mod) < 0) modules.push(mod);
             }
             static use(module) {
                 if (Array.isArray(module)) {
@@ -7701,7 +7985,7 @@
         function create_element_if_not_defined_createElementIfNotDefined(swiper, originalParams, params, checkProps) {
             const document = ssr_window_esm_getDocument();
             if (swiper.params.createElements) Object.keys(checkProps).forEach((key => {
-                if (!params[key] && true === params.auto) {
+                if (!params[key] && params.auto === true) {
                     let element = swiper.$el.children(`.${checkProps[key]}`)[0];
                     if (!element) {
                         element = document.createElement("div");
@@ -7736,7 +8020,7 @@
                 let $el;
                 if (el) {
                     $el = dom(el);
-                    if (swiper.params.uniqueNavElements && "string" === typeof el && $el.length > 1 && 1 === swiper.$el.find(el).length) $el = swiper.$el.find(el);
+                    if (swiper.params.uniqueNavElements && typeof el === "string" && $el.length > 1 && swiper.$el.find(el).length === 1) $el = swiper.$el.find(el);
                 }
                 return $el;
             }
@@ -7744,7 +8028,7 @@
                 const params = swiper.params.navigation;
                 if ($el && $el.length > 0) {
                     $el[disabled ? "addClass" : "removeClass"](params.disabledClass);
-                    if ($el[0] && "BUTTON" === $el[0].tagName) $el[0].disabled = disabled;
+                    if ($el[0] && $el[0].tagName === "BUTTON") $el[0].disabled = disabled;
                     if (swiper.params.watchOverflow && swiper.enabled) $el[swiper.isLocked ? "addClass" : "removeClass"](params.lockClass);
                 }
             }
@@ -7800,7 +8084,7 @@
                 }
             }
             on("init", (() => {
-                if (false === swiper.params.navigation.enabled) disable(); else {
+                if (swiper.params.navigation.enabled === false) disable(); else {
                     init();
                     update();
                 }
@@ -7823,7 +8107,7 @@
                     if (swiper.pagination && swiper.params.pagination && swiper.params.pagination.clickable && (swiper.pagination.el === targetEl || swiper.pagination.el.contains(targetEl))) return;
                     let isHidden;
                     if ($nextEl) isHidden = $nextEl.hasClass(swiper.params.navigation.hiddenClass); else if ($prevEl) isHidden = $prevEl.hasClass(swiper.params.navigation.hiddenClass);
-                    if (true === isHidden) emit("navigationShow"); else emit("navigationHide");
+                    if (isHidden === true) emit("navigationShow"); else emit("navigationHide");
                     if ($nextEl) $nextEl.toggleClass(swiper.params.navigation.hiddenClass);
                     if ($prevEl) $prevEl.toggleClass(swiper.params.navigation.hiddenClass);
                 }
@@ -7889,7 +8173,7 @@
             let bulletSize;
             let dynamicBulletIndex = 0;
             function isPaginationDisabled() {
-                return !swiper.params.pagination.el || !swiper.pagination.el || !swiper.pagination.$el || 0 === swiper.pagination.$el.length;
+                return !swiper.params.pagination.el || !swiper.pagination.el || !swiper.pagination.$el || swiper.pagination.$el.length === 0;
             }
             function setSideBullets($bulletEl, position) {
                 const {bulletActiveClass} = swiper.params.pagination;
@@ -7902,14 +8186,14 @@
                 const slidesLength = swiper.virtual && swiper.params.virtual.enabled ? swiper.virtual.slides.length : swiper.slides.length;
                 const $el = swiper.pagination.$el;
                 let current;
-                const total = swiper.params.loop ? Math.ceil((slidesLength - 2 * swiper.loopedSlides) / swiper.params.slidesPerGroup) : swiper.snapGrid.length;
+                const total = swiper.params.loop ? Math.ceil((slidesLength - swiper.loopedSlides * 2) / swiper.params.slidesPerGroup) : swiper.snapGrid.length;
                 if (swiper.params.loop) {
                     current = Math.ceil((swiper.activeIndex - swiper.loopedSlides) / swiper.params.slidesPerGroup);
-                    if (current > slidesLength - 1 - 2 * swiper.loopedSlides) current -= slidesLength - 2 * swiper.loopedSlides;
+                    if (current > slidesLength - 1 - swiper.loopedSlides * 2) current -= slidesLength - swiper.loopedSlides * 2;
                     if (current > total - 1) current -= total;
-                    if (current < 0 && "bullets" !== swiper.params.paginationType) current = total + current;
-                } else if ("undefined" !== typeof swiper.snapIndex) current = swiper.snapIndex; else current = swiper.activeIndex || 0;
-                if ("bullets" === params.type && swiper.pagination.bullets && swiper.pagination.bullets.length > 0) {
+                    if (current < 0 && swiper.params.paginationType !== "bullets") current = total + current;
+                } else if (typeof swiper.snapIndex !== "undefined") current = swiper.snapIndex; else current = swiper.activeIndex || 0;
+                if (params.type === "bullets" && swiper.pagination.bullets && swiper.pagination.bullets.length > 0) {
                     const bullets = swiper.pagination.bullets;
                     let firstIndex;
                     let lastIndex;
@@ -7917,7 +8201,7 @@
                     if (params.dynamicBullets) {
                         bulletSize = bullets.eq(0)[swiper.isHorizontal() ? "outerWidth" : "outerHeight"](true);
                         $el.css(swiper.isHorizontal() ? "width" : "height", `${bulletSize * (params.dynamicMainBullets + 4)}px`);
-                        if (params.dynamicMainBullets > 1 && void 0 !== swiper.previousIndex) {
+                        if (params.dynamicMainBullets > 1 && swiper.previousIndex !== void 0) {
                             dynamicBulletIndex += current - (swiper.previousIndex - swiper.loopedSlides || 0);
                             if (dynamicBulletIndex > params.dynamicMainBullets - 1) dynamicBulletIndex = params.dynamicMainBullets - 1; else if (dynamicBulletIndex < 0) dynamicBulletIndex = 0;
                         }
@@ -7962,20 +8246,20 @@
                         bullets.css(swiper.isHorizontal() ? offsetProp : "top", `${bulletsOffset}px`);
                     }
                 }
-                if ("fraction" === params.type) {
+                if (params.type === "fraction") {
                     $el.find(classes_to_selector_classesToSelector(params.currentClass)).text(params.formatFractionCurrent(current + 1));
                     $el.find(classes_to_selector_classesToSelector(params.totalClass)).text(params.formatFractionTotal(total));
                 }
-                if ("progressbar" === params.type) {
+                if (params.type === "progressbar") {
                     let progressbarDirection;
                     if (params.progressbarOpposite) progressbarDirection = swiper.isHorizontal() ? "vertical" : "horizontal"; else progressbarDirection = swiper.isHorizontal() ? "horizontal" : "vertical";
                     const scale = (current + 1) / total;
                     let scaleX = 1;
                     let scaleY = 1;
-                    if ("horizontal" === progressbarDirection) scaleX = scale; else scaleY = scale;
+                    if (progressbarDirection === "horizontal") scaleX = scale; else scaleY = scale;
                     $el.find(classes_to_selector_classesToSelector(params.progressbarFillClass)).transform(`translate3d(0,0,0) scaleX(${scaleX}) scaleY(${scaleY})`).transition(swiper.params.speed);
                 }
-                if ("custom" === params.type && params.renderCustom) {
+                if (params.type === "custom" && params.renderCustom) {
                     $el.html(params.renderCustom(swiper, current + 1, total));
                     emit("paginationRender", $el[0]);
                 } else emit("paginationUpdate", $el[0]);
@@ -7987,22 +8271,22 @@
                 const slidesLength = swiper.virtual && swiper.params.virtual.enabled ? swiper.virtual.slides.length : swiper.slides.length;
                 const $el = swiper.pagination.$el;
                 let paginationHTML = "";
-                if ("bullets" === params.type) {
-                    let numberOfBullets = swiper.params.loop ? Math.ceil((slidesLength - 2 * swiper.loopedSlides) / swiper.params.slidesPerGroup) : swiper.snapGrid.length;
+                if (params.type === "bullets") {
+                    let numberOfBullets = swiper.params.loop ? Math.ceil((slidesLength - swiper.loopedSlides * 2) / swiper.params.slidesPerGroup) : swiper.snapGrid.length;
                     if (swiper.params.freeMode && swiper.params.freeMode.enabled && !swiper.params.loop && numberOfBullets > slidesLength) numberOfBullets = slidesLength;
                     for (let i = 0; i < numberOfBullets; i += 1) if (params.renderBullet) paginationHTML += params.renderBullet.call(swiper, i, params.bulletClass); else paginationHTML += `<${params.bulletElement} class="${params.bulletClass}"></${params.bulletElement}>`;
                     $el.html(paginationHTML);
                     swiper.pagination.bullets = $el.find(classes_to_selector_classesToSelector(params.bulletClass));
                 }
-                if ("fraction" === params.type) {
+                if (params.type === "fraction") {
                     if (params.renderFraction) paginationHTML = params.renderFraction.call(swiper, params.currentClass, params.totalClass); else paginationHTML = `<span class="${params.currentClass}"></span>` + " / " + `<span class="${params.totalClass}"></span>`;
                     $el.html(paginationHTML);
                 }
-                if ("progressbar" === params.type) {
+                if (params.type === "progressbar") {
                     if (params.renderProgressbar) paginationHTML = params.renderProgressbar.call(swiper, params.progressbarFillClass); else paginationHTML = `<span class="${params.progressbarFillClass}"></span>`;
                     $el.html(paginationHTML);
                 }
-                if ("custom" !== params.type) emit("paginationRender", swiper.pagination.$el[0]);
+                if (params.type !== "custom") emit("paginationRender", swiper.pagination.$el[0]);
             }
             function init() {
                 swiper.params.pagination = create_element_if_not_defined_createElementIfNotDefined(swiper, swiper.originalParams.pagination, swiper.params.pagination, {
@@ -8011,23 +8295,23 @@
                 const params = swiper.params.pagination;
                 if (!params.el) return;
                 let $el = dom(params.el);
-                if (0 === $el.length) return;
-                if (swiper.params.uniqueNavElements && "string" === typeof params.el && $el.length > 1) {
+                if ($el.length === 0) return;
+                if (swiper.params.uniqueNavElements && typeof params.el === "string" && $el.length > 1) {
                     $el = swiper.$el.find(params.el);
                     if ($el.length > 1) $el = $el.filter((el => {
                         if (dom(el).parents(".swiper")[0] !== swiper.el) return false;
                         return true;
                     }));
                 }
-                if ("bullets" === params.type && params.clickable) $el.addClass(params.clickableClass);
+                if (params.type === "bullets" && params.clickable) $el.addClass(params.clickableClass);
                 $el.addClass(params.modifierClass + params.type);
                 $el.addClass(swiper.isHorizontal() ? params.horizontalClass : params.verticalClass);
-                if ("bullets" === params.type && params.dynamicBullets) {
+                if (params.type === "bullets" && params.dynamicBullets) {
                     $el.addClass(`${params.modifierClass}${params.type}-dynamic`);
                     dynamicBulletIndex = 0;
                     if (params.dynamicMainBullets < 1) params.dynamicMainBullets = 1;
                 }
-                if ("progressbar" === params.type && params.progressbarOpposite) $el.addClass(params.progressbarOppositeClass);
+                if (params.type === "progressbar" && params.progressbarOpposite) $el.addClass(params.progressbarOppositeClass);
                 if (params.clickable) $el.on("click", classes_to_selector_classesToSelector(params.bulletClass), (function onClick(e) {
                     e.preventDefault();
                     let index = dom(this).index() * swiper.params.slidesPerGroup;
@@ -8051,14 +8335,14 @@
                 if (params.clickable) $el.off("click", classes_to_selector_classesToSelector(params.bulletClass));
             }
             on("init", (() => {
-                if (false === swiper.params.pagination.enabled) disable(); else {
+                if (swiper.params.pagination.enabled === false) disable(); else {
                     init();
                     render();
                     update();
                 }
             }));
             on("activeIndexChange", (() => {
-                if (swiper.params.loop) update(); else if ("undefined" === typeof swiper.snapIndex) update();
+                if (swiper.params.loop) update(); else if (typeof swiper.snapIndex === "undefined") update();
             }));
             on("snapIndexChange", (() => {
                 if (!swiper.params.loop) update();
@@ -8091,7 +8375,7 @@
                 if (swiper.params.pagination.el && swiper.params.pagination.hideOnClick && $el && $el.length > 0 && !dom(targetEl).hasClass(swiper.params.pagination.bulletClass)) {
                     if (swiper.navigation && (swiper.navigation.nextEl && targetEl === swiper.navigation.nextEl || swiper.navigation.prevEl && targetEl === swiper.navigation.prevEl)) return;
                     const isHidden = $el.hasClass(swiper.params.pagination.hiddenClass);
-                    if (true === isHidden) emit("paginationShow"); else emit("paginationHide");
+                    if (isHidden === true) emit("paginationShow"); else emit("paginationHide");
                     $el.toggleClass(swiper.params.pagination.hiddenClass);
                 }
             }));
@@ -8305,11 +8589,11 @@
         window.addEventListener("load", (function() {
             initSliders();
         }));
-        var smooth_scroll_polyfills_min = __webpack_require__(2);
+        var smooth_scroll_polyfills_min = __webpack_require__(1496);
         var gotoBlock = function gotoBlock(targetBlock) {
-            var noHeader = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : false;
-            var speed = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : 500;
-            var offsetTop = arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : 0;
+            var noHeader = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : false;
+            var speed = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : 500;
+            var offsetTop = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : 0;
             var targetBlockElement = document.querySelector(targetBlock);
             if (targetBlockElement) {
                 var headerItem = "";
@@ -8335,7 +8619,7 @@
                     easing: "easeOutQuad"
                 };
                 document.documentElement.classList.contains("menu-open") ? menuClose() : null;
-                if ("undefined" !== typeof smooth_scroll_polyfills_min) (new smooth_scroll_polyfills_min).animateScroll(targetBlockElement, "", options); else {
+                if (typeof smooth_scroll_polyfills_min !== "undefined") (new smooth_scroll_polyfills_min).animateScroll(targetBlockElement, "", options); else {
                     var targetBlockElementPosition = targetBlockElement.getBoundingClientRect().top + scrollY;
                     targetBlockElementPosition = headerItemHeight ? targetBlockElementPosition - headerItemHeight : targetBlockElementPosition;
                     targetBlockElementPosition = offsetTop ? targetBlockElementPosition - offsetTop : targetBlockElementPosition;
@@ -8352,7 +8636,7 @@
             document.addEventListener("click", pageNavigationAction);
             document.addEventListener("watcherCallback", pageNavigationAction);
             function pageNavigationAction(e) {
-                if ("click" === e.type) {
+                if (e.type === "click") {
                     var targetElement = e.target;
                     if (targetElement.closest("[data-goto]")) {
                         var gotoLink = targetElement.closest("[data-goto]");
@@ -8367,10 +8651,10 @@
                         } else gotoBlock(gotoLinkSelector, noHeader, gotoSpeed, offsetTop);
                         e.preventDefault();
                     }
-                } else if ("watcherCallback" === e.type && e.detail) {
+                } else if (e.type === "watcherCallback" && e.detail) {
                     var entry = e.detail.entry;
                     var _targetElement = entry.target;
-                    if ("navigator" === _targetElement.dataset.watch) {
+                    if (_targetElement.dataset.watch === "navigator") {
                         document.querySelector("[data-goto]._navigator-active");
                         var navigatorCurrentItem;
                         if (_targetElement.id && document.querySelector('[data-goto="#'.concat(_targetElement.id, '"]'))) navigatorCurrentItem = document.querySelector('[data-goto="#'.concat(_targetElement.id, '"]')); else if (_targetElement.classList.length) for (var index = 0; index < _targetElement.classList.length; index++) {
@@ -8398,79 +8682,74 @@
                 }));
             }
         }), 0);
-        function dynamic_adapt_typeof(obj) {
+        function dynamic_adapt_typeof(o) {
             "@babel/helpers - typeof";
-            return dynamic_adapt_typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(obj) {
-                return typeof obj;
-            } : function(obj) {
-                return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-            }, dynamic_adapt_typeof(obj);
+            return dynamic_adapt_typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(o) {
+                return typeof o;
+            } : function(o) {
+                return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o;
+            }, dynamic_adapt_typeof(o);
         }
-        function _toConsumableArray(arr) {
-            return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
+        function _toConsumableArray(r) {
+            return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread();
         }
         function _nonIterableSpread() {
             throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
         }
-        function _unsupportedIterableToArray(o, minLen) {
-            if (!o) return;
-            if ("string" === typeof o) return _arrayLikeToArray(o, minLen);
-            var n = Object.prototype.toString.call(o).slice(8, -1);
-            if ("Object" === n && o.constructor) n = o.constructor.name;
-            if ("Map" === n || "Set" === n) return Array.from(o);
-            if ("Arguments" === n || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
-        }
-        function _iterableToArray(iter) {
-            if ("undefined" !== typeof Symbol && null != iter[Symbol.iterator] || null != iter["@@iterator"]) return Array.from(iter);
-        }
-        function _arrayWithoutHoles(arr) {
-            if (Array.isArray(arr)) return _arrayLikeToArray(arr);
-        }
-        function _arrayLikeToArray(arr, len) {
-            if (null == len || len > arr.length) len = arr.length;
-            for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
-            return arr2;
-        }
-        function dynamic_adapt_classCallCheck(instance, Constructor) {
-            if (!(instance instanceof Constructor)) throw new TypeError("Cannot call a class as a function");
-        }
-        function dynamic_adapt_defineProperties(target, props) {
-            for (var i = 0; i < props.length; i++) {
-                var descriptor = props[i];
-                descriptor.enumerable = descriptor.enumerable || false;
-                descriptor.configurable = true;
-                if ("value" in descriptor) descriptor.writable = true;
-                Object.defineProperty(target, dynamic_adapt_toPropertyKey(descriptor.key), descriptor);
+        function _unsupportedIterableToArray(r, a) {
+            if (r) {
+                if ("string" == typeof r) return _arrayLikeToArray(r, a);
+                var t = {}.toString.call(r).slice(8, -1);
+                return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0;
             }
         }
-        function dynamic_adapt_createClass(Constructor, protoProps, staticProps) {
-            if (protoProps) dynamic_adapt_defineProperties(Constructor.prototype, protoProps);
-            if (staticProps) dynamic_adapt_defineProperties(Constructor, staticProps);
-            Object.defineProperty(Constructor, "prototype", {
-                writable: false
-            });
-            return Constructor;
+        function _iterableToArray(r) {
+            if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r);
         }
-        function dynamic_adapt_toPropertyKey(arg) {
-            var key = dynamic_adapt_toPrimitive(arg, "string");
-            return "symbol" === dynamic_adapt_typeof(key) ? key : String(key);
+        function _arrayWithoutHoles(r) {
+            if (Array.isArray(r)) return _arrayLikeToArray(r);
         }
-        function dynamic_adapt_toPrimitive(input, hint) {
-            if ("object" !== dynamic_adapt_typeof(input) || null === input) return input;
-            var prim = input[Symbol.toPrimitive];
-            if (void 0 !== prim) {
-                var res = prim.call(input, hint || "default");
-                if ("object" !== dynamic_adapt_typeof(res)) return res;
+        function _arrayLikeToArray(r, a) {
+            (null == a || a > r.length) && (a = r.length);
+            for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e];
+            return n;
+        }
+        function dynamic_adapt_classCallCheck(a, n) {
+            if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function");
+        }
+        function dynamic_adapt_defineProperties(e, r) {
+            for (var t = 0; t < r.length; t++) {
+                var o = r[t];
+                o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), 
+                Object.defineProperty(e, dynamic_adapt_toPropertyKey(o.key), o);
+            }
+        }
+        function dynamic_adapt_createClass(e, r, t) {
+            return r && dynamic_adapt_defineProperties(e.prototype, r), t && dynamic_adapt_defineProperties(e, t), 
+            Object.defineProperty(e, "prototype", {
+                writable: !1
+            }), e;
+        }
+        function dynamic_adapt_toPropertyKey(t) {
+            var i = dynamic_adapt_toPrimitive(t, "string");
+            return "symbol" == dynamic_adapt_typeof(i) ? i : i + "";
+        }
+        function dynamic_adapt_toPrimitive(t, r) {
+            if ("object" != dynamic_adapt_typeof(t) || !t) return t;
+            var e = t[Symbol.toPrimitive];
+            if (void 0 !== e) {
+                var i = e.call(t, r || "default");
+                if ("object" != dynamic_adapt_typeof(i)) return i;
                 throw new TypeError("@@toPrimitive must return a primitive value.");
             }
-            return ("string" === hint ? String : Number)(input);
+            return ("string" === r ? String : Number)(t);
         }
         var DynamicAdapt = function() {
             function DynamicAdapt(type) {
                 dynamic_adapt_classCallCheck(this, DynamicAdapt);
                 this.type = type;
             }
-            dynamic_adapt_createClass(DynamicAdapt, [ {
+            return dynamic_adapt_createClass(DynamicAdapt, [ {
                 key: "init",
                 value: function init() {
                     var _this = this;
@@ -8525,11 +8804,11 @@
                 key: "moveTo",
                 value: function moveTo(place, element, destination) {
                     element.classList.add(this.daClassname);
-                    if ("last" === place || place >= destination.children.length) {
+                    if (place === "last" || place >= destination.children.length) {
                         destination.append(element);
                         return;
                     }
-                    if ("first" === place) {
+                    if (place === "first") {
                         destination.prepend(element);
                         return;
                     }
@@ -8539,7 +8818,7 @@
                 key: "moveBack",
                 value: function moveBack(parent, element, index) {
                     element.classList.remove(this.daClassname);
-                    if (void 0 !== parent.children[index]) parent.children[index].before(element); else parent.append(element);
+                    if (parent.children[index] !== void 0) parent.children[index].before(element); else parent.append(element);
                 }
             }, {
                 key: "indexInParent",
@@ -8549,11 +8828,11 @@
             }, {
                 key: "arraySort",
                 value: function arraySort(arr) {
-                    if ("min" === this.type) arr.sort((function(a, b) {
+                    if (this.type === "min") arr.sort((function(a, b) {
                         if (a.breakpoint === b.breakpoint) {
                             if (a.place === b.place) return 0;
-                            if ("first" === a.place || "last" === b.place) return -1;
-                            if ("last" === a.place || "first" === b.place) return 1;
+                            if (a.place === "first" || b.place === "last") return -1;
+                            if (a.place === "last" || b.place === "first") return 1;
                             return 0;
                         }
                         return a.breakpoint - b.breakpoint;
@@ -8561,8 +8840,8 @@
                         arr.sort((function(a, b) {
                             if (a.breakpoint === b.breakpoint) {
                                 if (a.place === b.place) return 0;
-                                if ("first" === a.place || "last" === b.place) return 1;
-                                if ("last" === a.place || "first" === b.place) return -1;
+                                if (a.place === "first" || b.place === "last") return 1;
+                                if (a.place === "last" || b.place === "first") return -1;
                                 return 0;
                             }
                             return b.breakpoint - a.breakpoint;
@@ -8571,11 +8850,10 @@
                     }
                 }
             } ]);
-            return DynamicAdapt;
         }();
         var da = new DynamicAdapt("max");
         da.init();
-        var lazyload_min = __webpack_require__(732);
+        var lazyload_min = __webpack_require__(4144);
         new lazyload_min({
             elements_selector: "[data-src],[data-srcset]",
             class_loaded: "_lazy-loaded"
@@ -9433,16 +9711,16 @@
             }));
         }
         function selectLocales(language) {
-            if ("eng" === language) return eng_namespaceObject;
-            if ("esp" === language) return esp_namespaceObject;
-            if ("vnm" === language) return vnm_namespaceObject;
-            if ("prt" === language) return prt_namespaceObject;
+            if (language === "eng") return eng_namespaceObject;
+            if (language === "esp") return esp_namespaceObject;
+            if (language === "vnm") return vnm_namespaceObject;
+            if (language === "prt") return prt_namespaceObject;
         }
         function getTransfer(obj, way) {
             var result;
             runner(obj, way);
             function runner(obj, way) {
-                var n = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : 0;
+                var n = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : 0;
                 if (way.length === n) return;
                 result = obj[way[n]];
                 runner(obj[way[n]], way, n += 1);
@@ -9469,7 +9747,7 @@
                 }
             };
             var calcBnbPercent = function calcBnbPercent() {
-                var bnbResult = .1 * Math.round(+calcInputBnb.value / 150);
+                var bnbResult = Math.round(+calcInputBnb.value / 150) * .1;
                 calcBnbResultEl.textContent = bnbResult.toFixed(3);
                 calcTotalPercent();
             };
@@ -9524,30 +9802,29 @@
             calcDaysBtnMinusEL.addEventListener("click", subDaysInput);
             calcInvestmentSumInputEl.addEventListener("input", calcDailyProfit);
         }
-        function regional_toConsumableArray(arr) {
-            return regional_arrayWithoutHoles(arr) || regional_iterableToArray(arr) || regional_unsupportedIterableToArray(arr) || regional_nonIterableSpread();
+        function regional_toConsumableArray(r) {
+            return regional_arrayWithoutHoles(r) || regional_iterableToArray(r) || regional_unsupportedIterableToArray(r) || regional_nonIterableSpread();
         }
         function regional_nonIterableSpread() {
             throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
         }
-        function regional_unsupportedIterableToArray(o, minLen) {
-            if (!o) return;
-            if ("string" === typeof o) return regional_arrayLikeToArray(o, minLen);
-            var n = Object.prototype.toString.call(o).slice(8, -1);
-            if ("Object" === n && o.constructor) n = o.constructor.name;
-            if ("Map" === n || "Set" === n) return Array.from(o);
-            if ("Arguments" === n || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return regional_arrayLikeToArray(o, minLen);
+        function regional_unsupportedIterableToArray(r, a) {
+            if (r) {
+                if ("string" == typeof r) return regional_arrayLikeToArray(r, a);
+                var t = {}.toString.call(r).slice(8, -1);
+                return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? regional_arrayLikeToArray(r, a) : void 0;
+            }
         }
-        function regional_iterableToArray(iter) {
-            if ("undefined" !== typeof Symbol && null != iter[Symbol.iterator] || null != iter["@@iterator"]) return Array.from(iter);
+        function regional_iterableToArray(r) {
+            if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r);
         }
-        function regional_arrayWithoutHoles(arr) {
-            if (Array.isArray(arr)) return regional_arrayLikeToArray(arr);
+        function regional_arrayWithoutHoles(r) {
+            if (Array.isArray(r)) return regional_arrayLikeToArray(r);
         }
-        function regional_arrayLikeToArray(arr, len) {
-            if (null == len || len > arr.length) len = arr.length;
-            for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
-            return arr2;
+        function regional_arrayLikeToArray(r, a) {
+            (null == a || a > r.length) && (a = r.length);
+            for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e];
+            return n;
         }
         var regionaProduct = document.querySelector(".regional-list__main-content");
         if (regionaProduct) {
@@ -9573,7 +9850,7 @@
                     regionalPaginationEl.innerHTML = '<div class="regional-pagination__list"></div>';
                     var regionalPaginationList = document.querySelector(".regional-pagination__list");
                     chunks.map((function(e, i) {
-                        return regionalPaginationList.insertAdjacentHTML("beforeend", '<button class="regional-pagination__item '.concat(0 === i ? "_active" : "", '" data-part="').concat(i, '">').concat(i + 1, "</button>"));
+                        return regionalPaginationList.insertAdjacentHTML("beforeend", '<button class="regional-pagination__item '.concat(i === 0 ? "_active" : "", '" data-part="').concat(i, '">').concat(i + 1, "</button>"));
                     }));
                     regionalPaginationEl.insertAdjacentHTML("afterbegin", '<button type="button"  class="regional-pagination__arrow regional-pagination__arrow_prev _icon-arrow-bottom _disable"></button>');
                     regionalPaginationEl.insertAdjacentHTML("beforeend", '<button type="button" class="regional-pagination__arrow regional-pagination__arrow_next _icon-arrow-bottom"></button>');
@@ -9606,7 +9883,7 @@
             document.addEventListener("selectCallback", (function(e) {
                 var currentSelect = e.detail.select;
                 var curVal = currentSelect.value;
-                if ("ALL" === curVal) chunks = SplitParts(regional_data); else chunks = SplitParts(regional_data.filter((function(elem) {
+                if (curVal === "ALL") chunks = SplitParts(regional_data); else chunks = SplitParts(regional_data.filter((function(elem) {
                     return elem.classList.contains(curVal);
                 })));
                 RenderChunks(0);
@@ -9635,7 +9912,7 @@
                     var next = regionalPaginationEl.querySelector(".regional-pagination__arrow_next");
                     if (prev.classList.contains("_disable")) prev.classList.remove("_disable");
                     if (next.classList.contains("_disable")) next.classList.remove("_disable");
-                    if (0 === part) prev.classList.add("_disable");
+                    if (part === 0) prev.classList.add("_disable");
                     if (part === chunks.length - 1) next.classList.add("_disable");
                     hideOverPages();
                 }
@@ -9658,8 +9935,8 @@
                     }));
                 }
                 function setCurrency(currency) {
-                    if ("bnb" === currency) writeCurrency(document.querySelector("[data-wallet-sum = bnb]"));
-                    if ("busd" === currency) writeCurrency(document.querySelector("[data-wallet-sum = busd]"));
+                    if (currency === "bnb") writeCurrency(document.querySelector("[data-wallet-sum = bnb]"));
+                    if (currency === "busd") writeCurrency(document.querySelector("[data-wallet-sum = busd]"));
                 }
                 function writeCurrency(val) {
                     headSumListEl.forEach((function(el) {
@@ -9887,11 +10164,11 @@
             var navReinvestBtnEl = document.getElementById("navReinvestBtn");
             homeTabsBtn.forEach((function(btn) {
                 btn.addEventListener("click", (function(el) {
-                    if ("BNB" === btn.dataset.val) {
+                    if (btn.dataset.val === "BNB") {
                         homeBnbSLider.enable();
                         homeBusdSLider.disable();
                     }
-                    if ("BUSD" === btn.dataset.val) {
+                    if (btn.dataset.val === "BUSD") {
                         homeBnbSLider.disable();
                         homeBusdSLider.enable();
                     }
@@ -9904,11 +10181,11 @@
             }));
             reivestTabsBtn.forEach((function(btn) {
                 btn.addEventListener("click", (function(el) {
-                    if ("BNB" === btn.dataset.val) {
+                    if (btn.dataset.val === "BNB") {
                         reinvestBnbSLider.enable();
                         reinvestBusdSLider.disable();
                     }
-                    if ("BUSD" === btn.dataset.val) {
+                    if (btn.dataset.val === "BUSD") {
                         reinvestBnbSLider.disable();
                         reinvestBusdSLider.enable();
                     }
